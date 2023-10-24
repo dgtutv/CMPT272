@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'soraregular';
+    src: url('./CustomFont/sora-variablefont_wght-webfont.woff2') format('woff2'),
+         url('./CustomFont/sora-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'poppinsblack';
+    src: url('./CustomFont/poppins-black-webfont.woff2') format('woff2'),
+         url('./CustomFont/poppins-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'poppinslight';
+    src: url('./CustomFont/poppins-light-webfont.woff2') format('woff2'),
+         url('./CustomFont/poppins-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+  font-family: "poppinslight" ,"soraregular", sans-serif; 
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.header {
+  height: 48px;
+  background-color: #21262D;
+  color: white;
+  font-size: 32px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.footer {
+  height: 48px;
+  background-color: #21262D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar {
+  border: 1px solid #0D1117;
+  width: 300px;
+  background-color: #21262D;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  padding: 16px;
+}
+
+.card {
+  border-radius: 4px;
+  padding: 32px;
+  margin: 16px;
+  background-color: #21262D;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.card a{
+    text-decoration: underline;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  background-color: #0D1117;
+}
+
+.cards {
+  padding: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 70%;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 16px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+}

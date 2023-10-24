@@ -1,0 +1,200 @@
+body{
+    background-color: rgb(237,239,241);
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px;
+    background-color: rgb(55,71,79);
+    padding: 12px 16px;
+    height: 80px;
+}
+p{
+    margin: 26px;
+}
+a{
+    text-decoration: none;
+    color: rgb(145,28,30);
+}
+footer{
+    padding-left: 4px;
+    padding-top: 100px;
+    padding-bottom: 42px;
+}
+.orangeText{
+    color: rgb(254,110,63);
+}
+.whiteText{
+    color: white;
+}
+.hiddenSummary{
+    display: none;
+}
+.card{
+    width: 24%;
+    margin: 16px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.card img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 0;
+}
+.summary{
+    background-color: white;
+    margin-top: 0;
+    height: 100%;
+    padding-bottom: 30px;
+}
+.cardContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.hiddenButton{
+    opacity: 0;
+    border: none;
+}
+.summary p {
+    padding-bottom: 0;
+}
+#headerText{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+    font-size: 22px;
+}
+#navMenu{
+    height: 22px;
+    width: 22px;
+}
+#content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+#textbooks{
+    flex: 1;
+    max-width: 45%
+}
+#mainMenu{
+    flex: 1;
+}
+@media screen and (max-width: 1925px){
+    footer{
+        padding-top: 20px;
+    }
+}
+@media screen and (max-width: 1900px){
+    footer{
+        padding-top: 40px;
+    }
+}
+@media screen and (max-width: 1400px){
+    #headerText{
+        font-size: 20px;
+    }
+    .card{
+        width: 23%;
+        margin: 12px 4px;
+    }
+    header{
+        height: 60px;
+    }
+    body{
+        height: 98vh;
+    }
+}
+@media screen and (max-width: 1285px){
+    .summary{
+        padding-bottom: 24px;
+    }
+    .card:hover .hiddenButton{
+        margin-top: 0px;
+    }
+    
+    .card:hover .summary{
+        padding-bottom: 0px;
+    }
+    footer{
+        padding-top: 0px;
+    }
+}
+@media screen and (max-width: 1279px){
+    footer{
+        padding-top: 20px;
+    }
+}
+@media screen and (max-width: 770px){
+    footer{
+        padding-top: 20px;
+    }
+    .card{
+        width: calc(50% - 20px);
+    }
+    body{
+        overflow: scroll;
+    }
+}
+@media screen and (max-width: 700px){
+    #headerText{
+        font-size: 16px;
+    }
+    #textbooks{
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 550px){
+    #content{
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+@media screen and (max-width: 480px){
+    .card{
+        width: calc(100% - 8px);
+    }
+    #headerText{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 420px){
+    #headerText{
+        font-size: 12px;
+    }
+}
+@keyframes buttonFade {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+li:hover .hiddenSummary{
+    display: block;
+}
+.card:hover{
+    box-shadow: 5px 5px 10px #888888;
+}
+.card:hover .hiddenButton{
+    animation: buttonFade 0.5s ease-in-out;
+    display: block;
+    margin-left: 24px;
+    margin-top: 24px;
+    background-color: rgb(254,110,63);
+    color: white;
+    padding: 7px 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    opacity: 1;
+}
+
+.card:hover .summary{
+    padding-bottom: 10px;
+}
