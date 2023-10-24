@@ -33,10 +33,6 @@ h1{
     margin-top: 0;
 }
 
-.buttonContainer button{
-    float: left; margin-right: 8px;
-}
-
 .splitContent{
     display: flex;
     padding: 0;
