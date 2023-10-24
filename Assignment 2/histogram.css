@@ -95,5 +95,15 @@ h3{
 }
 
 @media screen and (max-width: 600px) {
-    
+    .splitContent{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 0;
+    }
+    .outer{
+        width: 100%;
+        margin: 0;
+    }
 }
