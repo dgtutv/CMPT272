@@ -42,10 +42,6 @@ h1{
     width: 40%;
 }
 
-label{
-    margin: 20px 60px 5px 0;
-}
-
 input{
     margin: 5px 60px 20px 0;
     accent-color: rgb(204, 6, 51);
@@ -87,6 +83,18 @@ h3{
     background-color: rgb(204, 6, 51);
     width: 1%;      /*Default, no values inside*/
     margin-bottom: 14px;
+}
+
+.sliderLabel{
+    float: left;
+}
+
+.sliderValue{
+    float: right;
+}
+
+input[type="range"]{
+    width: 100%;
 }
 
 @media screen and (max-width: 600px) {
