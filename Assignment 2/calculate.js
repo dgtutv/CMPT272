@@ -23,7 +23,7 @@ function gradeReader(event, callback) {
 }
 
 const button = document.querySelector("#fileInput");
-const sliders = document.querySelectorAll(".slider");
+const fields = document.querySelectorAll(".field");
 button.addEventListener("change", function(event) {
     gradeReader(event, function(grades) {
         let APlusList = [];
