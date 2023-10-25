@@ -66,6 +66,7 @@ function gradeSorter(grades){
 
 const button = document.querySelector("#fileInput");
 const sliders = document.querySelectorAll(".sliders");
+const sliderValueLabels = document.querySelectorAll(".sliderValue");
 let APlusList = [];     //Make update when sliders are changed too
 let AList = [];
 let AMinusList = [];
