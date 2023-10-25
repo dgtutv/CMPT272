@@ -22,33 +22,70 @@ function gradeReader(event, callback) {
     }
 }
 
+function gradeSorter(grades){
+    for(let i=0; i<grades.length; i++){
+        let currentGrade = grades[i];
+        if(sliders[1].value < Number(currentGrade)){
+            APlusList.push(currentGrade);
+        }
+        else if(sliders[2].value < Number(currentGrade)){
+            AList.push(currentGrade);
+        }
+        else if(sliders[3].value < Number(currentGrade)){
+            APlusList.push(currentGrade);
+        }
+        else if(sliders[4].value < Number(currentGrade)){
+            AMinusList.push(currentGrade);
+        }
+        else if(sliders[5].value < Number(currentGrade)){
+            BPlusList.push(currentGrade);
+        }
+        else if(sliders[6].value < Number(currentGrade)){
+            BList.push(currentGrade);
+        }
+        else if(sliders[7].value < Number(currentGrade)){
+            BMinusList.push(currentGrade);
+        }
+        else if(sliders[8].value < Number(currentGrade)){
+            CPlusList.push(currentGrade);
+        }
+        else if(sliders[9].value < Number(currentGrade)){
+            CList.push(currentGrade);
+        }
+        else if(sliders[10].value < Number(currentGrade)){
+            CMinusList.push(currentGrade);
+        }
+        else if(sliders[11].value < Number(currentGrade)){
+            DList.push(currentGrade);
+        }
+        else{
+            FList.push(currentGrade);
+        }
+    }
+}
+
 const button = document.querySelector("#fileInput");
-const fields = document.querySelectorAll(".field");
+const sliders = document.querySelectorAll(".sliders");
+let APlusList = [];     //Make update when sliders are changed too
+let AList = [];
+let AMinusList = [];
+let BPlusList = [];
+let BList = [];
+let BMinusList = [];
+let CPlusList = [];
+let CList = [];
+let CMinusList = [];
+let DList = [];
+let FList = [];
+
+sliders.forEach(function(slider){
+    slider.addEventListener('click', function(){
+        gradeSorter(grades);
+    })
+})
+
 button.addEventListener("change", function(event) {
     gradeReader(event, function(grades) {
-        let APlusList = [];
-        let AList = [];
-        let AMinusList = [];
-        let BPlusList = [];
-        let BList = [];
-        let BMinusList = [];
-        let CPlusList = [];
-        let CList = [];
-        let CMinusList = [];
-        let DList = [];
-        let FList = [];
-        for(let i=0; i<grades.length; i++){
-            let currentGrade = grades[i];
-            if(sliders[1].value < Number(currentGrade)){
-                APlusList.push(currentGrade);
-            }
-            else if(sliders[2].value < Number(currentGrade)){
-                AList.push(currentGrade);
-            }
-            else if(sliders[3].value < Number(currentGrade)){
-                APlusList.push(currentGrade);
-            }
-            else if(sliders[4].value < Number(currentGrade))
-        }
+        gradeSorter(grades);
     });
 });
