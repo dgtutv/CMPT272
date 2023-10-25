@@ -66,28 +66,27 @@ h3{
     font-family: "Trebuchet";
 }
 
-.displayBlocks{
-    margin: 10px;
-}
-
 #stats{
     margin-top: 20px;
 }
 
-.displayBlock{
+#histogram > .inner{
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#bars{
+    width: 100%;
+    padding-top: 15px;
+    padding-left: 5px;
 }
 
 .bar{
     height: 20px;
     background-color: rgb(204, 6, 51);
-}
-
-.bar{
-    width: 5%;  /*The max bar size, not 100% of the students, but the max value the rest are based on*/
+    width: 1%;      /*Default, no values inside*/
+    margin-bottom: 14px;
 }
 
 @media screen and (max-width: 600px) {
