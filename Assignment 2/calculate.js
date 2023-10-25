@@ -23,9 +23,23 @@ function gradeReader(event, callback) {
 }
 
 const button = document.querySelector("#fileInput");
-
+const sliders = document.querySelectorAll(".slider");
 button.addEventListener("change", function(event) {
     gradeReader(event, function(grades) {
-        console.log(grades);
+        let APlusList = [];
+        let AList = [];
+        let AMinusList = [];
+        let BPlusList = [];
+        let BList = [];
+        let BMinusList = [];
+        let CPlusList = [];
+        let CList = [];
+        let CMinusList = [];
+        let DList = [];
+        let FList = [];
+        for(let i=0; i<grades.length; i++){
+            let currentGrade = grades[i];
+            if(sliders[1].value )
+        }
     });
 });
