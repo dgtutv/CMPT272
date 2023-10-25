@@ -101,22 +101,34 @@ function gradeSorter(){
         else if(sliders[10].value <= Number(currentGrade)){
             DList.push(currentGrade);
         }
-        else{
+        else if(sliders[11].value <= Number(currentGrade)){
             FList.push(currentGrade);
         }
     }
 }
 
 function updateHistogram(){
-    bars[0].style.width = ((APlusList.length/grades.length)*sliders[0].value)+1+"%";
-    bars[1].style.width = ((AList.length/grades.length)*sliders[0].value)+1+"%";
-    bars[2].style.width = ((AMinusList.length/grades.length)*sliders[0].value)+1+"%";
-    bars[3].style.width = ((BPlusList.length/grades.length)*sliders[0].value)+1+"%";
-    bars[4].style.width = ((BList.length/grades.length)*sliders[0].value)+1+"%";
-    bars[5].style.width = ((BMinusList.length/grades.length)*sliders[0].value)+1+"%";
-    bars[6].style.width = ((CPlusList.length/grades.length)*sliders[0].value)+1+"%";
-    bars[7].style.width = ((CList.length/grades.length)*sliders[0].value)+1+"%";
-    bars[8].style.width = ((CMinusList.length/grades.length)*sliders[0].value)+1+"%";
-    bars[9].style.width = ((DList.length/grades.length)*sliders[0].value)+1+"%";
-    bars[10].style.width = ((FList.length/grades.length)*sliders[0].value)+1+"%";
+    //Find the amount of values in the list with the most values
+    let lists=[APlusList, AList, AMinusList, BPlusList, BList, BMinusList, CPlusList, CList, CMinusList, DList, FList]
+    let mostValues=0;
+    for(let i=0; i<lists.length; i++){
+        let currentList = lists[i];
+        if(currentList.length > mostValues){
+            mostValues = currentList.length;
+        }
+    }
+
+    let maxPercent = mostValues/grades.length + .05;
+    //Update the width of the bars
+    bars[0].style.width = ((APlusList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
+    bars[1].style.width = ((AList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
+    bars[2].style.width = ((AMinusList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
+    bars[3].style.width = ((BPlusList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
+    bars[4].style.width = ((BList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
+    bars[5].style.width = ((BMinusList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
+    bars[6].style.width = ((CPlusList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
+    bars[7].style.width = ((CList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
+    bars[8].style.width = ((CMinusList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
+    bars[9].style.width = ((DList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
+    bars[10].style.width = ((FList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
 }
