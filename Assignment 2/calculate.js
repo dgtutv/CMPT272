@@ -39,7 +39,16 @@ button.addEventListener("change", function(event) {
         let FList = [];
         for(let i=0; i<grades.length; i++){
             let currentGrade = grades[i];
-            if(sliders[1].value )
+            if(sliders[1].value < Number(currentGrade)){
+                APlusList.push(currentGrade);
+            }
+            else if(sliders[2].value < Number(currentGrade)){
+                AList.push(currentGrade);
+            }
+            else if(sliders[3].value < Number(currentGrade)){
+                APlusList.push(currentGrade);
+            }
+            else if(sliders[4].value < Number(currentGrade))
         }
     });
 });
