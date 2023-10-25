@@ -1,3 +1,39 @@
+const button = document.querySelector("#fileInput");
+const sliders = document.querySelectorAll(".sliders");
+const sliderValueLabels = document.querySelectorAll(".sliderValue");
+const bars = document.querySelectorAll(".bar");
+let APlusList = [];
+let AList = [];
+let AMinusList = [];
+let BPlusList = [];
+let BList = [];
+let BMinusList = [];
+let CPlusList = [];
+let CList = [];
+let CMinusList = [];
+let DList = [];
+let FList = [];
+let grades = [];
+
+sliders.forEach(function(slider){
+    slider.addEventListener('input', function(){
+        gradeSorter();
+
+        //Find and update the associated label
+        const label = document.querySelector('label[for="'+slider.id+'Label"]');
+        label.textContent = slider.value+"%";
+
+        updateHistogram();
+    })
+});
+
+button.addEventListener("change", function(event) {
+    gradeReader(event, function() {
+        gradeSorter();
+        updateHistogram();
+    });
+});
+
 function gradeReader(event, callback) {
     const fileInput = event.target;
     if (fileInput.files.length > 0) {
@@ -64,34 +100,8 @@ function gradeSorter(){
     }
 }
 
-const button = document.querySelector("#fileInput");
-const sliders = document.querySelectorAll(".sliders");
-const sliderValueLabels = document.querySelectorAll(".sliderValue");
-let APlusList = [];     //Make update when sliders are changed too
-let AList = [];
-let AMinusList = [];
-let BPlusList = [];
-let BList = [];
-let BMinusList = [];
-let CPlusList = [];
-let CList = [];
-let CMinusList = [];
-let DList = [];
-let FList = [];
-let grades = [];
+function updateHistogram(){
+    bars[0].style.width = ((APlusList.length/grades.length)*100)+1+"%";
+    console.log(((APlusList.length/grades.length)*100)+1+"%")
 
-sliders.forEach(function(slider){
-    slider.addEventListener('input', function(){
-        gradeSorter();
-
-        //Find and update the associated label
-        const label = document.querySelector('label[for="'+slider.id+'Label"]');
-        label.textContent = slider.value+"%";
-    })
-})
-
-button.addEventListener("change", function(event) {
-    gradeReader(event, function() {
-        gradeSorter();
-    });
-});
+}
