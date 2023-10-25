@@ -22,7 +22,7 @@ function gradeReader(event, callback) {
     }
 }
 
-function gradeSorter(grades){
+function gradeSorter(){
     for(let i=0; i<grades.length; i++){
         let currentGrade = grades[i];
         if(sliders[1].value < Number(currentGrade)){
@@ -78,15 +78,20 @@ let CList = [];
 let CMinusList = [];
 let DList = [];
 let FList = [];
+let grades = [];
 
 sliders.forEach(function(slider){
-    slider.addEventListener('click', function(){
-        gradeSorter(grades);
+    slider.addEventListener('input', function(){
+        gradeSorter();
+
+        //Find and update the associated label
+        const label = document.querySelector('label[for="'+slider.id+'Label"]');
+        label.textContent = slider.value+"%";
     })
 })
 
 button.addEventListener("change", function(event) {
-    gradeReader(event, function(grades) {
-        gradeSorter(grades);
+    gradeReader(event, function() {
+        gradeSorter();
     });
 });
