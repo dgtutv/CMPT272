@@ -86,8 +86,8 @@ h3{
     background-color: rgb(204, 6, 51);
 }
 
-#Aplus > .bar{
-    width: 100%;  /*The max bar size, not 100% of the students, but the max value the rest are based on*/
+.bar{
+    width: 5%;  /*The max bar size, not 100% of the students, but the max value the rest are based on*/
 }
 
 @media screen and (max-width: 600px) {
