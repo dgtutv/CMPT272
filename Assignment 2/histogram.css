@@ -97,6 +97,10 @@ input[type="range"]{
     width: 100%;
 }
 
+.statsBlock{
+    display: flex;
+}
+
 @media screen and (max-width: 600px) {
     .splitContent{
         flex-direction: column;

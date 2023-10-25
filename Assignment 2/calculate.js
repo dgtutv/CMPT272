@@ -2,6 +2,10 @@ const button = document.querySelector("#fileInput");
 const sliders = document.querySelectorAll(".sliders");
 const sliderValueLabels = document.querySelectorAll(".sliderValue");
 const bars = document.querySelectorAll(".bar");
+const highestGrade = document.querySelector("#highestGrade");
+const lowestGrade = document.querySelector("#lowestGrade");
+const mean = document.querySelector("#mean");
+const median = document.querySelector("#median");
 let APlusList = [];
 let AList = [];
 let AMinusList = [];
@@ -14,6 +18,7 @@ let CMinusList = [];
 let DList = [];
 let FList = [];
 let grades = [];
+let names = [];
 
 sliders.forEach(function(slider){
     slider.addEventListener('input', function(){
@@ -28,27 +33,29 @@ sliders.forEach(function(slider){
 });
 
 button.addEventListener("change", function(event) {
-    gradeReader(event, function() {
+    fileReader(event, function() {
         gradeSorter();
         updateHistogram();
+        updateStats();
     });
 });
 
-function gradeReader(event, callback) {
+function fileReader(event, callback) {
     const fileInput = event.target;
-    if (fileInput.files.length > 0) {
+    if(fileInput.files.length > 0){
         const file = fileInput.files[0];
         const reader = new FileReader();
         reader.onload = function(event){
             const contents = event.target.result;
 
-            //Take the data from the right column, after the first column
+            //Take data after the first column
             const rows = contents.split('\r');
-            for (let i = 1; i < rows.length; i++) {
+            for(let i = 1; i<rows.length; i++){
                 const columns = rows[i].split(",");
                 //If the data file contains more than one column, get the second column
-                if (columns.length >= 2) {
+                if(columns.length >= 2){
                     grades.push(columns[1]);
+                    names.push(columns[0]);
                 }
             }
             callback(grades);
@@ -131,4 +138,60 @@ function updateHistogram(){
     bars[8].style.width = ((CMinusList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
     bars[9].style.width = ((DList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
     bars[10].style.width = ((FList.length/grades.length)*sliders[0].value)/maxPercent+1+"%";
+}
+
+function updateStats() {
+    //If there are no grades, fill fields with N/A
+    if(grades.length === 0){
+        highestGrade.textContent = "N/A";
+        lowestGrade.textContent = "N/A";
+        mean.textContent = "N/A";
+        median.textContent = "N/A";
+        return;
+    }
+
+    //Find the highest and lowest grades
+    let highestValue = grades[0];
+    let highestIndex = 0;
+    let lowestValue = grades[0];
+    let lowestIndex = 0;
+    let sum = 0;
+    for (let i = 0; i < grades.length; i++) {
+        const grade = parseFloat(grades[i]);
+        if(!isNaN(grade)){
+            if(grade > highestValue){
+                highestValue = grade;
+                highestIndex = i;
+            }
+            if(grade < lowestValue){
+                lowestValue = grade;
+                lowestIndex = i;
+            }
+            sum += grade;
+        }
+    }
+
+    //Calculate the mean
+    const meanValue = sum / grades.length;
+
+    //Calculate the median
+    grades.sort(function (a, b) {
+        return a - b;
+    });
+
+    //Find the median
+    let medianValue;
+    const middleIndex = Math.floor(grades.length / 2);
+    if(grades.length % 2 === 0){
+        medianValue = (parseFloat(grades[middleIndex - 1]) + parseFloat(grades[middleIndex])) / 2;
+    } 
+    else{
+        medianValue = parseFloat(grades[middleIndex]);
+    }
+
+    //Set the values
+    highestGrade.textContent = `${names[highestIndex]}(${highestValue.toFixed(2)}%)`;
+    lowestGrade.textContent = `${names[lowestIndex]}(${lowestValue.toFixed(2)}%)`;
+    mean.textContent = `${meanValue.toFixed(2)}%`;
+    median.textContent = `${medianValue.toFixed(2)}%`;
 }
