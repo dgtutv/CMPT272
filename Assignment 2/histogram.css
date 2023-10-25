@@ -42,17 +42,9 @@ h1{
     width: 40%;
 }
 
-label{
-    margin: 20px 60px 5px 0;
-}
-
-input{
-    margin: 5px 60px 20px 0;
-}
-
 .rightSide{
     width: 50%;
-    margin: 0px 30px;S
+    margin: 0px 30px;
     padding: 0;
 }
 
@@ -86,6 +78,14 @@ h3{
     background-color: rgb(204, 6, 51);
     width: 1%;      /*Default, no values inside*/
     margin-bottom: 14px;
+}
+
+#leftSide > .inner{
+    display: flex;
+}
+
+#fields > input{
+    margin: 5px 60px 20px 60px;
 }
 
 @media screen and (max-width: 600px) {

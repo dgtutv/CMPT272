@@ -15,54 +15,34 @@
             <div id="leftSide" class="outer">
                 <h3>Lower bounds</h3>
                 <form class="inner">
-                    <label for="max" name="maxLabel">Max</label>
-                    <label for="maxLabel"></label><br>
-                    <input type="text" name="max" value="0.00" min="0" max="100" id="max" list="rangeValues" class="field"><br>
-
-                    <label for="A+" name="A+Label">A+</label>
-                    <label for="A+Label"></label><br>
-                    <input type="text" name="A+" value="0.00" min="0" max="100" id="Aplus" list="rangeValues" class="field"><br>
-
-                    <label for="A" name="ALabel">A</label>
-                    <label for="ALabel"></label><br>
-                    <input type="text" name="A" value="0.00" min="0" max="100" id="A" list="rangeValues" class="field"><br>
-                    
-                    <label for="A-" name="A-Label">A-</label>
-                    <label for="A-Label"></label><br>
-                    <input type="text" name="A-" value="0.00" min="0" max="100" id="Aminus" list="rangeValues" class="field"><br>
-
-                    <label for="B+" name="B+Label">B+</label>
-                    <label for="B+Label"></label><br>
-                    <input type="text" name="B+" value="0.00" min="0" max="100" id="Bplus" list="rangeValues" class="field"><br>
-
-                    <label for="B" name="BLabel">B</label>
-                    <label for="BLabel"></label><br>
-                    <input type="text" name="B" value="0.00" min="0" max="100" id="B" list="rangeValues" class="field"><br>
-
-                    <label for="B-" name="B-Label">B-</label>
-                    <label for="B-Label"></label><br>
-                    <input type="text" name="B-" value="0.00" min="0" max="100" id="Bminus" list="rangeValues" class="field"><br>
-
-                    <label for="C+" name="C+Label">C+</label>
-                    <label for="C+Label"></label><br>
-                    <input type="text" name="C+" value="0.00" min="0" max="100" id="Cplus" list="rangeValues" class="field"><br>
-
-                    <label for="C" name="CLabel">C</label>
-                    <label for="CLabel"></label><br>
-                    <input type="text" name="C" value="0.00" min="0" max="100" id="C" list="rangeValues" class="field"><br>
-
-                    <label for="C-" name="C-Label">C-</label>
-                    <label for="C-Label"></label><br>
-                    <input type="text" name="C-" value="0.00" min="0" max="100" id="Cminus" list="rangeValues" class="field"><br>
-
-                    <label for="D" name="DLabel">D</label>
-                    <label for="DLabel"></label><br>
-                    <input type="text" name="D" value="0.00" min="0" max="100" id="D" list="rangeValues" class="field"><br>
-
-                    <label for="F" name="FLabel">F</label>
-                    <label for="FLabel"></label><br>
-                    <input type="text" name="F" value="0.00" min="0" max="100" id="F" list="rangeValues" class="field"><br>
-
+                    <div id="fieldLabels">
+                        <p>Max</p>
+                        <p>A+</p>
+                        <p>A</p>
+                        <p>A-</p>
+                        <p>B+</p>
+                        <p>B</p>
+                        <p>B-</p>
+                        <p>C+</p>
+                        <p>C</p>
+                        <p>C-</p>
+                        <p>D</p>
+                        <p>F</p>
+                    </div>
+                    <div id="fields">
+                        <input type="text" name="max" value="0.00" min="0" max="100" id="max" list="rangeValues" class="field"><br>
+                        <input type="text" name="A+" value="0.00" min="0" max="100" id="Aplus" list="rangeValues" class="field"><br>
+                        <input type="text" name="A" value="0.00" min="0" max="100" id="A" list="rangeValues" class="field"><br>
+                        <input type="text" name="A-" value="0.00" min="0" max="100" id="Aminus" list="rangeValues" class="field"><br>
+                        <input type="text" name="B+" value="0.00" min="0" max="100" id="Bplus" list="rangeValues" class="field"><br>
+                        <input type="text" name="B" value="0.00" min="0" max="100" id="B" list="rangeValues" class="field"><br>
+                        <input type="text" name="B-" value="0.00" min="0" max="100" id="Bminus" list="rangeValues" class="field"><br>
+                        <input type="text" name="C+" value="0.00" min="0" max="100" id="Cplus" list="rangeValues" class="field"><br>
+                        <input type="text" name="C" value="0.00" min="0" max="100" id="C" list="rangeValues" class="field"><br>
+                        <input type="text" name="C-" value="0.00" min="0" max="100" id="Cminus" list="rangeValues" class="field"><br>
+                        <input type="text" name="D" value="0.00" min="0" max="100" id="D" list="rangeValues" class="field"><br>
+                        <input type="text" name="F" value="0.00" min="0" max="100" id="F" list="rangeValues" class="field"><br>
+                    </div>
                 </form>
                 <datalist id="rangeValues">
                     <option value="0"></option>
