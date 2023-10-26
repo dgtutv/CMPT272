@@ -1,6 +1,5 @@
 const button = document.querySelector("#fileInput");
 const sliders = document.querySelectorAll(".sliders");
-const sliderValueLabels = document.querySelectorAll(".sliderValue");
 const bars = document.querySelectorAll(".bar");
 const highestGrade = document.querySelector("#highestGrade");
 const lowestGrade = document.querySelector("#lowestGrade");
@@ -25,7 +24,7 @@ sliders.forEach(function(slider){
         gradeSorter();
 
         //Find and update the associated label
-        const label = document.querySelector('label[for="'+slider.id+'Label"]');
+        const label = document.querySelector("#"+slider.id+"SliderNumber");
         label.textContent = slider.value+"%";
 
         updateHistogram();
