@@ -10,58 +10,58 @@
 <body>
     <div class="content">
         <h1>Histogram Generator</h1>
-        <input id="fileInput" type="file" name="file"/>
+        <input id="fileInput" type="file" name="file">
         <div class="splitContent">
             <div id="leftSide" class="outer">
                 <h3>Lower bounds</h3>
                 <form class="inner">
-                    <label for="max" name="maxLabel" class="sliderLabel">Max</label>
+                    <label for="max" class="sliderLabel">Max</label>
                     <label class="sliderValue" for="max" id="maxSliderNumber">100%</label><br>       <!--Update all number labels to be like this-->
-                    <input type="range" name="max" value="100" min="0" max="100" id="max" step="1" list="rangeValues" class="sliders"><br>
+                    <input type="range" value="100" min="0" max="100" id="max" step="1" list="rangeValues" class="sliders"><br>
 
-                    <label for="APlus" name="APlusLabel" class="sliderLabel">A+</label>
+                    <label for="APlus" class="sliderLabel">A+</label>
                     <label class="sliderValue" for="APlus" id="APlusSliderNumber">100%</label><br>
-                    <input type="range" name="A+" value="100" min="0" max="100" id="APlus" step="1" list="rangeValues" class="sliders"><br>
+                    <input type="range" value="100" min="0" max="100" id="APlus" step="1" list="rangeValues" class="sliders"><br>
 
-                    <label for="A" name="ALabel" class="sliderLabel">A</label>
+                    <label for="A" class="sliderLabel">A</label>
                     <label class="sliderValue" for="A" id="ASliderNumber">100%</label><br>
-                    <input type="range" name="A" value="100" min="0" max="100" id="A" step="1" list="rangeValues" class="sliders"><br>
+                    <input type="range" value="100" min="0" max="100" id="A" step="1" list="rangeValues" class="sliders"><br>
                     
-                    <label for="AMinus" name="AMinusLabel" class="sliderLabel">A-</label>
+                    <label for="AMinus" class="sliderLabel">A-</label>
                     <label class="sliderValue" for="AMinus" id="AMinusSliderNumber">100%</label><br>
-                    <input type="range" name="A-" value="100" min="0" max="100" id="AMinus" step="1" list="rangeValues" class="sliders"><br>
+                    <input type="range" value="100" min="0" max="100" id="AMinus" step="1" list="rangeValues" class="sliders"><br>
 
-                    <label for="BPlus" name="BPlusLabel" class="sliderLabel">B+</label>
+                    <label for="BPlus" class="sliderLabel">B+</label>
                     <label class="sliderValue" for="BPlus" id="BPlusSliderNumber">100%</label><br>
-                    <input type="range" name="B+" value="100" min="0" max="100" id="BPlus" step="1" list="rangeValues" class="sliders"><br>
+                    <input type="range" value="100" min="0" max="100" id="BPlus" step="1" list="rangeValues" class="sliders"><br>
 
-                    <label for="B" name="BLabel" class="sliderLabel">B</label>
+                    <label for="B" class="sliderLabel">B</label>
                     <label class="sliderValue" for="B" id="BSliderNumber">100%</label><br>
-                    <input type="range" name="B" value="100" min="0" max="100" id="B" step="1" list="rangeValues" class="sliders"><br>
+                    <input type="range" value="100" min="0" max="100" id="B" step="1" list="rangeValues" class="sliders"><br>
 
-                    <label for="BMinus" name="BMinusLabel" class="sliderLabel">B-</label>
+                    <label for="BMinus" class="sliderLabel">B-</label>
                     <label for="BMinus" id="BMinusSliderNumber" class="sliderValue">100%</label><br>
-                    <input type="range" name="B-" value="100" min="0" max="100" id="BMinus" step="1" list="rangeValues" class="sliders"><br>
+                    <input type="range" value="100" min="0" max="100" id="BMinus" step="1" list="rangeValues" class="sliders"><br>
 
-                    <label for="CPlus" name="CPlusLabel" class="sliderLabel">C+</label>
+                    <label for="CPlus" class="sliderLabel">C+</label>
                     <label for="CPlus" id="CPlusSliderNumber" class="sliderValue">100%</label>
-                    <input type="range" name="C+" value="100" min="0" max="100" id="CPlus" step="1" list="rangeValues" class="sliders"><br>
+                    <input type="range" value="100" min="0" max="100" id="CPlus" step="1" list="rangeValues" class="sliders"><br>
 
-                    <label for="C" name="CLabel" class="sliderLabel">C</label>
+                    <label for="C" class="sliderLabel">C</label>
                     <label for="C" id="CSliderNumber" class="sliderValue">100%</label><br>
-                    <input type="range" name="C" value="100" min="0" max="100" id="C" step="1" list="rangeValues" class="sliders"><br>
+                    <input type="range" value="100" min="0" max="100" id="C" step="1" list="rangeValues" class="sliders"><br>
 
-                    <label for="CMinus" name="CMinusLabel" class="sliderLabel">C-</label>
+                    <label for="CMinus" class="sliderLabel">C-</label>
                     <label for="CMinus" id="CMinusSliderNumber" class="sliderValue">100%</label><br>
-                    <input type="range" name="C-" value="100" min="0" max="100" id="CMinus" step="1" list="rangeValues" class="sliders"><br>
+                    <input type="range" value="100" min="0" max="100" id="CMinus" step="1" list="rangeValues" class="sliders"><br>
 
-                    <label for="D" name="DLabel" class="sliderLabel">D</label>
+                    <label for="D" class="sliderLabel">D</label>
                     <label for="D" id="DSliderNumber" class="sliderValue">100%</label><br>
-                    <input type="range" name="D" value="100" min="0" max="100" id="D" step="1" list="rangeValues" class="sliders"><br>
+                    <input type="range" value="100" min="0" max="100" id="D" step="1" list="rangeValues" class="sliders"><br>
 
-                    <label for="F" name="FLabel" class="sliderLabel">F</label>
+                    <label for="F" class="sliderLabel">F</label>
                     <label for="F" id="FSliderNumber" class="sliderValue">100%</label><br>
-                    <input type="range" name="F" value="100" min="0" max="100" id="F" step="1" list="rangeValues" class="sliders"><br>
+                    <input type="range" value="100" min="0" max="100" id="F" step="1" list="rangeValues" class="sliders"><br>
 
                 </form>
                 <datalist id="rangeValues">
@@ -107,22 +107,22 @@
                 <div id="stats" class="outer">
                     <h3>Stats</h3>
                     <div class="inner">
-                        <span class="statsBlock">
+                        <div class="statsBlock">
                             <p>Highest:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                             <p id="highestGrade"></p>
-                        </span>
-                        <span class="statsBlock">
+                        </div>
+                        <div class="statsBlock">
                             <p>Lowest:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                             <p id="lowestGrade"></p>
-                        </span>
-                        <span class="statsBlock">
+                        </div>
+                        <div class="statsBlock">
                             <p>Mean:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                             <p id="mean"></p>
-                        </span>
-                        <span class="statsBlock">
+                        </div>
+                        <div class="statsBlock">
                             <p>Median:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                             <p id="median"></p>
-                        </span>
+                        </div>
                     </div>
                 </div>
             </div>
