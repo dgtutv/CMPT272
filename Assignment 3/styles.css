@@ -1,28 +1,33 @@
- body{
-    background-color: rgb(255,196,207);
-    color: black;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
- }
- table{
-    border: 1px black solid;
-    border-collapse: collapse;
-    background-color: rgb(231,173,133);
- }
- th{
-    border: 1px black solid;
-    padding: 5px;
- }
- td{
-    border: 1px black solid;
-    padding: 5px;
- }
+body{
+   background-color: rgb(255,196,207);
+   color: black;
+   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+table{
+   border: 1px black solid;
+   border-collapse: collapse;
+   background-color: rgb(231,173,133);
+}
+th{
+   border: 1px black solid;
+   padding: 5px;
+}
+td{
+   border: 1px black solid;
+   padding: 5px;
+}
 
- table input{
-    background-color: rgb(231,173,133);
-    border: none;
-    margin: 5px;
- }
+table input{
+   background-color: rgb(246,177,177);
+   border: none;
+   margin: 5px;
+}
 
- #addPigTable{
-    font-weight: bold;
- }
+#addPigTable{
+   font-weight: bold;
+   display: none;
+}
+
+select{
+   background-color: rgb(246,177,177);
+}
