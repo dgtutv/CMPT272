@@ -31,3 +31,8 @@ table input{
 select{
    background-color: rgb(246,177,177);
 }
+
+.hidden{
+   display: none;
+}
+
