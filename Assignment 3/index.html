@@ -29,6 +29,10 @@
                 <td><input type="text" id="newPigName"></td>
             </tr>
             <tr>
+                <td>Breed</td>
+                <td><input type="text" id="newPigBreed"></td>
+            </tr>
+            <tr>
                 <td>Height</td>
                 <td><input type="number" step=".1" id="newPigHeight">cm</td>
             </tr>
@@ -44,66 +48,55 @@
                 <td>Category</td>
                 <td><select id="newPigCategory">
                     <option>Select a category</option>
-                    <option value="black">Black</option>    <!--Shade, eye color-->
-                    <option value="white">White</option>    <!--Tone, spotted?-->
-                    <option value="pink">Pink</option>      <!--Cartoon?, shade-->
-                    <option value="rainbow">Rainbow</option> <!--Animated?, first color-->
+                    <option value="grey">Grey</option>      <!--breed, swimming ability score(integer, 0-100)-->
+                    <option value="chestnut">chestnut</option> <!--breed, language(string)-->
+                    <option value="white">White</option>    <!--breed, running ability score(integer, 0-100)-->
+                    <option value="black">Black</option>    <!--breed, strength ability score(integer, 0-100)-->
                 </select></td>
             </tr>
-            <tr class="hidden dynamic" id="blackPigDynamic1">
-                <td>Shade</td>
-                <td><input type="text" id="blackPigShade"></td>
+            <tr class="hidden dynamic" id="greyPigDynamic1">
+                <td>Breed</td>
+                <td><select>
+                    <option value="hampshire">Hampshire</option>
+                    <option value="gloucestershire ">Gloucestershire Old Spot</option>
+                </select></td>
             </tr>
-            <tr class="hidden dynamic" id="blackPigDynamic2">
-                <td>Eye color</td>
-                <td><input type="color" id="blackPigColor"></td>
+            <tr class="hidden dynamic" id="greyPigDynamic2">
+                <td>Swimming Ability</td>
+                <td><input type="number" step="1" min="0" max="100" value="0"></td>
+            </tr>
+            <tr class="hidden dynamic" id="chestnutPigDynamic1">
+                <td>Breed</td>
+                <td><select>
+                    <option value="tamworth">Tamworth</option>
+                    <option value="duroc ">Duroc</option>
+                </select></td>
+            </tr>
+            <tr class="hidden dynamic" id="chestnutPigDynamic2">
+                <td>Language</td>
+                <td><input type="text"></td>
             </tr>
             <tr class="hidden dynamic" id="whitePigDynamic1">
-                <td>Tone</td>
-                <td><input type="text" id="whitePigTone"></td>
+                <td>Breed</td>
+                <td><select>
+                    <option value="yorkshire">Yorkshire</option>
+                    <option value="landrace ">Landrace</option>
+                </select></td>
             </tr>
             <tr class="hidden dynamic" id="whitePigDynamic2">
-                <td>Spotted?</td>
-                <td><select id="whitePigSpotted">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </td>
+                <td>Running Ability</td>
+                <td><input type="number" step="1" min="0" max="100" value="0"></td>
             </tr>
-            <tr class="hidden dynamic" id="pinkPigDynamic1">
-                <td>Cartoon?</td>
-                <td><select id="pinkPigCartoon">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </td>
+            <tr class="hidden dynamic" id="blackPigDynamic1">
+                <td>Breed</td>
+                <td><select>
+                    <option value="berkshire">Berkshire</option>
+                    <option value="large">Large Black</option>
+                </select></td>
             </tr>
-            <tr class="hidden dynamic" id="pinkPigDynamic2">
-                <td>Exact color</td>
-                <td><select id="pinkColors">
-                    <option value="rgb(246,177,177)">Default</option>
-                    <option value="hotPink">Hot Pink</option>
-                    <option value="rgb(252, 148, 175)">Rose</option>
-                    <option value="rgb(254, 125, 106)">Coral</option>
-                    <option value="rgb(252, 76, 78)">Strawberry</option>
-                    <option value="rgb(225, 21, 132)">Magenta</option>
-                    <option value="rgb(253, 171, 159)">Salmon</option>
-                    <option value="rgb(242, 82, 120)">Punch</option>    
-                </select>
-                <div id="selectedPinkColor"></div>
-                </td>
-            </tr>
-            <tr class="hidden dynamic" id="rainbowPigDynamic1">
-                <td>Animated?</td>
-                <td><select id="rainbowPigAnimated">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="hidden dynamic" id="rainbowPigDynamic2">
-                <td>First color</td>
-                <td><input type="color" id="rainbowPigColor"></td>
+            <tr class="hidden dynamic" id="blackPigDynamic2">
+                <td>Strength Ability</td>
+                <td><input type="number" step="1" min="0" max="100" value="0"></td>
             </tr>
         </table>
     </form>

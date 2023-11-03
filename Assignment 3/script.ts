@@ -2,15 +2,6 @@ const addPigButton: HTMLButtonElement = document.querySelector("button");
 const addPigTable: HTMLTableElement = document.querySelector("#addPigTable");
 const newPigCategory: HTMLSelectElement = document.querySelector("#newPigCategory");
 
-/*Sets the background and display colors for the exact color attribute for pink pigs*/
-const exactPinkPigColor: HTMLSelectElement = document.querySelector("#pinkColors");
-const pinkColorDisplay: HTMLDivElement = document.querySelector("#selectedPinkColor");
-exactPinkPigColor.addEventListener('change', function(e){
-    let selectedColor: string = exactPinkPigColor.value;
-    pinkColorDisplay.style.backgroundColor = selectedColor.toLowerCase();
-
-});
-
 /*Show the add pig table and hide it on addPigButton press*/
 let tableShowing: boolean = false;
 addPigButton.addEventListener('click', function(e){
