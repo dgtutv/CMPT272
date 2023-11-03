@@ -26,33 +26,12 @@ newPigCategory.addEventListener("change", function(e){
     if(category == "Select a category"){
         hideAllDynamicPig();
     }
-    else if(category == "black"){
-        hideAllDynamicPig();
-        const blackPigDynamic1: HTMLTableRowElement = document.querySelector("#blackPigDynamic1");
-        const blackPigDynamic2: HTMLTableRowElement = document.querySelector("#blackPigDynamic2");
-        blackPigDynamic1.classList.toggle("hidden");
-        blackPigDynamic2.classList.toggle("hidden");
-    }
-    else if(category == "white"){
-        hideAllDynamicPig();
-        const whitePigDynamic1: HTMLTableRowElement = document.querySelector("#whitePigDynamic1");
-        const whitePigDynamic2: HTMLTableRowElement = document.querySelector("#whitePigDynamic2");
-        whitePigDynamic1.classList.toggle("hidden");
-        whitePigDynamic2.classList.toggle("hidden");
-    }
-    else if(category == "pink"){
-        hideAllDynamicPig();
-        const pinkPigDynamic1: HTMLTableRowElement = document.querySelector("#pinkPigDynamic1");
-        const pinkPigDynamic2: HTMLTableRowElement = document.querySelector("#pinkPigDynamic2");
-        pinkPigDynamic1.classList.toggle("hidden");
-        pinkPigDynamic2.classList.toggle("hidden");
-    }
     else{
         hideAllDynamicPig();
-        const rainbowPigDynamic1: HTMLTableRowElement = document.querySelector("#rainbowPigDynamic1");
-        const rainbowPigDynamic2: HTMLTableRowElement = document.querySelector("#rainbowPigDynamic2");
-        rainbowPigDynamic1.classList.toggle("hidden");
-        rainbowPigDynamic2.classList.toggle("hidden");
+        const dynamicPigAttribute1: HTMLTableRowElement = document.querySelector(`#${category}PigDynamic1`);
+        const dynamicPigAttribute2: HTMLTableRowElement = document.querySelector(`#${category}PigDynamic2`);
+        dynamicPigAttribute1.classList.toggle("hidden");
+        dynamicPigAttribute2.classList.toggle("hidden");
     }
 });
 
