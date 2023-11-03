@@ -1,7 +1,7 @@
-const addPigButton = document.querySelector("button");
-const addPigTable = document.querySelector("#addPigTable");
-const newPigCategory = document.querySelector("#newPigCategory");
-let tableShowing = false;
+var addPigButton = document.querySelector("button");
+var addPigTable = document.querySelector("#addPigTable");
+var newPigCategory = document.querySelector("#newPigCategory");
+var tableShowing = false;
 addPigButton.addEventListener('click', function (e) {
     if (tableShowing) {
         addPigTable.style.display = 'none';
@@ -12,20 +12,32 @@ addPigButton.addEventListener('click', function (e) {
     tableShowing = !tableShowing;
 });
 newPigCategory.addEventListener("change", function (e) {
-    const category = newPigCategory.value;
+    var category = newPigCategory.value;
     if (category == "Select a category") {
-        const dynamicElements = document.querySelectorAll(".dynamic");
-        for (const element of dynamicElements) {
-            const currentElement = element;
-            if (!currentElement.classList.contains("hidden")) {
-                currentElement.classList.add("hidden");
-            }
-        }
+        hideAllDynamicPig();
     }
     else if (category == "black") {
-        const blackPigDynamic1 = document.querySelector("#blackPigDynamic1");
-        const blackPigDynamic2 = document.querySelector("#blackPigDynamic2");
+        hideAllDynamicPig();
+        var blackPigDynamic1 = document.querySelector("#blackPigDynamic1");
+        var blackPigDynamic2 = document.querySelector("#blackPigDynamic2");
         blackPigDynamic1.classList.toggle("hidden");
         blackPigDynamic2.classList.toggle("hidden");
     }
+    else if (category == "white") {
+        hideAllDynamicPig();
+        var whitePigDynamic1 = document.querySelector("#whitePigDynamic1");
+        var whitePigDynamic2 = document.querySelector("#whitePigDynamic2");
+        whitePigDynamic1.classList.toggle("hidden");
+        whitePigDynamic2.classList.toggle("hidden");
+    }
 });
+function hideAllDynamicPig() {
+    var dynamicElements = document.querySelectorAll(".dynamic");
+    for (var i = 0; i < dynamicElements.length; i++) {
+        var currentElement = dynamicElements[i];
+        if (!currentElement.classList.contains("hidden")) {
+            currentElement.classList.add("hidden");
+        }
+    }
+}
+;
