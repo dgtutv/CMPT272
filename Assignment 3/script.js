@@ -43,6 +43,13 @@ newPigCategory.addEventListener("change", function (e) {
         pinkPigDynamic1.classList.toggle("hidden");
         pinkPigDynamic2.classList.toggle("hidden");
     }
+    else {
+        hideAllDynamicPig();
+        var rainbowPigDynamic1 = document.querySelector("#rainbowPigDynamic1");
+        var rainbowPigDynamic2 = document.querySelector("#rainbowPigDynamic2");
+        rainbowPigDynamic1.classList.toggle("hidden");
+        rainbowPigDynamic2.classList.toggle("hidden");
+    }
 });
 function hideAllDynamicPig() {
     var dynamicElements = document.querySelectorAll(".dynamic");

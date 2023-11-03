@@ -47,7 +47,7 @@
                     <option value="black">Black</option>    <!--Shade, eye color-->
                     <option value="white">White</option>    <!--Tone, spotted?-->
                     <option value="pink">Pink</option>      <!--Cartoon?, shade-->
-                    <option value="rainbow">Rainbow</option> <!--Animated?, shininess-->
+                    <option value="rainbow">Rainbow</option> <!--Animated?, first color-->
                 </select></td>
             </tr>
             <tr class="hidden dynamic" id="blackPigDynamic1">
@@ -92,6 +92,18 @@
                 </select>
                 <div id="selectedPinkColor"></div>
                 </td>
+            </tr>
+            <tr class="hidden dynamic" id="rainbowPigDynamic1">
+                <td>Animated?</td>
+                <td><select id="rainbowPigAnimated">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="hidden dynamic" id="rainbowPigDynamic2">
+                <td>First color</td>
+                <td><input type="color" id="rainbowPigColor"></td>
             </tr>
         </table>
     </form>
