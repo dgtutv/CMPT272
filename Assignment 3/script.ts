@@ -2,6 +2,7 @@ const addPigButton: HTMLButtonElement = document.querySelector("button");
 const addPigTable: HTMLTableElement = document.querySelector("#addPigTable");
 const newPigCategory: HTMLSelectElement = document.querySelector("#newPigCategory");
 
+/*Sets the background and display colors for the exact color attribute for pink pigs*/
 const exactPinkPigColor: HTMLSelectElement = document.querySelector("#pinkColors");
 const pinkColorDisplay: HTMLDivElement = document.querySelector("#selectedPinkColor");
 exactPinkPigColor.addEventListener('change', function(e){
@@ -10,6 +11,7 @@ exactPinkPigColor.addEventListener('change', function(e){
 
 });
 
+/*Show the add pig table and hide it on addPigButton press*/
 let tableShowing: boolean = false;
 addPigButton.addEventListener('click', function(e){
     if(tableShowing){
@@ -21,6 +23,7 @@ addPigButton.addEventListener('click', function(e){
     tableShowing = !tableShowing;
 });
 
+/*Show dynamic pig attributes depending on the pig category*/
 newPigCategory.addEventListener("change", function(e){
     const category: string = newPigCategory.value;
     if(category == "Select a category"){
@@ -35,6 +38,7 @@ newPigCategory.addEventListener("change", function(e){
     }
 });
 
+/*Hides all of the dynamic pig attributes*/
 function hideAllDynamicPig(){
     const dynamicElements: NodeListOf<HTMLTableRowElement> = document.querySelectorAll(".dynamic");
     for(let i: number = 0; i<dynamicElements.length; i++){
