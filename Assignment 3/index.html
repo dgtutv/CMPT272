@@ -28,23 +28,23 @@
                 <td>Name</td>
                 <td><input type="text" id="newPigName"></td>
             </tr>
-            <tr>
+            <tr name="breed">
                 <td>Breed</td>
                 <td><input type="text" id="newPigBreed"></td>
             </tr>
-            <tr>
+            <tr name="height">
                 <td>Height</td>
                 <td><input type="number" step=".1" id="newPigHeight">cm</td>
             </tr>
-            <tr>
+            <tr name="weight">
                 <td>Weight</td>
                 <td><input type="number" step=".1" id="newPigWeight">kg</td>
             </tr>
-            <tr>
+            <tr name="personality">
                 <td>Personality</td>
                 <td><input type="text" id="newPigPersonality"></td>
             </tr>
-            <tr>
+            <tr name="category">
                 <td>Category</td>
                 <td><select id="newPigCategory">
                     <option>Select a category</option>
@@ -56,47 +56,47 @@
             </tr>
             <tr class="hidden dynamic" id="greyPigDynamic1">
                 <td>Breed</td>
-                <td><select>
+                <td><select name="breedType">
                     <option value="hampshire">Hampshire</option>
                     <option value="gloucestershire ">Gloucestershire Old Spot</option>
                 </select></td>
             </tr>
             <tr class="hidden dynamic" id="greyPigDynamic2">
                 <td>Swimming Ability</td>
-                <td><input type="number" step="1" min="0" max="100" value="0"></td>
+                <td><input type="number" step="1" min="0" max="100" value="0" id="swimmingScore"></td>
             </tr>
             <tr class="hidden dynamic" id="chestnutPigDynamic1">
                 <td>Breed</td>
-                <td><select>
+                <td><select name="breedType">
                     <option value="tamworth">Tamworth</option>
                     <option value="duroc ">Duroc</option>
                 </select></td>
             </tr>
             <tr class="hidden dynamic" id="chestnutPigDynamic2">
                 <td>Language</td>
-                <td><input type="text"></td>
+                <td><input type="text" id="langauge"></td>
             </tr>
             <tr class="hidden dynamic" id="whitePigDynamic1">
                 <td>Breed</td>
-                <td><select>
+                <td><select name="breedType">
                     <option value="yorkshire">Yorkshire</option>
                     <option value="landrace ">Landrace</option>
                 </select></td>
             </tr>
             <tr class="hidden dynamic" id="whitePigDynamic2">
                 <td>Running Ability</td>
-                <td><input type="number" step="1" min="0" max="100" value="0"></td>
+                <td><input type="number" step="1" min="0" max="100" value="0" id="runningScore"></td>
             </tr>
             <tr class="hidden dynamic" id="blackPigDynamic1">
                 <td>Breed</td>
-                <td><select>
+                <td><select name="breedType">
                     <option value="berkshire">Berkshire</option>
                     <option value="large">Large Black</option>
                 </select></td>
             </tr>
             <tr class="hidden dynamic" id="blackPigDynamic2">
                 <td>Strength Ability</td>
-                <td><input type="number" step="1" min="0" max="100" value="0"></td>
+                <td><input type="number" step="1" min="0" max="100" value="0" id="strengthScore"></td>
             </tr>
         </table>
     </form>
