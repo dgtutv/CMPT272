@@ -30,9 +30,24 @@ table input{
 
 select{
    background-color: rgb(246,177,177);
+   float: left;
 }
 
 .hidden{
    display: none;
 }
 
+[value="hotPink"]{
+   background-color: hotpink;
+}
+
+[value="rgb(246, 177, 177)"]{
+   background-color: rgb(246,177,177);
+}
+
+#selectedPinkColor{
+   background-color: rgb(246,177,177);
+   width: 20px;
+   height: 20px;
+   margin-left: 95px;
+}

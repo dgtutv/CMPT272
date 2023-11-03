@@ -2,6 +2,14 @@ const addPigButton: HTMLButtonElement = document.querySelector("button");
 const addPigTable: HTMLTableElement = document.querySelector("#addPigTable");
 const newPigCategory: HTMLSelectElement = document.querySelector("#newPigCategory");
 
+const exactPinkPigColor: HTMLSelectElement = document.querySelector("#pinkColors");
+const pinkColorDisplay: HTMLDivElement = document.querySelector("#selectedPinkColor");
+exactPinkPigColor.addEventListener('change', function(e){
+    let selectedColor: string = exactPinkPigColor.value;
+    pinkColorDisplay.style.backgroundColor = selectedColor.toLowerCase();
+
+});
+
 let tableShowing: boolean = false;
 addPigButton.addEventListener('click', function(e){
     if(tableShowing){
@@ -31,6 +39,13 @@ newPigCategory.addEventListener("change", function(e){
         const whitePigDynamic2: HTMLTableRowElement = document.querySelector("#whitePigDynamic2");
         whitePigDynamic1.classList.toggle("hidden");
         whitePigDynamic2.classList.toggle("hidden");
+    }
+    else if(category == "pink"){
+        hideAllDynamicPig();
+        const pinkPigDynamic1: HTMLTableRowElement = document.querySelector("#pinkPigDynamic1");
+        const pinkPigDynamic2: HTMLTableRowElement = document.querySelector("#pinkPigDynamic2");
+        pinkPigDynamic1.classList.toggle("hidden");
+        pinkPigDynamic2.classList.toggle("hidden");
     }
 });
 

@@ -1,6 +1,12 @@
 var addPigButton = document.querySelector("button");
 var addPigTable = document.querySelector("#addPigTable");
 var newPigCategory = document.querySelector("#newPigCategory");
+var exactPinkPigColor = document.querySelector("#pinkColors");
+var pinkColorDisplay = document.querySelector("#selectedPinkColor");
+exactPinkPigColor.addEventListener('change', function (e) {
+    var selectedColor = exactPinkPigColor.value;
+    pinkColorDisplay.style.backgroundColor = selectedColor.toLowerCase();
+});
 var tableShowing = false;
 addPigButton.addEventListener('click', function (e) {
     if (tableShowing) {
@@ -29,6 +35,13 @@ newPigCategory.addEventListener("change", function (e) {
         var whitePigDynamic2 = document.querySelector("#whitePigDynamic2");
         whitePigDynamic1.classList.toggle("hidden");
         whitePigDynamic2.classList.toggle("hidden");
+    }
+    else if (category == "pink") {
+        hideAllDynamicPig();
+        var pinkPigDynamic1 = document.querySelector("#pinkPigDynamic1");
+        var pinkPigDynamic2 = document.querySelector("#pinkPigDynamic2");
+        pinkPigDynamic1.classList.toggle("hidden");
+        pinkPigDynamic2.classList.toggle("hidden");
     }
 });
 function hideAllDynamicPig() {
