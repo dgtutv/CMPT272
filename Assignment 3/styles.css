@@ -41,8 +41,16 @@ select{
    background-color: hotpink;
 }
 
+[value="rgb(252, 148, 175)"]{
+   background-color: rgb(252, 148, 175);
+}
+
 [value="rgb(246, 177, 177)"]{
    background-color: rgb(246,177,177);
+}
+
+[value="rgb(254, 125, 106)"]{
+   background-color: rgb(254, 125, 106);
 }
 
 #selectedPinkColor{
