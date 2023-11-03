@@ -39,3 +39,67 @@ function hideAllDynamicPig(){
         }
     }
 }; 
+
+/*Used by pigs to capitalize string attributes*/
+function capitalize(string:string):string{
+    let returnString:string = string.toLowerCase();
+    returnString = returnString.charAt(0).toUpperCase()+returnString.slice(1);
+    return returnString;
+};
+
+/*Interface for a general pig*/
+interface Pig{
+    name: string;
+    category: string;
+    breed: string;
+    height: number;
+    weight: number;
+    personality: string;
+};
+
+/*Specialized pig classes*/
+abstract class GeneralPig implements Pig{
+    name: string;
+    category: string;
+    breed: string;
+    height: number;
+    weight: number;
+    personality: string;
+    constructor(name:string, category:string, breed:string, height:number, weight:number, personality:string){
+        this.name=capitalize(name);
+        this.category=capitalize(category);
+        this.breed=capitalize(breed);
+        this.height=height;
+        this.weight=weight;
+        this.personality=capitalize(personality);
+    }
+
+}
+class GreyPig extends GeneralPig{
+    swimmingScore: number;
+    constructor(name:string, category:string, breed:string, height:number, weight:number, personality:string, swimmingScore:number){
+        super(name, category, breed, height, weight, personality);
+        this.swimmingScore=Math.floor(swimmingScore);
+    }
+}
+class ChestnutPig extends GeneralPig{
+    language: string;
+    constructor(name:string, category:string, breed:string, height:number, weight:number, personality:string, language:string){
+        super(name, category, breed, height, weight, personality);
+        this.language=capitalize(language);
+    }
+}
+class WhitePig extends GeneralPig{
+    runningScore: number;
+    constructor(name:string, category:string, breed:string, height:number, weight:number, personality:string, runningScore:number){
+        super(name, category, breed, height, weight, personality);
+        this.runningScore=Math.floor(runningScore);
+    }
+}
+class BlackPig extends GeneralPig{
+    strengthScore: number;
+    constructor(name:string, category:string, breed:string, height:number, weight:number, personality:string, strengthScore:number){
+        super(name, category, breed, height, weight, personality);
+        this.strengthScore=Math.floor(strengthScore);
+    }
+}
