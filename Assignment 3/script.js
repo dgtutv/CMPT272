@@ -3,6 +3,7 @@ const addPigTable = document.querySelector("#addPigTable");
 const newPigCategory = document.querySelector("#newPigCategory");
 const saveButton = document.querySelector("#saveButton");
 const displayTableBody = document.querySelector("#displayTableBody");
+const informationTables = document.querySelector("#informationTables");
 /*Pull data from local storage*/
 let whitePigListJSON = localStorage.getItem("whitePigArray");
 let blackPigListJSON = localStorage.getItem("blackPigArray");
@@ -71,6 +72,7 @@ function updateDisplay() {
         newRow.appendChild(newMoreInfoCol);
         newRow.appendChild(newDeleteCol);
         deleteLink.id = i.toString() + "whitePigList";
+        moreInfoLink.id = i.toString() + "whitePigList";
         displayTableBody.appendChild(newRow);
     }
     for (let i = 0; i < blackPigList.length; i++) {
@@ -97,6 +99,7 @@ function updateDisplay() {
         newRow.appendChild(newMoreInfoCol);
         newRow.appendChild(newDeleteCol);
         deleteLink.id = i.toString() + "blackPigList";
+        moreInfoLink.id = i.toString() + "blackPigList";
         displayTableBody.appendChild(newRow);
     }
     for (let i = 0; i < greyPigList.length; i++) {
@@ -123,6 +126,7 @@ function updateDisplay() {
         newRow.appendChild(newMoreInfoCol);
         newRow.appendChild(newDeleteCol);
         deleteLink.id = i.toString() + "greyPigList";
+        moreInfoLink.id = i.toString() + "greyPigList";
         displayTableBody.appendChild(newRow);
     }
     for (let i = 0; i < chestnutPigList.length; i++) {
@@ -149,6 +153,7 @@ function updateDisplay() {
         newRow.appendChild(newMoreInfoCol);
         newRow.appendChild(newDeleteCol);
         deleteLink.id = i.toString() + "chestnutPigList";
+        moreInfoLink.id = i.toString() + "chestnutPigList";
         displayTableBody.appendChild(newRow);
     }
     /*Add functionality to the delete pig link*/
@@ -180,6 +185,39 @@ function updateDisplay() {
             }
             updateDisplay();
             updateLocalStorage();
+        });
+    });
+    /*Add functionality to the more info link*/
+    const moreInfoLinks = document.querySelectorAll(".moreInfo");
+    moreInfoLinks.forEach(function (currentLink) {
+        currentLink.addEventListener("click", function (e) {
+            let moreInfoTable = document.querySelector("#moreInfoTable");
+            if (moreInfoTable != null) {
+                informationTables.removeChild(moreInfoTable);
+            }
+            let currentListName = currentLink.id.slice(1);
+            let currentIndex = parseInt(currentLink.id.charAt(0));
+            moreInfoTable = document.createElement("table");
+            informationTables.appendChild(moreInfoTable);
+            moreInfoTable.id = "moreInfoTable";
+            if (currentListName == "whitePigList") {
+                const breedRow = document.createElement("tr");
+                moreInfoTable.appendChild(breedRow);
+                const breedCol1 = document.createElement("td");
+                breedCol1.textContent = "Breed";
+                breedRow.appendChild(breedCol1);
+                const breedCol2 = document.createElement("td");
+                breedCol2.textContent = whitePigList[currentIndex].breed;
+                breedRow.appendChild(breedCol2);
+                const heightRow = document.createElement("tr");
+                moreInfoTable.appendChild(heightRow);
+                const heightCol1 = document.createElement("td");
+                heightCol1.textContent = "Height";
+                heightRow.appendChild(heightCol1);
+                const heightCol2 = document.createElement("td");
+                heightCol2.textContent = whitePigList[currentIndex].height.toString();
+                heightRow.appendChild(heightCol2);
+            }
         });
     });
 }

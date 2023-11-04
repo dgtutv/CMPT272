@@ -36,3 +36,8 @@ select{
 .hidden{
    display: none;
 }
+
+#informationTables{
+   display: flex;
+   gap: 10px;
+}
