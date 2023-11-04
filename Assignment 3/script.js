@@ -17,7 +17,7 @@ var addPigButton = document.querySelector("button");
 var addPigTable = document.querySelector("#addPigTable");
 var newPigCategory = document.querySelector("#newPigCategory");
 var saveButton = document.querySelector("#saveButton");
-/*Save button functionality, get mad at user if field is unspecified*/
+/*Save button functionality*/
 /*Show the add pig table and hide it on addPigButton press*/
 var tableShowing = false;
 addPigButton.addEventListener('click', function (e) {
@@ -43,10 +43,12 @@ newPigCategory.addEventListener("change", function (e) {
         if (!saveButton.classList.contains("hidden")) {
             saveButton.classList.add("hidden");
         }
-        var dynamicPigAttribute1 = document.querySelector("#".concat(category, "PigDynamic1"));
-        var dynamicPigAttribute2 = document.querySelector("#".concat(category, "PigDynamic2"));
-        dynamicPigAttribute1.classList.toggle("hidden");
-        dynamicPigAttribute2.classList.toggle("hidden");
+        var dynamicPigRow1 = document.querySelector("#".concat(category, "PigDynamic1"));
+        var dynamicPigRow2 = document.querySelector("#".concat(category, "PigDynamic2"));
+        var dynamicPigInput = document.querySelector("#".concat(category, "PigInput"));
+        dynamicPigInput.toggleAttribute("required");
+        dynamicPigRow1.classList.toggle("hidden");
+        dynamicPigRow2.classList.toggle("hidden");
         saveButton.classList.remove('hidden');
     }
 });
@@ -57,6 +59,8 @@ function hideAllDynamicPig() {
         var currentElement = dynamicElements[i];
         if (!currentElement.classList.contains("hidden")) {
             currentElement.classList.add("hidden");
+            var dynamicPigInput = document.querySelector("#".concat(currentElement.className, "Piginput"));
+            dynamicPigInput.toggleAttribute("required");
         }
     }
 }

@@ -3,7 +3,7 @@ const addPigTable: HTMLTableElement = document.querySelector("#addPigTable");
 const newPigCategory: HTMLSelectElement = document.querySelector("#newPigCategory");
 const saveButton: HTMLButtonElement = document.querySelector("#saveButton");
 
-/*Save button functionality, get mad at user if field is unspecified*/
+/*Save button functionality*/
 
 
 /*Show the add pig table and hide it on addPigButton press*/
@@ -32,10 +32,12 @@ newPigCategory.addEventListener("change", function(e){
         if(!saveButton.classList.contains("hidden")){
             saveButton.classList.add("hidden");
         }
-        const dynamicPigAttribute1: HTMLTableRowElement = document.querySelector(`#${category}PigDynamic1`);
-        const dynamicPigAttribute2: HTMLTableRowElement = document.querySelector(`#${category}PigDynamic2`);
-        dynamicPigAttribute1.classList.toggle("hidden");
-        dynamicPigAttribute2.classList.toggle("hidden");
+        const dynamicPigRow1: HTMLTableRowElement = document.querySelector(`#${category}PigDynamic1`);
+        const dynamicPigRow2: HTMLTableRowElement = document.querySelector(`#${category}PigDynamic2`);
+        const dynamicPigInput: HTMLInputElement = document.querySelector(`#${category}PigInput`);
+        dynamicPigInput.toggleAttribute("required");
+        dynamicPigRow1.classList.toggle("hidden");
+        dynamicPigRow2.classList.toggle("hidden");
         saveButton.classList.remove('hidden');
     }
 });
@@ -47,6 +49,8 @@ function hideAllDynamicPig(){
         const currentElement: HTMLTableRowElement = dynamicElements[i] as HTMLTableRowElement;
         if(!currentElement.classList.contains("hidden")){
             currentElement.classList.add("hidden");
+            const dynamicPigInput: HTMLInputElement = document.querySelector(`#${currentElement.className}Piginput`);
+            dynamicPigInput.toggleAttribute("required");
         }
     }
 }; 
