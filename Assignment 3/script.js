@@ -2,6 +2,20 @@ const addPigButton = document.querySelector("button");
 const addPigTable = document.querySelector("#addPigTable");
 const newPigCategory = document.querySelector("#newPigCategory");
 const saveButton = document.querySelector("#saveButton");
+/*Pull data from local storage*/
+let pigListJSON = localStorage.getItem("PigArray");
+let pigList;
+if (pigListJSON == null) {
+    pigList = new Array;
+}
+else {
+    pigList = JSON.parse(pigListJSON);
+}
+/*Function to update local storage*/
+function updateLocalStorage(newPigList) {
+    let newPigListJSON = JSON.stringify(newPigList);
+    localStorage.setItem("PigArray", newPigListJSON);
+}
 /*Save button functionality*/
 const newPigForm = document.querySelector("#newPigForm");
 newPigForm.addEventListener("submit", function (e) {
@@ -15,38 +29,37 @@ newPigForm.addEventListener("submit", function (e) {
     let newPigPersonality = pigPersonalityInput.value;
     let pigCategorySelection = document.querySelector("#newPigCategory");
     let newPigCategory = pigCategorySelection.value;
+    let newPig;
     if (newPigCategory == "grey") {
         let pigBreedInput = document.querySelector("#greyPigBreed");
         let newPigBreed = pigBreedInput.value;
         let pigSwimmingInput = document.querySelector("#greyPigInput");
         let newPigSwimmingScore = parseInt(pigSwimmingInput.value);
-        let newGreyPig = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigSwimmingScore);
-        localStorage.setItem("greyPig", JSON.stringify(newGreyPig));
+        newPig = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigSwimmingScore);
     }
     else if (newPigCategory == "chestnut") {
         let pigBreedInput = document.querySelector("#chestnutPigBreed");
         let newPigBreed = pigBreedInput.value;
         let pigLanguageInput = document.querySelector("#chestnutPigInput");
         let newPigLanguage = pigLanguageInput.value;
-        let newChestnutPig = new ChestnutPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigLanguage);
-        localStorage.setItem("chestnutPig", JSON.stringify(newChestnutPig));
+        newPig = new ChestnutPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigLanguage);
     }
     else if (newPigCategory == "white") {
         let pigBreedInput = document.querySelector("#whitePigBreed");
         let newPigBreed = pigBreedInput.value;
         let pigRunningInput = document.querySelector("#whitePigInput");
         let newPigRunningScore = parseInt(pigRunningInput.value);
-        let newWhitePig = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigRunningScore);
-        localStorage.setItem("whitePig", JSON.stringify(newWhitePig));
+        newPig = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigRunningScore);
     }
     else {
         let pigBreedInput = document.querySelector("#blackPigBreed");
         let newPigBreed = pigBreedInput.value;
         let pigStrengthInput = document.querySelector("#blackPigInput");
         let newPigStrengthScore = parseInt(pigStrengthInput.value);
-        let newBlackPig = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigStrengthScore);
-        localStorage.setItem("blackPig", JSON.stringify(newBlackPig));
+        newPig = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigStrengthScore);
     }
+    pigList.push(newPig);
+    updateLocalStorage(pigList);
 });
 /*Show the add pig table and hide it on addPigButton press*/
 let tableShowing = false;
