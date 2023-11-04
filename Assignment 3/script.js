@@ -52,10 +52,24 @@ function updateDisplay() {
         const newRow = document.createElement("tr");
         const newNameCol = document.createElement("td");
         const newCategoryCol = document.createElement("td");
+        const newMoreInfoCol = document.createElement("td");
+        const moreInfoLink = document.createElement("a");
+        const newDeleteCol = document.createElement("td");
+        const deleteLink = document.createElement("a");
+        deleteLink.textContent = "Delete Pig";
+        deleteLink.classList.add("delete");
+        moreInfoLink.classList.add("moreInfo");
+        moreInfoLink.textContent = "More Info";
+        moreInfoLink.setAttribute("href", "");
+        deleteLink.setAttribute("href", "");
         newNameCol.textContent = currentPig.name;
         newCategoryCol.textContent = "White";
+        newDeleteCol.appendChild(deleteLink);
+        newMoreInfoCol.appendChild(moreInfoLink);
         newRow.appendChild(newNameCol);
         newRow.appendChild(newCategoryCol);
+        newRow.appendChild(newMoreInfoCol);
+        newRow.appendChild(newDeleteCol);
         displayTableBody.appendChild(newRow);
     }
     for (let i = 0; i < blackPigList.length; i++) {
@@ -63,10 +77,24 @@ function updateDisplay() {
         const newRow = document.createElement("tr");
         const newNameCol = document.createElement("td");
         const newCategoryCol = document.createElement("td");
+        const newMoreInfoCol = document.createElement("td");
+        const moreInfoLink = document.createElement("a");
+        const newDeleteCol = document.createElement("td");
+        const deleteLink = document.createElement("a");
+        deleteLink.textContent = "Delete Pig";
+        deleteLink.classList.add("delete");
+        moreInfoLink.classList.add("moreInfo");
+        moreInfoLink.textContent = "More Info";
+        moreInfoLink.setAttribute("href", "");
+        deleteLink.setAttribute("href", "");
         newNameCol.textContent = currentPig.name;
         newCategoryCol.textContent = "Black";
+        newDeleteCol.appendChild(deleteLink);
+        newMoreInfoCol.appendChild(moreInfoLink);
         newRow.appendChild(newNameCol);
         newRow.appendChild(newCategoryCol);
+        newRow.appendChild(newMoreInfoCol);
+        newRow.appendChild(newDeleteCol);
         displayTableBody.appendChild(newRow);
     }
     for (let i = 0; i < greyPigList.length; i++) {
@@ -74,10 +102,24 @@ function updateDisplay() {
         const newRow = document.createElement("tr");
         const newNameCol = document.createElement("td");
         const newCategoryCol = document.createElement("td");
+        const newMoreInfoCol = document.createElement("td");
+        const moreInfoLink = document.createElement("a");
+        const newDeleteCol = document.createElement("td");
+        const deleteLink = document.createElement("a");
+        deleteLink.textContent = "Delete Pig";
+        deleteLink.classList.add("delete");
+        moreInfoLink.classList.add("moreInfo");
+        moreInfoLink.textContent = "More Info";
+        moreInfoLink.setAttribute("href", "");
+        deleteLink.setAttribute("href", "");
         newNameCol.textContent = currentPig.name;
         newCategoryCol.textContent = "Grey";
+        newDeleteCol.appendChild(deleteLink);
+        newMoreInfoCol.appendChild(moreInfoLink);
         newRow.appendChild(newNameCol);
         newRow.appendChild(newCategoryCol);
+        newRow.appendChild(newMoreInfoCol);
+        newRow.appendChild(newDeleteCol);
         displayTableBody.appendChild(newRow);
     }
     for (let i = 0; i < chestnutPigList.length; i++) {
@@ -85,10 +127,24 @@ function updateDisplay() {
         const newRow = document.createElement("tr");
         const newNameCol = document.createElement("td");
         const newCategoryCol = document.createElement("td");
+        const newMoreInfoCol = document.createElement("td");
+        const moreInfoLink = document.createElement("a");
+        const newDeleteCol = document.createElement("td");
+        const deleteLink = document.createElement("a");
+        deleteLink.textContent = "Delete Pig";
+        deleteLink.classList.add("delete");
+        moreInfoLink.classList.add("moreInfo");
+        moreInfoLink.textContent = "More Info";
+        moreInfoLink.setAttribute("href", "");
+        deleteLink.setAttribute("href", "");
         newNameCol.textContent = currentPig.name;
         newCategoryCol.textContent = "Chestnut";
+        newDeleteCol.appendChild(deleteLink);
+        newMoreInfoCol.appendChild(moreInfoLink);
         newRow.appendChild(newNameCol);
         newRow.appendChild(newCategoryCol);
+        newRow.appendChild(newMoreInfoCol);
+        newRow.appendChild(newDeleteCol);
         displayTableBody.appendChild(newRow);
     }
 }
