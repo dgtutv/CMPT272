@@ -6,7 +6,9 @@ const saveButton: HTMLButtonElement = document.querySelector("#saveButton");
 /*Save button functionality*/
 const newPigForm: HTMLFormElement = document.querySelector("#newPigForm");
 newPigForm.addEventListener("submit", function(e){
-    let formData: FormData = new FormData(newPigForm);
+    let pigNameInput: HTMLInputElement = document.querySelector("#newPigName");
+    let name: string = pigNameInput.value;
+    console.log(name)
     
 });
 

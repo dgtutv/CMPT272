@@ -5,7 +5,9 @@ const saveButton = document.querySelector("#saveButton");
 /*Save button functionality*/
 const newPigForm = document.querySelector("#newPigForm");
 newPigForm.addEventListener("submit", function (e) {
-    let formData = new FormData(newPigForm);
+    let pigNameInput = document.querySelector("#newPigName");
+    let name = pigNameInput.value;
+    console.log(name);
 });
 /*Show the add pig table and hide it on addPigButton press*/
 let tableShowing = false;
