@@ -51,32 +51,44 @@ function updateDisplay() {
         let currentPig = whitePigList[i];
         const newRow = document.createElement("tr");
         const newNameCol = document.createElement("td");
+        const newCategoryCol = document.createElement("td");
         newNameCol.textContent = currentPig.name;
+        newCategoryCol.textContent = "White";
         newRow.appendChild(newNameCol);
+        newRow.appendChild(newCategoryCol);
         displayTableBody.appendChild(newRow);
     }
     for (let i = 0; i < blackPigList.length; i++) {
         let currentPig = blackPigList[i];
         const newRow = document.createElement("tr");
         const newNameCol = document.createElement("td");
+        const newCategoryCol = document.createElement("td");
         newNameCol.textContent = currentPig.name;
+        newCategoryCol.textContent = "Black";
         newRow.appendChild(newNameCol);
+        newRow.appendChild(newCategoryCol);
         displayTableBody.appendChild(newRow);
     }
     for (let i = 0; i < greyPigList.length; i++) {
         let currentPig = greyPigList[i];
         const newRow = document.createElement("tr");
         const newNameCol = document.createElement("td");
+        const newCategoryCol = document.createElement("td");
         newNameCol.textContent = currentPig.name;
+        newCategoryCol.textContent = "Grey";
         newRow.appendChild(newNameCol);
+        newRow.appendChild(newCategoryCol);
         displayTableBody.appendChild(newRow);
     }
     for (let i = 0; i < chestnutPigList.length; i++) {
         let currentPig = chestnutPigList[i];
         const newRow = document.createElement("tr");
         const newNameCol = document.createElement("td");
+        const newCategoryCol = document.createElement("td");
         newNameCol.textContent = currentPig.name;
+        newCategoryCol.textContent = "Chestnut";
         newRow.appendChild(newNameCol);
+        newRow.appendChild(newCategoryCol);
         displayTableBody.appendChild(newRow);
     }
 }
@@ -114,8 +126,8 @@ newPigForm.addEventListener("submit", function (e) {
         let newPigBreed = pigBreedInput.value;
         let pigRunningInput = document.querySelector("#whitePigInput");
         let newPigRunningScore = parseInt(pigRunningInput.value);
-        let newGreyPig = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigRunningScore);
-        greyPigList.push(newGreyPig);
+        let newWhitePig = new WhitePig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigRunningScore);
+        whitePigList.push(newWhitePig);
     }
     else {
         let pigBreedInput = document.querySelector("#blackPigBreed");

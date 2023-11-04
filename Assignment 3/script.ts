@@ -50,13 +50,16 @@ function updateLocalStorage(){
 }
 
 /*Function to update the display table*/
-function updateDisplay(){
+function updateDisplay(){   
     for(let i: number = 0; i<whitePigList.length; i++){
         let currentPig: Pig = whitePigList[i];
         const newRow: HTMLTableRowElement = document.createElement("tr");
         const newNameCol: HTMLTableCellElement = document.createElement("td");
+        const newCategoryCol: HTMLTableCellElement = document.createElement("td");
         newNameCol.textContent = currentPig.name;
+        newCategoryCol.textContent = "White";
         newRow.appendChild(newNameCol);
+        newRow.appendChild(newCategoryCol);
 
         displayTableBody.appendChild(newRow);
     }
@@ -64,8 +67,11 @@ function updateDisplay(){
         let currentPig: Pig = blackPigList[i];
         const newRow: HTMLTableRowElement = document.createElement("tr");
         const newNameCol: HTMLTableCellElement = document.createElement("td");
+        const newCategoryCol: HTMLTableCellElement = document.createElement("td");
         newNameCol.textContent = currentPig.name;
+        newCategoryCol.textContent = "Black";
         newRow.appendChild(newNameCol);
+        newRow.appendChild(newCategoryCol);
 
         displayTableBody.appendChild(newRow);
     }
@@ -73,8 +79,11 @@ function updateDisplay(){
         let currentPig: Pig = greyPigList[i];
         const newRow: HTMLTableRowElement = document.createElement("tr");
         const newNameCol: HTMLTableCellElement = document.createElement("td");
+        const newCategoryCol: HTMLTableCellElement = document.createElement("td");
         newNameCol.textContent = currentPig.name;
+        newCategoryCol.textContent = "Grey";
         newRow.appendChild(newNameCol);
+        newRow.appendChild(newCategoryCol);
 
         displayTableBody.appendChild(newRow);
     }
@@ -82,8 +91,11 @@ function updateDisplay(){
         let currentPig: Pig = chestnutPigList[i];
         const newRow: HTMLTableRowElement = document.createElement("tr");
         const newNameCol: HTMLTableCellElement = document.createElement("td");
+        const newCategoryCol: HTMLTableCellElement = document.createElement("td");
         newNameCol.textContent = currentPig.name;
+        newCategoryCol.textContent = "Chestnut";
         newRow.appendChild(newNameCol);
+        newRow.appendChild(newCategoryCol);
 
         displayTableBody.appendChild(newRow);
     }
@@ -123,8 +135,8 @@ newPigForm.addEventListener("submit", function(e){
         let newPigBreed: string = pigBreedInput.value;
         let pigRunningInput: HTMLInputElement = document.querySelector("#whitePigInput");
         let newPigRunningScore: number = parseInt(pigRunningInput.value);
-        let newGreyPig: GreyPig = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigRunningScore);
-        greyPigList.push(newGreyPig);
+        let newWhitePig: WhitePig = new WhitePig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigRunningScore);
+        whitePigList.push(newWhitePig);
     } 
     else{
         let pigBreedInput: HTMLSelectElement = document.querySelector("#blackPigBreed");
