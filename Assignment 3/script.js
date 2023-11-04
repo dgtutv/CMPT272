@@ -16,6 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 var addPigButton = document.querySelector("button");
 var addPigTable = document.querySelector("#addPigTable");
 var newPigCategory = document.querySelector("#newPigCategory");
+var saveButton = document.querySelector("#saveButton");
 /*Show the add pig table and hide it on addPigButton press*/
 var tableShowing = false;
 addPigButton.addEventListener('click', function (e) {
@@ -32,13 +33,20 @@ newPigCategory.addEventListener("change", function (e) {
     var category = newPigCategory.value;
     if (category == "Select a category") {
         hideAllDynamicPig();
+        if (!saveButton.classList.contains("hidden")) {
+            saveButton.classList.add("hidden");
+        }
     }
     else {
         hideAllDynamicPig();
+        if (!saveButton.classList.contains("hidden")) {
+            saveButton.classList.add("hidden");
+        }
         var dynamicPigAttribute1 = document.querySelector("#".concat(category, "PigDynamic1"));
         var dynamicPigAttribute2 = document.querySelector("#".concat(category, "PigDynamic2"));
         dynamicPigAttribute1.classList.toggle("hidden");
         dynamicPigAttribute2.classList.toggle("hidden");
+        saveButton.classList.remove('hidden');
     }
 });
 /*Hides all of the dynamic pig attributes*/

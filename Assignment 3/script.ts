@@ -1,6 +1,7 @@
 const addPigButton: HTMLButtonElement = document.querySelector("button");
 const addPigTable: HTMLTableElement = document.querySelector("#addPigTable");
 const newPigCategory: HTMLSelectElement = document.querySelector("#newPigCategory");
+const saveButton: HTMLButtonElement = document.querySelector("#saveButton");
 
 /*Show the add pig table and hide it on addPigButton press*/
 let tableShowing: boolean = false;
@@ -19,13 +20,20 @@ newPigCategory.addEventListener("change", function(e){
     const category: string = newPigCategory.value;
     if(category == "Select a category"){
         hideAllDynamicPig();
+        if(!saveButton.classList.contains("hidden")){
+            saveButton.classList.add("hidden");
+        }
     }
     else{
         hideAllDynamicPig();
+        if(!saveButton.classList.contains("hidden")){
+            saveButton.classList.add("hidden");
+        }
         const dynamicPigAttribute1: HTMLTableRowElement = document.querySelector(`#${category}PigDynamic1`);
         const dynamicPigAttribute2: HTMLTableRowElement = document.querySelector(`#${category}PigDynamic2`);
         dynamicPigAttribute1.classList.toggle("hidden");
         dynamicPigAttribute2.classList.toggle("hidden");
+        saveButton.classList.remove('hidden');
     }
 });
 
