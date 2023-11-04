@@ -74,7 +74,7 @@ function updateDisplay(){
         newRow.appendChild(newCategoryCol);
         newRow.appendChild(newMoreInfoCol);
         newRow.appendChild(newDeleteCol);
-
+        deleteLink.id = i.toString() + "whitePigList";
         displayTableBody.appendChild(newRow);
     }
     for(let i: number = 0; i<blackPigList.length; i++){
@@ -100,7 +100,7 @@ function updateDisplay(){
         newRow.appendChild(newCategoryCol);
         newRow.appendChild(newMoreInfoCol);
         newRow.appendChild(newDeleteCol);
-
+        deleteLink.id = i.toString() + "blackPigList";
         displayTableBody.appendChild(newRow);
     }
     for(let i: number = 0; i<greyPigList.length; i++){
@@ -126,7 +126,7 @@ function updateDisplay(){
         newRow.appendChild(newCategoryCol);
         newRow.appendChild(newMoreInfoCol);
         newRow.appendChild(newDeleteCol);
-
+        deleteLink.id = i.toString() + "greyPigList";
         displayTableBody.appendChild(newRow);
     }
     for(let i: number = 0; i<chestnutPigList.length; i++){
@@ -152,9 +152,41 @@ function updateDisplay(){
         newRow.appendChild(newCategoryCol);
         newRow.appendChild(newMoreInfoCol);
         newRow.appendChild(newDeleteCol);
-
+        deleteLink.id = i.toString() + "chestnutPigList";
         displayTableBody.appendChild(newRow);
     }
+
+    /*Add functionality to the delete pig link*/
+    const deleteLinks: NodeList = document.querySelectorAll(".delete");
+    deleteLinks.forEach(function(link: HTMLAnchorElement){
+        link.addEventListener("click", function(e){
+            let currentList: string = link.id.slice(1);
+            let index: number = parseInt(link.id.charAt(0));
+            console.log(currentList);
+            if(currentList == "whitePigList"){
+                let firstHalf = whitePigList.slice(0, index);
+                let secondHalf = whitePigList.slice(index+1);
+                whitePigList = firstHalf.concat(secondHalf);
+            }
+            else if(currentList == "blackPigList"){
+                let firstHalf = blackPigList.slice(0, index);
+                let secondHalf = blackPigList.slice(index+1);
+                blackPigList = firstHalf.concat(secondHalf);
+            }
+            else if(currentList == "greyPigList"){
+                let firstHalf = greyPigList.slice(0, index);
+                let secondHalf = greyPigList.slice(index+1);
+                greyPigList = firstHalf.concat(secondHalf);
+            }
+            else{
+                let firstHalf = chestnutPigList.slice(0, index);
+                let secondHalf = chestnutPigList.slice(index+1);
+                chestnutPigList = firstHalf.concat(secondHalf);
+            }
+            updateDisplay();
+            updateLocalStorage();
+        });
+    });
 }
 
 /*Save button functionality*/
