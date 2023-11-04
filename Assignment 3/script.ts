@@ -49,9 +49,9 @@ function hideAllDynamicPig(){
         const currentElement: HTMLTableRowElement = dynamicElements[i] as HTMLTableRowElement;
         if(!currentElement.classList.contains("hidden")){
             currentElement.classList.add("hidden");
-            const dynamicPigInput: HTMLInputElement = document.querySelector(`#${currentElement.className}Piginput`);
-            dynamicPigInput.toggleAttribute("required");
         }
+        const dynamicPigInput: HTMLInputElement = document.querySelector(`#${currentElement.id.slice(0, -11)}PigInput`);
+        dynamicPigInput.removeAttribute("required");
     }
 }; 
 

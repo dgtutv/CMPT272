@@ -1,25 +1,10 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var addPigButton = document.querySelector("button");
-var addPigTable = document.querySelector("#addPigTable");
-var newPigCategory = document.querySelector("#newPigCategory");
-var saveButton = document.querySelector("#saveButton");
+const addPigButton = document.querySelector("button");
+const addPigTable = document.querySelector("#addPigTable");
+const newPigCategory = document.querySelector("#newPigCategory");
+const saveButton = document.querySelector("#saveButton");
 /*Save button functionality*/
 /*Show the add pig table and hide it on addPigButton press*/
-var tableShowing = false;
+let tableShowing = false;
 addPigButton.addEventListener('click', function (e) {
     if (tableShowing) {
         addPigTable.style.display = 'none';
@@ -31,7 +16,7 @@ addPigButton.addEventListener('click', function (e) {
 });
 /*Show dynamic pig attributes depending on the pig category*/
 newPigCategory.addEventListener("change", function (e) {
-    var category = newPigCategory.value;
+    const category = newPigCategory.value;
     if (category == "Select a category") {
         hideAllDynamicPig();
         if (!saveButton.classList.contains("hidden")) {
@@ -43,9 +28,9 @@ newPigCategory.addEventListener("change", function (e) {
         if (!saveButton.classList.contains("hidden")) {
             saveButton.classList.add("hidden");
         }
-        var dynamicPigRow1 = document.querySelector("#".concat(category, "PigDynamic1"));
-        var dynamicPigRow2 = document.querySelector("#".concat(category, "PigDynamic2"));
-        var dynamicPigInput = document.querySelector("#".concat(category, "PigInput"));
+        const dynamicPigRow1 = document.querySelector(`#${category}PigDynamic1`);
+        const dynamicPigRow2 = document.querySelector(`#${category}PigDynamic2`);
+        const dynamicPigInput = document.querySelector(`#${category}PigInput`);
         dynamicPigInput.toggleAttribute("required");
         dynamicPigRow1.classList.toggle("hidden");
         dynamicPigRow2.classList.toggle("hidden");
@@ -54,28 +39,28 @@ newPigCategory.addEventListener("change", function (e) {
 });
 /*Hides all of the dynamic pig attributes*/
 function hideAllDynamicPig() {
-    var dynamicElements = document.querySelectorAll(".dynamic");
-    for (var i = 0; i < dynamicElements.length; i++) {
-        var currentElement = dynamicElements[i];
+    const dynamicElements = document.querySelectorAll(".dynamic");
+    for (let i = 0; i < dynamicElements.length; i++) {
+        const currentElement = dynamicElements[i];
         if (!currentElement.classList.contains("hidden")) {
             currentElement.classList.add("hidden");
-            var dynamicPigInput = document.querySelector("#".concat(currentElement.className, "Piginput"));
-            dynamicPigInput.toggleAttribute("required");
         }
+        const dynamicPigInput = document.querySelector(`#${currentElement.id.slice(0, -11)}PigInput`);
+        dynamicPigInput.removeAttribute("required");
     }
 }
 ;
 /*Used by pigs to capitalize string attributes*/
 function capitalize(string) {
-    var returnString = string.toLowerCase();
+    let returnString = string.toLowerCase();
     returnString = returnString.charAt(0).toUpperCase() + returnString.slice(1);
     return returnString;
 }
 ;
 ;
 /*Specialized pig classes*/
-var GeneralPig = /** @class */ (function () {
-    function GeneralPig(name, category, breed, height, weight, personality) {
+class GeneralPig {
+    constructor(name, category, breed, height, weight, personality) {
         this.name = capitalize(name);
         this.category = capitalize(category);
         this.breed = capitalize(breed);
@@ -83,41 +68,28 @@ var GeneralPig = /** @class */ (function () {
         this.weight = weight;
         this.personality = capitalize(personality);
     }
-    return GeneralPig;
-}());
-var GreyPig = /** @class */ (function (_super) {
-    __extends(GreyPig, _super);
-    function GreyPig(name, category, breed, height, weight, personality, swimmingScore) {
-        var _this = _super.call(this, name, category, breed, height, weight, personality) || this;
-        _this.swimmingScore = Math.floor(swimmingScore);
-        return _this;
+}
+class GreyPig extends GeneralPig {
+    constructor(name, category, breed, height, weight, personality, swimmingScore) {
+        super(name, category, breed, height, weight, personality);
+        this.swimmingScore = Math.floor(swimmingScore);
     }
-    return GreyPig;
-}(GeneralPig));
-var ChestnutPig = /** @class */ (function (_super) {
-    __extends(ChestnutPig, _super);
-    function ChestnutPig(name, category, breed, height, weight, personality, language) {
-        var _this = _super.call(this, name, category, breed, height, weight, personality) || this;
-        _this.language = capitalize(language);
-        return _this;
+}
+class ChestnutPig extends GeneralPig {
+    constructor(name, category, breed, height, weight, personality, language) {
+        super(name, category, breed, height, weight, personality);
+        this.language = capitalize(language);
     }
-    return ChestnutPig;
-}(GeneralPig));
-var WhitePig = /** @class */ (function (_super) {
-    __extends(WhitePig, _super);
-    function WhitePig(name, category, breed, height, weight, personality, runningScore) {
-        var _this = _super.call(this, name, category, breed, height, weight, personality) || this;
-        _this.runningScore = Math.floor(runningScore);
-        return _this;
+}
+class WhitePig extends GeneralPig {
+    constructor(name, category, breed, height, weight, personality, runningScore) {
+        super(name, category, breed, height, weight, personality);
+        this.runningScore = Math.floor(runningScore);
     }
-    return WhitePig;
-}(GeneralPig));
-var BlackPig = /** @class */ (function (_super) {
-    __extends(BlackPig, _super);
-    function BlackPig(name, category, breed, height, weight, personality, strengthScore) {
-        var _this = _super.call(this, name, category, breed, height, weight, personality) || this;
-        _this.strengthScore = Math.floor(strengthScore);
-        return _this;
+}
+class BlackPig extends GeneralPig {
+    constructor(name, category, breed, height, weight, personality, strengthScore) {
+        super(name, category, breed, height, weight, personality);
+        this.strengthScore = Math.floor(strengthScore);
     }
-    return BlackPig;
-}(GeneralPig));
+}
