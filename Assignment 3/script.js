@@ -6,8 +6,23 @@ const saveButton = document.querySelector("#saveButton");
 const newPigForm = document.querySelector("#newPigForm");
 newPigForm.addEventListener("submit", function (e) {
     let pigNameInput = document.querySelector("#newPigName");
-    let name = pigNameInput.value;
-    console.log(name);
+    let newPigName = pigNameInput.value;
+    let pigHeightInput = document.querySelector("#newPigHeight");
+    let newPigHeight = parseInt(pigHeightInput.value);
+    let pigWeightInput = document.querySelector("#newPigWeight");
+    let newPigWeight = parseInt(pigWeightInput.value);
+    let pigPersonalityInput = document.querySelector("#newPigPersonality");
+    let newPigPersonality = pigPersonalityInput.value;
+    let pigCategorySelection = document.querySelector("#newPigCategory");
+    let newPigCategory = pigCategorySelection.value;
+    if (newPigCategory == "grey") {
+        let pigBreedInput = document.querySelector("#greyPigBreed");
+        let newPigBreed = pigBreedInput.value;
+        let pigSwimmingInput = document.querySelector("#greyPigInput");
+        let newPigSwimmingScore = parseInt(pigSwimmingInput.value);
+        let newGreyPig = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigSwimmingScore);
+        localStorage.setItem("greyPig", JSON.stringify(newGreyPig));
+    }
 });
 /*Show the add pig table and hide it on addPigButton press*/
 let tableShowing = false;
