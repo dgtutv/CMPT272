@@ -24,6 +24,30 @@ newPigForm.addEventListener("submit", function(e){
         let newGreyPig: Object = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigSwimmingScore);
         localStorage.setItem("greyPig", JSON.stringify(newGreyPig));
     }    
+    else if(newPigCategory == "chestnut"){
+        let pigBreedInput: HTMLSelectElement = document.querySelector("#chestnutPigBreed");
+        let newPigBreed: string = pigBreedInput.value;
+        let pigLanguageInput: HTMLInputElement = document.querySelector("#chestnutPigInput");
+        let newPigLanguage: string = pigLanguageInput.value;
+        let newChestnutPig: Object = new ChestnutPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigLanguage);
+        localStorage.setItem("chestnutPig", JSON.stringify(newChestnutPig));
+    }
+    else if(newPigCategory == "white"){
+        let pigBreedInput: HTMLSelectElement = document.querySelector("#whitePigBreed");
+        let newPigBreed: string = pigBreedInput.value;
+        let pigRunningInput: HTMLInputElement = document.querySelector("#whitePigInput");
+        let newPigRunningScore: number = parseInt(pigRunningInput.value);
+        let newWhitePig: Object = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigRunningScore);
+        localStorage.setItem("whitePig", JSON.stringify(newWhitePig));
+    } 
+    else{
+        let pigBreedInput: HTMLSelectElement = document.querySelector("#blackPigBreed");
+        let newPigBreed: string = pigBreedInput.value;
+        let pigStrengthInput: HTMLInputElement = document.querySelector("#blackPigInput");
+        let newPigStrengthScore: number = parseInt(pigStrengthInput.value);
+        let newBlackPig: Object = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigStrengthScore);
+        localStorage.setItem("blackPig", JSON.stringify(newBlackPig));
+    }
 });
 
 /*Show the add pig table and hide it on addPigButton press*/

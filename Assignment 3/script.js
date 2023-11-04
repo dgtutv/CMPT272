@@ -23,6 +23,30 @@ newPigForm.addEventListener("submit", function (e) {
         let newGreyPig = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigSwimmingScore);
         localStorage.setItem("greyPig", JSON.stringify(newGreyPig));
     }
+    else if (newPigCategory == "chestnut") {
+        let pigBreedInput = document.querySelector("#chestnutPigBreed");
+        let newPigBreed = pigBreedInput.value;
+        let pigLanguageInput = document.querySelector("#chestnutPigInput");
+        let newPigLanguage = pigLanguageInput.value;
+        let newChestnutPig = new ChestnutPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigLanguage);
+        localStorage.setItem("chestnutPig", JSON.stringify(newChestnutPig));
+    }
+    else if (newPigCategory == "white") {
+        let pigBreedInput = document.querySelector("#whitePigBreed");
+        let newPigBreed = pigBreedInput.value;
+        let pigRunningInput = document.querySelector("#whitePigInput");
+        let newPigRunningScore = parseInt(pigRunningInput.value);
+        let newWhitePig = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigRunningScore);
+        localStorage.setItem("whitePig", JSON.stringify(newWhitePig));
+    }
+    else {
+        let pigBreedInput = document.querySelector("#blackPigBreed");
+        let newPigBreed = pigBreedInput.value;
+        let pigStrengthInput = document.querySelector("#blackPigInput");
+        let newPigStrengthScore = parseInt(pigStrengthInput.value);
+        let newBlackPig = new GreyPig(newPigName, newPigCategory, newPigBreed, newPigHeight, newPigWeight, newPigPersonality, newPigStrengthScore);
+        localStorage.setItem("blackPig", JSON.stringify(newBlackPig));
+    }
 });
 /*Show the add pig table and hide it on addPigButton press*/
 let tableShowing = false;
