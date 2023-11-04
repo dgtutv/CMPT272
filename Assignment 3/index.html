@@ -26,23 +26,23 @@
         <table id="addPigTable">
             <tr>
                 <td>Name</td>
-                <td><input type="text" id="newPigName"></td>
+                <td><input type="text" id="newPigName" required></td>
             </tr>
             <tr name="breed">
                 <td>Breed</td>
-                <td><input type="text" id="newPigBreed"></td>
+                <td><input type="text" id="newPigBreed" required></td>
             </tr>
             <tr name="height">
                 <td>Height</td>
-                <td><input type="number" step=".1" id="newPigHeight">cm</td>
+                <td><input type="number" step=".1" id="newPigHeight" required>cm</td>
             </tr>
             <tr name="weight">
                 <td>Weight</td>
-                <td><input type="number" step=".1" id="newPigWeight">kg</td>
+                <td><input type="number" step=".1" id="newPigWeight" required>kg</td>
             </tr>
             <tr name="personality">
                 <td>Personality</td>
-                <td><input type="text" id="newPigPersonality"></td>
+                <td><input type="text" id="newPigPersonality" required></td>
             </tr>
             <tr name="category">
                 <td>Category</td>
@@ -53,7 +53,7 @@
                     <option value="white">White</option>    <!--breed, running ability score(integer, 0-100)-->
                     <option value="black">Black</option>    <!--breed, strength ability score(integer, 0-100)-->
                 </select></td>
-            </tr>
+            </tr><!--Add required attribute dynamically-->
             <tr class="hidden dynamic" id="greyPigDynamic1">
                 <td>Breed</td>
                 <td><select name="breedType">
@@ -99,7 +99,7 @@
                 <td><input type="number" step="1" min="0" max="100" value="0" id="strengthScore"></td>
             </tr>
         </table>
-        <button id="saveButton" class="hidden">Save</button>
+        <button id="saveButton" class="hidden" type="submit">Save</button>
     </form>
 </body>
 </html>

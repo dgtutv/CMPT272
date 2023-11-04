@@ -3,6 +3,9 @@ const addPigTable: HTMLTableElement = document.querySelector("#addPigTable");
 const newPigCategory: HTMLSelectElement = document.querySelector("#newPigCategory");
 const saveButton: HTMLButtonElement = document.querySelector("#saveButton");
 
+/*Save button functionality, get mad at user if field is unspecified*/
+
+
 /*Show the add pig table and hide it on addPigButton press*/
 let tableShowing: boolean = false;
 addPigButton.addEventListener('click', function(e){

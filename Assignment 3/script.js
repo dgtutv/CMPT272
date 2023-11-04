@@ -17,6 +17,7 @@ var addPigButton = document.querySelector("button");
 var addPigTable = document.querySelector("#addPigTable");
 var newPigCategory = document.querySelector("#newPigCategory");
 var saveButton = document.querySelector("#saveButton");
+/*Save button functionality, get mad at user if field is unspecified*/
 /*Show the add pig table and hide it on addPigButton press*/
 var tableShowing = false;
 addPigButton.addEventListener('click', function (e) {
