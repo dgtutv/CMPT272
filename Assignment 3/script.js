@@ -3,6 +3,10 @@ const addPigTable = document.querySelector("#addPigTable");
 const newPigCategory = document.querySelector("#newPigCategory");
 const saveButton = document.querySelector("#saveButton");
 /*Save button functionality*/
+const newPigForm = document.querySelector("#newPigForm");
+newPigForm.addEventListener("submit", function (e) {
+    let formData = new FormData(newPigForm);
+});
 /*Show the add pig table and hide it on addPigButton press*/
 let tableShowing = false;
 addPigButton.addEventListener('click', function (e) {
