@@ -510,3 +510,8 @@ class BlackPig extends GeneralPig{
         this.strengthScore=Math.floor(strengthScore);
     }
 }
+
+/*Issues:
+1. displayTable results are duplicated when links pressed
+2. moreInfoTable can be shown more than once
+3. Save button stays when the add pig form is minimized*/
