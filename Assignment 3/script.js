@@ -62,7 +62,7 @@ function updateDisplay() {
         moreInfoLink.classList.add("moreInfo");
         moreInfoLink.textContent = "More Info";
         moreInfoLink.setAttribute("href", "");
-        deleteLink.setAttribute("href", "");
+        deleteLink.setAttribute("href", ""); /*Get rid of attribute, while somehow maintaining styling*/
         newNameCol.textContent = currentPig.name;
         newCategoryCol.textContent = "White";
         newDeleteCol.appendChild(deleteLink);
@@ -192,9 +192,6 @@ function updateDisplay() {
     moreInfoLinks.forEach(function (currentLink) {
         currentLink.addEventListener("click", function (e) {
             let moreInfoTable = document.querySelector("#moreInfoTable");
-            if (moreInfoTable != null) {
-                informationTables.removeChild(moreInfoTable);
-            }
             let currentListName = currentLink.id.slice(1);
             let currentIndex = parseInt(currentLink.id.charAt(0));
             moreInfoTable = document.createElement("table");
@@ -217,6 +214,124 @@ function updateDisplay() {
                 const heightCol2 = document.createElement("td");
                 heightCol2.textContent = whitePigList[currentIndex].height.toString();
                 heightRow.appendChild(heightCol2);
+                const weightRow = document.createElement("tr");
+                moreInfoTable.appendChild(weightRow);
+                const weightCol1 = document.createElement("td");
+                weightCol1.textContent = "Weight";
+                weightRow.appendChild(weightCol1);
+                const weightCol2 = document.createElement("td");
+                weightCol2.textContent = whitePigList[currentIndex].weight.toString();
+                weightRow.appendChild(weightCol2);
+                const personalityRow = document.createElement("tr");
+                moreInfoTable.appendChild(personalityRow);
+                const personalityCol1 = document.createElement("td");
+                personalityCol1.textContent = "Personality";
+                personalityRow.appendChild(personalityCol1);
+                const personalityCol2 = document.createElement("td");
+                personalityCol2.textContent = whitePigList[currentIndex].personality;
+                personalityRow.appendChild(personalityCol2);
+            }
+            else if (currentListName == "blackPigList") {
+                const breedRow = document.createElement("tr");
+                moreInfoTable.appendChild(breedRow);
+                const breedCol1 = document.createElement("td");
+                breedCol1.textContent = "Breed";
+                breedRow.appendChild(breedCol1);
+                const breedCol2 = document.createElement("td");
+                breedCol2.textContent = blackPigList[currentIndex].breed;
+                breedRow.appendChild(breedCol2);
+                const heightRow = document.createElement("tr");
+                moreInfoTable.appendChild(heightRow);
+                const heightCol1 = document.createElement("td");
+                heightCol1.textContent = "Height";
+                heightRow.appendChild(heightCol1);
+                const heightCol2 = document.createElement("td");
+                heightCol2.textContent = blackPigList[currentIndex].height.toString();
+                heightRow.appendChild(heightCol2);
+                const weightRow = document.createElement("tr");
+                moreInfoTable.appendChild(weightRow);
+                const weightCol1 = document.createElement("td");
+                weightCol1.textContent = "Weight";
+                weightRow.appendChild(weightCol1);
+                const weightCol2 = document.createElement("td");
+                weightCol2.textContent = blackPigList[currentIndex].weight.toString();
+                weightRow.appendChild(weightCol2);
+                const personalityRow = document.createElement("tr");
+                moreInfoTable.appendChild(personalityRow);
+                const personalityCol1 = document.createElement("td");
+                personalityCol1.textContent = "Personality";
+                personalityRow.appendChild(personalityCol1);
+                const personalityCol2 = document.createElement("td");
+                personalityCol2.textContent = blackPigList[currentIndex].personality;
+                personalityRow.appendChild(personalityCol2);
+            }
+            else if (currentListName == "greyPigList") {
+                const breedRow = document.createElement("tr");
+                moreInfoTable.appendChild(breedRow);
+                const breedCol1 = document.createElement("td");
+                breedCol1.textContent = "Breed";
+                breedRow.appendChild(breedCol1);
+                const breedCol2 = document.createElement("td");
+                breedCol2.textContent = greyPigList[currentIndex].breed;
+                breedRow.appendChild(breedCol2);
+                const heightRow = document.createElement("tr");
+                moreInfoTable.appendChild(heightRow);
+                const heightCol1 = document.createElement("td");
+                heightCol1.textContent = "Height";
+                heightRow.appendChild(heightCol1);
+                const heightCol2 = document.createElement("td");
+                heightCol2.textContent = greyPigList[currentIndex].height.toString();
+                heightRow.appendChild(heightCol2);
+                const weightRow = document.createElement("tr");
+                moreInfoTable.appendChild(weightRow);
+                const weightCol1 = document.createElement("td");
+                weightCol1.textContent = "Weight";
+                weightRow.appendChild(weightCol1);
+                const weightCol2 = document.createElement("td");
+                weightCol2.textContent = greyPigList[currentIndex].weight.toString();
+                weightRow.appendChild(weightCol2);
+                const personalityRow = document.createElement("tr");
+                moreInfoTable.appendChild(personalityRow);
+                const personalityCol1 = document.createElement("td");
+                personalityCol1.textContent = "Personality";
+                personalityRow.appendChild(personalityCol1);
+                const personalityCol2 = document.createElement("td");
+                personalityCol2.textContent = greyPigList[currentIndex].personality;
+                personalityRow.appendChild(personalityCol2);
+            }
+            else if (currentListName == "chestnutPigList") {
+                const breedRow = document.createElement("tr");
+                moreInfoTable.appendChild(breedRow);
+                const breedCol1 = document.createElement("td");
+                breedCol1.textContent = "Breed";
+                breedRow.appendChild(breedCol1);
+                const breedCol2 = document.createElement("td");
+                breedCol2.textContent = chestnutPigList[currentIndex].breed;
+                breedRow.appendChild(breedCol2);
+                const heightRow = document.createElement("tr");
+                moreInfoTable.appendChild(heightRow);
+                const heightCol1 = document.createElement("td");
+                heightCol1.textContent = "Height";
+                heightRow.appendChild(heightCol1);
+                const heightCol2 = document.createElement("td");
+                heightCol2.textContent = chestnutPigList[currentIndex].height.toString();
+                heightRow.appendChild(heightCol2);
+                const weightRow = document.createElement("tr");
+                moreInfoTable.appendChild(weightRow);
+                const weightCol1 = document.createElement("td");
+                weightCol1.textContent = "Weight";
+                weightRow.appendChild(weightCol1);
+                const weightCol2 = document.createElement("td");
+                weightCol2.textContent = chestnutPigList[currentIndex].weight.toString();
+                weightRow.appendChild(weightCol2);
+                const personalityRow = document.createElement("tr");
+                moreInfoTable.appendChild(personalityRow);
+                const personalityCol1 = document.createElement("td");
+                personalityCol1.textContent = "Personality";
+                personalityRow.appendChild(personalityCol1);
+                const personalityCol2 = document.createElement("td");
+                personalityCol2.textContent = chestnutPigList[currentIndex].personality;
+                personalityRow.appendChild(personalityCol2);
             }
         });
     });
