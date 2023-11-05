@@ -190,13 +190,29 @@ function updateDisplay() {
     const moreInfoLinks = document.querySelectorAll(".moreInfo");
     moreInfoLinks.forEach(function (currentLink) {
         currentLink.addEventListener("click", function (e) {
-            let moreInfoTable = document.querySelector("#moreInfoTable");
             let currentListName = currentLink.id.slice(1);
+            let moreInfoTable = document.querySelector("#moreInfoTable");
             let currentIndex = parseInt(currentLink.id.charAt(0));
+            if (moreInfoTable != null) {
+                if (moreInfoTable.classList.contains(currentLink.id)) {
+                    informationTables.removeChild(moreInfoTable);
+                    return;
+                }
+                informationTables.removeChild(moreInfoTable);
+            }
             moreInfoTable = document.createElement("table");
             informationTables.appendChild(moreInfoTable);
             moreInfoTable.id = "moreInfoTable";
+            moreInfoTable.classList.add(currentLink.id);
             if (currentListName == "whitePigList") {
+                const nameRow = document.createElement("tr");
+                moreInfoTable.appendChild(nameRow);
+                const nameCol1 = document.createElement("td");
+                nameCol1.textContent = "Name";
+                nameRow.appendChild(nameCol1);
+                const nameCol2 = document.createElement("td");
+                nameCol2.textContent = whitePigList[currentIndex].name;
+                nameRow.appendChild(nameCol2);
                 const breedRow = document.createElement("tr");
                 moreInfoTable.appendChild(breedRow);
                 const breedCol1 = document.createElement("td");
@@ -231,6 +247,14 @@ function updateDisplay() {
                 personalityRow.appendChild(personalityCol2);
             }
             else if (currentListName == "blackPigList") {
+                const nameRow = document.createElement("tr");
+                moreInfoTable.appendChild(nameRow);
+                const nameCol1 = document.createElement("td");
+                nameCol1.textContent = "Name";
+                nameRow.appendChild(nameCol1);
+                const nameCol2 = document.createElement("td");
+                nameCol2.textContent = blackPigList[currentIndex].name;
+                nameRow.appendChild(nameCol2);
                 const breedRow = document.createElement("tr");
                 moreInfoTable.appendChild(breedRow);
                 const breedCol1 = document.createElement("td");
@@ -265,6 +289,14 @@ function updateDisplay() {
                 personalityRow.appendChild(personalityCol2);
             }
             else if (currentListName == "greyPigList") {
+                const nameRow = document.createElement("tr");
+                moreInfoTable.appendChild(nameRow);
+                const nameCol1 = document.createElement("td");
+                nameCol1.textContent = "Name";
+                nameRow.appendChild(nameCol1);
+                const nameCol2 = document.createElement("td");
+                nameCol2.textContent = greyPigList[currentIndex].name;
+                nameRow.appendChild(nameCol2);
                 const breedRow = document.createElement("tr");
                 moreInfoTable.appendChild(breedRow);
                 const breedCol1 = document.createElement("td");
@@ -299,6 +331,14 @@ function updateDisplay() {
                 personalityRow.appendChild(personalityCol2);
             }
             else if (currentListName == "chestnutPigList") {
+                const nameRow = document.createElement("tr");
+                moreInfoTable.appendChild(nameRow);
+                const nameCol1 = document.createElement("td");
+                nameCol1.textContent = "Name";
+                nameRow.appendChild(nameCol1);
+                const nameCol2 = document.createElement("td");
+                nameCol2.textContent = chestnutPigList[currentIndex].name;
+                nameRow.appendChild(nameCol2);
                 const breedRow = document.createElement("tr");
                 moreInfoTable.appendChild(breedRow);
                 const breedCol1 = document.createElement("td");
@@ -474,5 +514,4 @@ class BlackPig extends GeneralPig {
     }
 }
 /*Issues:
-1. moreInfoTable can be shown more than once
-2. Save button stays when the add pig form is minimized*/ 
+1. Save button stays when the add pig form is minimized*/ 
