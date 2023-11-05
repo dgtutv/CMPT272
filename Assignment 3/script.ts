@@ -65,8 +65,6 @@ function updateDisplay(){
         deleteLink.classList.add("delete");
         moreInfoLink.classList.add("moreInfo");
         moreInfoLink.textContent = "More Info";
-        moreInfoLink.setAttribute("href", "");
-        deleteLink.setAttribute("href", "");        /*Get rid of attribute, while somehow maintaining styling*/
         newNameCol.textContent = currentPig.name;
         newCategoryCol.textContent = "White";
         newDeleteCol.appendChild(deleteLink);
@@ -92,8 +90,6 @@ function updateDisplay(){
         deleteLink.classList.add("delete");
         moreInfoLink.classList.add("moreInfo");
         moreInfoLink.textContent = "More Info";
-        moreInfoLink.setAttribute("href", "");
-        deleteLink.setAttribute("href", "");
         newNameCol.textContent = currentPig.name;
         newCategoryCol.textContent = "Black";
         newDeleteCol.appendChild(deleteLink);
@@ -119,8 +115,6 @@ function updateDisplay(){
         deleteLink.classList.add("delete");
         moreInfoLink.classList.add("moreInfo");
         moreInfoLink.textContent = "More Info";
-        moreInfoLink.setAttribute("href", "");
-        deleteLink.setAttribute("href", "");
         newNameCol.textContent = currentPig.name;
         newCategoryCol.textContent = "Grey";
         newDeleteCol.appendChild(deleteLink);
@@ -146,8 +140,6 @@ function updateDisplay(){
         deleteLink.classList.add("delete");
         moreInfoLink.classList.add("moreInfo");
         moreInfoLink.textContent = "More Info";
-        moreInfoLink.setAttribute("href", "");
-        deleteLink.setAttribute("href", "");
         newNameCol.textContent = currentPig.name;
         newCategoryCol.textContent = "Chestnut";
         newDeleteCol.appendChild(deleteLink);
