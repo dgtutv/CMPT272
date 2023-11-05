@@ -2,8 +2,9 @@ const addPigButton: HTMLButtonElement = document.querySelector("button");
 const addPigTable: HTMLTableElement = document.querySelector("#addPigTable");
 const newPigCategory: HTMLSelectElement = document.querySelector("#newPigCategory");
 const saveButton: HTMLButtonElement = document.querySelector("#saveButton");
-const displayTableBody: HTMLTableSectionElement = document.querySelector("#displayTableBody");
+let displayTableBody: HTMLTableSectionElement = document.querySelector("#displayTableBody");
 const informationTables: HTMLDivElement = document.querySelector("#informationTables");
+const displayTable: HTMLTableElement = document.querySelector("#displayTable");
 
 /*Pull data from local storage*/
 let whitePigListJSON: string = localStorage.getItem("whitePigArray");
@@ -52,6 +53,13 @@ function updateLocalStorage(){
 
 /*Function to update the display table*/
 function updateDisplay(){   
+    /*Delete the table*/
+    displayTableBody.remove();
+    displayTableBody = document.createElement("tbody");
+    displayTableBody.id = "displayTableBody";
+    displayTable.appendChild(displayTableBody);
+
+    /*Recreate it with the new info*/
     for(let i: number = 0; i<whitePigList.length; i++){
         let currentPig: Pig = whitePigList[i];
         const newRow: HTMLTableRowElement = document.createElement("tr");
@@ -512,6 +520,5 @@ class BlackPig extends GeneralPig{
 }
 
 /*Issues:
-1. displayTable results are duplicated when links pressed
-2. moreInfoTable can be shown more than once
-3. Save button stays when the add pig form is minimized*/
+1. moreInfoTable can be shown more than once
+2. Save button stays when the add pig form is minimized*/

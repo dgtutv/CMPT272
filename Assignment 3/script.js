@@ -2,8 +2,9 @@ const addPigButton = document.querySelector("button");
 const addPigTable = document.querySelector("#addPigTable");
 const newPigCategory = document.querySelector("#newPigCategory");
 const saveButton = document.querySelector("#saveButton");
-const displayTableBody = document.querySelector("#displayTableBody");
+let displayTableBody = document.querySelector("#displayTableBody");
 const informationTables = document.querySelector("#informationTables");
+const displayTable = document.querySelector("#displayTable");
 /*Pull data from local storage*/
 let whitePigListJSON = localStorage.getItem("whitePigArray");
 let blackPigListJSON = localStorage.getItem("blackPigArray");
@@ -48,6 +49,12 @@ function updateLocalStorage() {
 }
 /*Function to update the display table*/
 function updateDisplay() {
+    /*Delete the table*/
+    displayTableBody.remove();
+    displayTableBody = document.createElement("tbody");
+    displayTableBody.id = "displayTableBody";
+    displayTable.appendChild(displayTableBody);
+    /*Recreate it with the new info*/
     for (let i = 0; i < whitePigList.length; i++) {
         let currentPig = whitePigList[i];
         const newRow = document.createElement("tr");
@@ -467,6 +474,5 @@ class BlackPig extends GeneralPig {
     }
 }
 /*Issues:
-1. displayTable results are duplicated when links pressed
-2. moreInfoTable can be shown more than once
-3. Save button stays when the add pig form is minimized*/ 
+1. moreInfoTable can be shown more than once
+2. Save button stays when the add pig form is minimized*/ 
