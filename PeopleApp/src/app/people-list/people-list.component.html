@@ -1,4 +1,5 @@
-<app-person>
-    *ngFor="let p of people";
-    [person]="p"; <!--Assign p to person, and send to add person-->
-</app-person>
+<!--Assign p to person, and send to add person-->
+<app-person
+    *ngFor="let p of people"
+    [person]="p"
+></app-person>
