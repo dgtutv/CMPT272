@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-person',
@@ -6,13 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./person.component.css']
 })
 export class PersonComponent {
-  person: any;
+  @Input() person: any; //Tells typescirpt this is a input from another component
 
   constructor(){
-    this.person = {
-      name: 'Bobby',
-      instructor: true,
-      added_on: new Date().getTime() //Num of ms since a given time
-    };
+
   }
 }
