@@ -1,0 +1,13 @@
+/* Only affects styling in this component */
+p{
+    border: 1px solid black;
+    border-radius: 0.5em;
+    width: 80vw;
+    padding: 1em;
+    margin: 0.5em;
+    user-select: none; /*Disallows the user from selecting things inside this paragraph*/
+}
+button{
+    margin-top: 0.5em;
+
+}
