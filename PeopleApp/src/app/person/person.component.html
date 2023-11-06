@@ -2,6 +2,8 @@
     Name: {{person.name}} <br>
     Added on: <span [textContent]="person.added_on"></span> <br>
     Instructor: {{person.instructor}} <br>
-    <button class="btn btn-outline-danger">DELETE</button> <!--Bootstrap is whats happening with classes-->
+    <button class="btn btn-outline-danger"
+    (click)="onDelete($event, person.name)"
+    >DELETE</button> <!--Bootstrap is whats happening with classes-->
     <button class="btn btn-outline-primary">EDIT</button>
 </p>

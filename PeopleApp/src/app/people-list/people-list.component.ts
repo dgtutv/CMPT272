@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 export class PeopleListComponent {
   people;
   query: string;
+  onPersonDelete(event: any){
+    let personToDelete  = event['delete-person'];
+    this.people = this.people.filter((p) => p.name != personToDelete);  
+  }
   constructor(){
     this.query = '';
     this.people = [
@@ -33,4 +37,6 @@ export class PeopleListComponent {
       },
     ];
   };
+
+
 }
