@@ -627,6 +627,3 @@ class BlackPig extends GeneralPig{
         this.strengthScore=Math.floor(strengthScore);
     }
 }
-
-/*Issues:
-1. Save button stays when the add pig form is minimized*/
