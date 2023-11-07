@@ -1,13 +1,19 @@
 body{
-   background-color: rgb(255,196,207);
+   background-color: white;
    color: black;
    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   background-image: url("background.jpg");   /*Surya Ali Zaidan's art*/
+   background-size: 70%;
+   background-repeat: no-repeat;
+   background-position-x: right;
 }
 table{
    border: 1px black solid;
    border-collapse: collapse;
-   background-color: rgb(231,173,133);
+   background-color: rgb(246,177,177);
 }
+
+
 th{
    border: 1px black solid;
    padding: 5px;
