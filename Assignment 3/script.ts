@@ -515,6 +515,11 @@ let tableShowing: boolean = false;
 addPigButton.addEventListener('click', function(e){
     if(tableShowing){
         addPigTable.style.display =  'none';
+        if(!saveButton.classList.contains("hidden")){
+            saveButton.classList.add("hidden");
+        }
+        newPigCategory.value = "default";
+        hideAllDynamicPig();
     }
     else{
         addPigTable.style.display = 'table';
