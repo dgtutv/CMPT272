@@ -51,3 +51,7 @@ a:hover{
    color: purple;
    cursor: pointer;
 }
+
+.leftCol{
+   font-weight: bold;
+}

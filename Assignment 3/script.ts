@@ -217,6 +217,7 @@ function updateDisplay(){
                 moreInfoTable.appendChild(nameRow);
                 const nameCol1: HTMLTableCellElement = document.createElement("td");
                 nameCol1.textContent = "Name"
+                nameCol1.classList.add("leftCol");
                 nameRow.appendChild(nameCol1);
                 const nameCol2: HTMLTableCellElement = document.createElement("td");
                 nameCol2.textContent = whitePigList[currentIndex].name;
@@ -227,6 +228,7 @@ function updateDisplay(){
                 const breedCol1: HTMLTableCellElement = document.createElement("td");
                 breedCol1.textContent = "Breed"
                 breedRow.appendChild(breedCol1);
+                breedCol1.classList.add("leftCol");
                 const breedCol2: HTMLTableCellElement = document.createElement("td");
                 breedCol2.textContent = whitePigList[currentIndex].breed;
                 breedRow.appendChild(breedCol2);
@@ -236,6 +238,7 @@ function updateDisplay(){
                 const heightCol1: HTMLTableCellElement = document.createElement("td");
                 heightCol1.textContent = "Height"
                 heightRow.appendChild(heightCol1);
+                heightCol1.classList.add("leftCol");
                 const heightCol2: HTMLTableCellElement = document.createElement("td");
                 heightCol2.textContent = whitePigList[currentIndex].height.toString();
                 heightRow.appendChild(heightCol2);
@@ -245,6 +248,7 @@ function updateDisplay(){
                 const weightCol1: HTMLTableCellElement = document.createElement("td");
                 weightCol1.textContent = "Weight"
                 weightRow.appendChild(weightCol1);
+                weightCol1.classList.add("leftCol");
                 const weightCol2: HTMLTableCellElement = document.createElement("td");
                 weightCol2.textContent = whitePigList[currentIndex].weight.toString();
                 weightRow.appendChild(weightCol2);
@@ -254,9 +258,20 @@ function updateDisplay(){
                 const personalityCol1: HTMLTableCellElement = document.createElement("td");
                 personalityCol1.textContent = "Personality"
                 personalityRow.appendChild(personalityCol1);
+                personalityCol1.classList.add("leftCol");
                 const personalityCol2: HTMLTableCellElement = document.createElement("td");
                 personalityCol2.textContent = whitePigList[currentIndex].personality;
                 personalityRow.appendChild(personalityCol2);
+
+                const runningRow: HTMLTableRowElement = document.createElement("tr");
+                moreInfoTable.appendChild(runningRow);
+                const runningCol1: HTMLTableCellElement = document.createElement("td");
+                runningCol1.textContent = "Running Score"
+                runningCol1.classList.add("leftCol");
+                runningRow.appendChild(runningCol1);
+                const runningCol2: HTMLTableCellElement = document.createElement("td");
+                runningCol2.textContent = whitePigList[currentIndex].runningScore.toString();
+                runningRow.appendChild(runningCol2);
             }
             else if(currentListName == "blackPigList"){ 
                 const nameRow: HTMLTableRowElement = document.createElement("tr");
@@ -264,6 +279,7 @@ function updateDisplay(){
                 const nameCol1: HTMLTableCellElement = document.createElement("td");
                 nameCol1.textContent = "Name"
                 nameRow.appendChild(nameCol1);
+                nameCol1.classList.add("leftCol");
                 const nameCol2: HTMLTableCellElement = document.createElement("td");
                 nameCol2.textContent = blackPigList[currentIndex].name;
                 nameRow.appendChild(nameCol2);
@@ -273,6 +289,7 @@ function updateDisplay(){
                 const breedCol1: HTMLTableCellElement = document.createElement("td");
                 breedCol1.textContent = "Breed"
                 breedRow.appendChild(breedCol1);
+                breedCol1.classList.add("leftCol");
                 const breedCol2: HTMLTableCellElement = document.createElement("td");
                 breedCol2.textContent = blackPigList[currentIndex].breed;
                 breedRow.appendChild(breedCol2);
@@ -282,6 +299,7 @@ function updateDisplay(){
                 const heightCol1: HTMLTableCellElement = document.createElement("td");
                 heightCol1.textContent = "Height"
                 heightRow.appendChild(heightCol1);
+                heightCol1.classList.add("leftCol");
                 const heightCol2: HTMLTableCellElement = document.createElement("td");
                 heightCol2.textContent = blackPigList[currentIndex].height.toString();
                 heightRow.appendChild(heightCol2);
@@ -291,6 +309,7 @@ function updateDisplay(){
                 const weightCol1: HTMLTableCellElement = document.createElement("td");
                 weightCol1.textContent = "Weight"
                 weightRow.appendChild(weightCol1);
+                weightCol1.classList.add("leftCol");
                 const weightCol2: HTMLTableCellElement = document.createElement("td");
                 weightCol2.textContent = blackPigList[currentIndex].weight.toString();
                 weightRow.appendChild(weightCol2);
@@ -300,9 +319,20 @@ function updateDisplay(){
                 const personalityCol1: HTMLTableCellElement = document.createElement("td");
                 personalityCol1.textContent = "Personality"
                 personalityRow.appendChild(personalityCol1);
+                personalityCol1.classList.add("leftCol");
                 const personalityCol2: HTMLTableCellElement = document.createElement("td");
                 personalityCol2.textContent = blackPigList[currentIndex].personality;
                 personalityRow.appendChild(personalityCol2);
+
+                const strengthRow: HTMLTableRowElement = document.createElement("tr");
+                moreInfoTable.appendChild(strengthRow);
+                const strengthCol1: HTMLTableCellElement = document.createElement("td");
+                strengthCol1.textContent = "Strength Score"
+                strengthCol1.classList.add("leftCol");
+                strengthRow.appendChild(strengthCol1);
+                const strengthCol2: HTMLTableCellElement = document.createElement("td");
+                strengthCol2.textContent = blackPigList[currentIndex].strengthScore.toString();
+                strengthRow.appendChild(strengthCol2);
             }
             else if(currentListName == "greyPigList"){
                 const nameRow: HTMLTableRowElement = document.createElement("tr");
@@ -310,6 +340,7 @@ function updateDisplay(){
                 const nameCol1: HTMLTableCellElement = document.createElement("td");
                 nameCol1.textContent = "Name"
                 nameRow.appendChild(nameCol1);
+                nameCol1.classList.add("leftCol");
                 const nameCol2: HTMLTableCellElement = document.createElement("td");
                 nameCol2.textContent = greyPigList[currentIndex].name;
                 nameRow.appendChild(nameCol2);
@@ -319,6 +350,7 @@ function updateDisplay(){
                 const breedCol1: HTMLTableCellElement = document.createElement("td");
                 breedCol1.textContent = "Breed"
                 breedRow.appendChild(breedCol1);
+                breedCol1.classList.add("leftCol");
                 const breedCol2: HTMLTableCellElement = document.createElement("td");
                 breedCol2.textContent = greyPigList[currentIndex].breed;
                 breedRow.appendChild(breedCol2);
@@ -328,6 +360,7 @@ function updateDisplay(){
                 const heightCol1: HTMLTableCellElement = document.createElement("td");
                 heightCol1.textContent = "Height"
                 heightRow.appendChild(heightCol1);
+                heightCol1.classList.add("leftCol");
                 const heightCol2: HTMLTableCellElement = document.createElement("td");
                 heightCol2.textContent = greyPigList[currentIndex].height.toString();
                 heightRow.appendChild(heightCol2);
@@ -337,6 +370,7 @@ function updateDisplay(){
                 const weightCol1: HTMLTableCellElement = document.createElement("td");
                 weightCol1.textContent = "Weight"
                 weightRow.appendChild(weightCol1);
+                weightCol1.classList.add("leftCol");
                 const weightCol2: HTMLTableCellElement = document.createElement("td");
                 weightCol2.textContent = greyPigList[currentIndex].weight.toString();
                 weightRow.appendChild(weightCol2);
@@ -346,9 +380,20 @@ function updateDisplay(){
                 const personalityCol1: HTMLTableCellElement = document.createElement("td");
                 personalityCol1.textContent = "Personality"
                 personalityRow.appendChild(personalityCol1);
+                personalityCol1.classList.add("leftCol");
                 const personalityCol2: HTMLTableCellElement = document.createElement("td");
                 personalityCol2.textContent = greyPigList[currentIndex].personality;
                 personalityRow.appendChild(personalityCol2);
+
+                const swimmingRow: HTMLTableRowElement = document.createElement("tr");
+                moreInfoTable.appendChild(swimmingRow);
+                const swimmingCol1: HTMLTableCellElement = document.createElement("td");
+                swimmingCol1.textContent = "Swimming Score"
+                swimmingCol1.classList.add("leftCol");
+                swimmingRow.appendChild(swimmingCol1);
+                const swimmingCol2: HTMLTableCellElement = document.createElement("td");
+                swimmingCol2.textContent = greyPigList[currentIndex].swimmingScore.toString();
+                swimmingRow.appendChild(swimmingCol2);
             }
             else if(currentListName == "chestnutPigList"){
                 const nameRow: HTMLTableRowElement = document.createElement("tr");
@@ -356,6 +401,7 @@ function updateDisplay(){
                 const nameCol1: HTMLTableCellElement = document.createElement("td");
                 nameCol1.textContent = "Name"
                 nameRow.appendChild(nameCol1);
+                nameCol1.classList.add("leftCol");
                 const nameCol2: HTMLTableCellElement = document.createElement("td");
                 nameCol2.textContent = chestnutPigList[currentIndex].name;
                 nameRow.appendChild(nameCol2);
@@ -365,6 +411,7 @@ function updateDisplay(){
                 const breedCol1: HTMLTableCellElement = document.createElement("td");
                 breedCol1.textContent = "Breed"
                 breedRow.appendChild(breedCol1);
+                breedCol1.classList.add("leftCol");
                 const breedCol2: HTMLTableCellElement = document.createElement("td");
                 breedCol2.textContent = chestnutPigList[currentIndex].breed;
                 breedRow.appendChild(breedCol2);
@@ -374,6 +421,7 @@ function updateDisplay(){
                 const heightCol1: HTMLTableCellElement = document.createElement("td");
                 heightCol1.textContent = "Height"
                 heightRow.appendChild(heightCol1);
+                heightCol1.classList.add("leftCol");
                 const heightCol2: HTMLTableCellElement = document.createElement("td");
                 heightCol2.textContent = chestnutPigList[currentIndex].height.toString();
                 heightRow.appendChild(heightCol2);
@@ -383,6 +431,7 @@ function updateDisplay(){
                 const weightCol1: HTMLTableCellElement = document.createElement("td");
                 weightCol1.textContent = "Weight"
                 weightRow.appendChild(weightCol1);
+                weightCol1.classList.add("leftCol");
                 const weightCol2: HTMLTableCellElement = document.createElement("td");
                 weightCol2.textContent = chestnutPigList[currentIndex].weight.toString();
                 weightRow.appendChild(weightCol2);
@@ -392,9 +441,20 @@ function updateDisplay(){
                 const personalityCol1: HTMLTableCellElement = document.createElement("td");
                 personalityCol1.textContent = "Personality"
                 personalityRow.appendChild(personalityCol1);
+                personalityCol1.classList.add("leftCol");
                 const personalityCol2: HTMLTableCellElement = document.createElement("td");
                 personalityCol2.textContent = chestnutPigList[currentIndex].personality;
                 personalityRow.appendChild(personalityCol2);
+
+                const languageRow: HTMLTableRowElement = document.createElement("tr");
+                moreInfoTable.appendChild(languageRow);
+                const languageCol1: HTMLTableCellElement = document.createElement("td");
+                languageCol1.textContent = "Language"
+                languageCol1.classList.add("leftCol");
+                languageRow.appendChild(languageCol1);
+                const languageCol2: HTMLTableCellElement = document.createElement("td");
+                languageCol2.textContent = chestnutPigList[currentIndex].language;
+                languageRow.appendChild(languageCol2);
             }
         });
         
