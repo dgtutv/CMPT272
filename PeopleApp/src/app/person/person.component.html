@@ -1,7 +1,9 @@
 <p> <!--Tempate for person, gets invocted by people-list alike a function-->
     Name: {{person.name}} <br>
     Added on: <span [textContent]="person.added_on"></span> <br>
-    Instructor: {{person.instructor}} <br>
+    Instructor: <span *ngIf="person.instructor; then instructor else notInstructor"></span> <br>
+    <ng-template #instructor>&check;</ng-template>
+    <ng-template #notInstructor>X</ng-template>
     <button class="btn btn-outline-danger"
     (click)="onDelete($event, person.name)"
     >DELETE</button> <!--Bootstrap is whats happening with classes-->

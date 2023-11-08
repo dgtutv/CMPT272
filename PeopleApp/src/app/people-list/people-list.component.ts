@@ -22,7 +22,7 @@ export class PeopleListComponent {
       },
       {
         name: 'Jenny',
-        instructor: true,
+        instructor: false,
         added_on: new Date().getTime() //Num of ms since a given time
       },
       {
@@ -32,7 +32,7 @@ export class PeopleListComponent {
       },
       {
         name: 'Steve',
-        instructor: true,
+        instructor: false,
         added_on: new Date().getTime() //Num of ms since a given time
       },
     ];
