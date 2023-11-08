@@ -11,3 +11,9 @@ button{
     margin-top: 0.5em;
 
 }
+
+/*Using attribute directives to set this */
+.instructorStyle{
+    border: 2px solid orange;
+    box-shadow: 5px 10px 10px grey;
+}
