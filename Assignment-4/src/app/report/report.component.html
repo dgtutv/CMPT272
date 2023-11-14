@@ -1,0 +1,11 @@
+<p>
+    Baddie's Name: {{report.name}} <br>
+    Location: {{report.location}} <br>
+    Reported By: {{report.reporterName}} <br>
+    Time: {{report.time}} <br>
+    Status: <span *ngIf="report.open; then open else closed"></span> <br>
+    <ng-template #open>OPEN</ng-template>
+    <ng-template #closed>CLOSED</ng-template>
+    Extra Info: <br>
+    {{report.extraInfo}}
+</p>
