@@ -1,0 +1,18 @@
+ <p >
+    <!--Tempate for report, gets invocted by report-list alike a function-->
+    Name of witness: {{report.witnessName}} <br>
+    Phone number of witness: <span [textContent]="report.witnessNumber"></span> <br>
+    Name of criminal: {{report.criminalName}} <br>
+    Location of crime: {{report.location}} <br>
+
+
+    <!--ngIf is a structural directive:-->
+    Image: <span *ngIf="report.hasPicture; then hasPicture else noPicture"></span> <br> 
+    <ng-template #hasPicture> <img src={{report.picture}} alt="Report Image"> </ng-template>
+    <ng-template #noPicture>No Image</ng-template>
+
+    <button class="btn btn-outline-danger"
+    (click)="onDelete($event, report.id)"
+    >DELETE</button> <!--Bootstrap is whats happening with classes-->
+    <button class="btn btn-outline-primary">EDIT</button>
+</p>
