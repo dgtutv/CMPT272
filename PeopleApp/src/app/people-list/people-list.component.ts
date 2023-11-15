@@ -18,6 +18,7 @@ export class PeopleListComponent {
       {
       name: 'Bobby',
       instructor: true,
+      /*use a pipe to make this display nicely via the video*/
       added_on: new Date().getTime() //Num of ms since a given time
       },
       {
