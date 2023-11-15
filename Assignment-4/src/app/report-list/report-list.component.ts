@@ -17,6 +17,7 @@ export class ReportListComponent {
     this.reports = [
       {
       name: 'Monster X',
+      id: "0",
       location: 'Metrotown',
       hasImage: true,
       witnessName: "Felix",

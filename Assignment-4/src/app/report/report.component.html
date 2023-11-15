@@ -13,8 +13,8 @@
     <ng-template #noPicture>No Image</ng-template>
 
     Status: <span *ngIf="report.openCase; then openCase else closedCase"></span> <br> 
-    <ng-template #hasPicture>OPEN</ng-template>
-    <ng-template #noPicture>CLOSED</ng-template>
+    <ng-template #openCase>OPEN</ng-template>
+    <ng-template #closedCase>CLOSED</ng-template>
 
     <button class="btn btn-outline-danger"
     (click)="onDelete($event, report.id)"
