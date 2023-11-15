@@ -16,7 +16,7 @@ export class ReportListComponent {
     this.query = '';
     this.reports = [
       {
-      name: 'Monster X',
+      criminalName: 'Monster X',
       id: "0",
       location: 'Metrotown',
       hasImage: true,

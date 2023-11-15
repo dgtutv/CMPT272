@@ -6,7 +6,7 @@ SEARCH <input type="text" [(ngModel)]="query"> {{query}}  <!--query is a variabl
 </p>  -->
 
 <!--Assign p to person, and send to add person-->
-<!-- Issue is with the search pipe below -->
+<!-- Issue is with the search pipe below  |search: query-->
 <app-report
     *ngFor="let r of reports | search: query" 
     [report]="r"
