@@ -15,11 +15,12 @@
     Status: <span *ngIf="report.openCase; then openCase else closedCase"></span> <br> 
     <ng-template #openCase>OPEN</ng-template>
     <ng-template #closedCase>CLOSED</ng-template>
+    Extra Info: {{report.extraInfo}} <br>
 
     <button class="btn btn-outline-danger"
     (click)="onDelete($event, report.id)"
     >DELETE</button> <!--Bootstrap is whats happening with classes-->
     <button class="btn btn-outline-primary">EDIT</button>
 
-    Extra Info: {{report.extraInfo}}
+
 </p>
