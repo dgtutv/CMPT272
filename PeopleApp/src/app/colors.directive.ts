@@ -12,20 +12,18 @@ export class ColorsDirective {
     'Grey',
     'Purple',
     'White'
-  ];
+  ]
 
-  i: number = 0;
+  i = 0
 
   constructor() { }
 
-  //Initially set the background color to white
-  @HostBinding('style.backgroundColor')
-  bgColor:string = 'white';
+  @HostBinding('style.background-color') 
+  bgColor:string = 'White'
 
-  //Change the background color when linked host is clicked
-  @HostListener("click")
+  @HostListener('click') 
   changeColor(){
-    this.bgColor = this.colors[this.i % this.colors.length];
-    this.i++;
+    this.bgColor = this.colors[this.i]
+    this.i = ++this.i % this.colors.length
   }
 }

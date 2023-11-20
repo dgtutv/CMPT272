@@ -1,19 +1,15 @@
-/* Only affects styling in this component */
-p{
+p {
     border: 1px solid black;
     border-radius: 0.5em;
     width: 80vw;
-    padding: 1em;
-    margin: 0.5em;
-    user-select: none; /*Disallows the user from selecting things inside this paragraph*/
+    padding:1em;
+    margin:0.5em;
+    user-select:none;
 }
-button{
-    margin-top: 0.5em;
-
+button {
+    margin-top:0.5em;
 }
-
-/*Using attribute directives to set this */
-.instructorStyle{
+.inst-style {
     border: 2px solid orange;
     box-shadow: 5px 10px 10px grey;
 }

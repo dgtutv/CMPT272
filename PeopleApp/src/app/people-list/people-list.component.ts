@@ -6,38 +6,41 @@ import { Component } from '@angular/core';
   styleUrls: ['./people-list.component.css']
 })
 export class PeopleListComponent {
-  people;
-  query: string;
-  onPersonDelete(event: any){
-    let personToDelete  = event['delete-person'];
-    this.people = this.people.filter((p) => p.name != personToDelete);  
-  }
+  people
+  query: string
   constructor(){
-    this.query = '';
+    this.query = ''
     this.people = [
       {
-      name: 'Bobby',
-      instructor: true,
-      /*use a pipe to make this display nicely via the video*/
-      added_on: new Date().getTime() //Num of ms since a given time
-      },
-      {
-        name: 'Jenny',
+        name: 'john',
         instructor: false,
-        added_on: new Date().getTime() //Num of ms since a given time
+        added_on: new Date().getTime()
       },
       {
-        name: 'Jane',
+        name: 'bobby',
+        instructor: false,
+        added_on: new Date().getTime()
+      },
+      {
+        name: 'jenny',
         instructor: true,
-        added_on: new Date().getTime() //Num of ms since a given time
+        added_on: new Date().getTime()
       },
       {
-        name: 'Steve',
-        instructor: false,
-        added_on: new Date().getTime() //Num of ms since a given time
+        name: 'jane',
+        instructor: true,
+        added_on: new Date().getTime()
       },
-    ];
-  };
+      {
+        name: 'steve',
+        instructor: true,
+        added_on: new Date().getTime()
+      }
+    ]
+  }
 
-
+  onPersonDelete(evt:any) {
+    let delete_person = evt['delete_person'] 
+    this.people = this.people.filter((p) => p.name != delete_person)
+  }
 }
