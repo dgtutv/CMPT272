@@ -12,6 +12,7 @@ import { ReportPageComponent } from './report-page/report-page.component';
 import { InfoPageComponent } from './info-page/info-page.component';
 
 import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
-    RouterModule
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
