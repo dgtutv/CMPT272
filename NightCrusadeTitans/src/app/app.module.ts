@@ -11,8 +11,9 @@ import { MostWantedPageComponent } from './most-wanted-page/most-wanted-page.com
 import { ReportPageComponent } from './report-page/report-page.component';
 import { InfoPageComponent } from './info-page/info-page.component';
 
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     MapComponent,
     MostWantedPageComponent,
     ReportPageComponent,
-    InfoPageComponent
+    InfoPageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

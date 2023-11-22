@@ -7,3 +7,17 @@
     background-color: #1f2937;
     color: white;
 }
+a{
+    text-decoration: none;
+}
+.headerLinks{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    padding: 0 4%;
+}
+
+a:hover{
+    color: gray;
+}
