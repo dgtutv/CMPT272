@@ -1,0 +1,9 @@
+:host{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    padding: 1%;
+    background-color: #1f2937;
+    color: white;
+}
