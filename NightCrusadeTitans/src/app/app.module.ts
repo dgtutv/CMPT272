@@ -13,7 +13,6 @@ import { InfoPageComponent } from './info-page/info-page.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +24,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MapComponent,
     MostWantedPageComponent,
     ReportPageComponent,
-    InfoPageComponent,
-    PageNotFoundComponent
+    InfoPageComponent
   ],
   imports: [
     BrowserModule,
