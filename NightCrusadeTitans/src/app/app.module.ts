@@ -14,6 +14,8 @@ import { InfoPageComponent } from './info-page/info-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
   imports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
