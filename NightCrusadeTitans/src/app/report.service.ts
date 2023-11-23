@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ReportServicerService {
+export class ReportService {
   reports: Array<Report>
   constructor() {
     this.reports = this.pull();
