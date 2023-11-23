@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ReportService } from '../report.service';
+import { ReportListComponent } from '../report-list/report-list.component';
 
 @Component({
   selector: 'app-report-page',
@@ -8,10 +10,10 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class ReportPageComponent {
   form: FormGroup;
-  constructor() {
+  constructor(private reportService:ReportService) {
     let formControls = {
       reporterName: new FormControl("",[Validators.required, Validators.minLength(2)]),
-      phoneNumber: new FormControl("",[Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
+      phoneNumber: new FormControl("",[Validators.required]),
       suspectName: new FormControl("",[Validators.required, Validators.minLength(2)]),
       locationName: new FormControl("",[Validators.required, Validators.minLength(5)]),
       longitude: new FormControl("",[Validators.required]),
@@ -23,13 +25,15 @@ export class ReportPageComponent {
   }
 
   onSubmit(newReport:Report){
-    console.log(newReport);
+    newReport.id = this.reportService.generateId();-
+    this.reportService.push(newReport);
+    this.form.reset();
   }
 
 }
 
 class Report {
-  id: string
+  id: number
   reporterName: string
   phoneNumber: number
   suspectName: string
@@ -38,7 +42,7 @@ class Report {
   latitude: number
   picture?: HTMLImageElement
   extraInfo: string
-  constructor(reporterName:string, phoneNumber:number, suspectName: string, locationName: string, longitude: number, latitude: number, picture: HTMLImageElement, extraInfo: string, id: string){
+  constructor(reporterName:string, phoneNumber:number, suspectName: string, locationName: string, longitude: number, latitude: number, picture: HTMLImageElement, extraInfo: string, id: number){
     this.reporterName = reporterName;
     this.phoneNumber = phoneNumber;
     this.suspectName = suspectName;

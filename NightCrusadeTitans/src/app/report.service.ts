@@ -45,10 +45,23 @@ export class ReportService {
     }
     return false;
   }
+  generateId(): number{
+    let idJSON:any = localStorage.getItem("prevID");
+    if(idJSON != null){
+      let id: number = JSON.parse(idJSON)+1;
+      localStorage.setItem("prevID", id.toString());
+      return id;
+    }
+    else{
+      let id = 0;
+      localStorage.setItem("prevID", "0");
+      return id;
+    }
+  }
 }
 
 class Report {
-  id: string
+  id: number
   reporterName: string
   phoneNumber: number
   suspectName: string
@@ -57,7 +70,7 @@ class Report {
   latitude: number
   picture?: HTMLImageElement
   extraInfo: string
-  constructor(reporterName:string, phoneNumber:number, suspectName: string, locationName: string, longitude: number, latitude: number, picture: HTMLImageElement, extraInfo: string, id: string){
+  constructor(reporterName:string, phoneNumber:number, suspectName: string, locationName: string, longitude: number, latitude: number, picture: HTMLImageElement, extraInfo: string, id: number){
     this.reporterName = reporterName;
     this.phoneNumber = phoneNumber;
     this.suspectName = suspectName;
