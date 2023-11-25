@@ -1,25 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { ReportService } from '../report.service';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-report-list',
-  templateUrl: './report-list.component.html',
-  styleUrls: ['./report-list.component.css']
+  selector: 'app-report',
+  templateUrl: './report.component.html',
+  styleUrls: ['./report.component.css']
 })
-export class ReportListComponent implements OnInit {
-  reports: Array<Report>;
-  constructor(private rs:ReportService) { 
-    this.reports = [];
-  }
+export class ReportComponent{
+  @Input() report!:Report
 
-  ngOnInit(): void {
-    this.reports = this.rs.pull();
-  }
 
-  onReportDelete(reportToBeDeleted:Report): void{
-    this.reports = new Array<Report>;
-    this.rs.delete(reportToBeDeleted);
-  }
+  constructor(private router: Router) { }
+
 
 }
 

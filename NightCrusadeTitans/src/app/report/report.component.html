@@ -1,0 +1,8 @@
+<p>
+    Location: {{report.reporterName}} <br>
+    Suspect Name: {{report.suspectName}} <br>
+    Time Reported: {{report.timeReported}} <br>
+    Status: <span *ngIf="report.resolved; then resolved else notResolved"></span> <br>
+    <ng-template #resolved>Resolved</ng-template>
+    <ng-template #notResolved>Not Resolved</ng-template>
+</p>

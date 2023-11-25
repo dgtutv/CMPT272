@@ -14,6 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MapComponent,
     MostWantedPageComponent,
     ReportPageComponent,
-    InfoPageComponent
+    InfoPageComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

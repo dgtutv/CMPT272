@@ -26,7 +26,9 @@ export class ReportPageComponent {
   }
 
   onSubmit(newReport:Report){
-    newReport.id = this.reportService.generateId();-
+    newReport.id = this.reportService.generateId();
+    newReport.timeReported = new Date().getTime();
+    newReport.resolved = false;
     this.reportService.push(newReport);
     this.form.reset();
     this.router.navigate(["/home"]);
@@ -44,13 +46,17 @@ class Report {
   latitude: number
   picture?: HTMLImageElement
   extraInfo: string
-  constructor(reporterName:string, phoneNumber:number, suspectName: string, locationName: string, longitude: number, latitude: number, picture: HTMLImageElement, extraInfo: string, id: number){
+  timeReported: number
+  resolved: boolean
+  constructor(reporterName:string, phoneNumber:number, suspectName: string, locationName: string, longitude: number, latitude: number, picture: HTMLImageElement, extraInfo: string, id: number, timeReported: number, resolved: boolean){
     this.reporterName = reporterName;
     this.phoneNumber = phoneNumber;
     this.suspectName = suspectName;
     this.locationName = locationName;
     this.longitude = longitude;
     this.latitude = latitude;
+    this.timeReported = timeReported;
+    this.resolved = resolved;
     if(picture != null){
       this.picture = picture;
     }
