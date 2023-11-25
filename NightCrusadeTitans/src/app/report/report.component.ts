@@ -9,10 +9,11 @@ import { Router } from '@angular/router';
 export class ReportComponent{
   @Input() report!:Report
 
-
   constructor(private router: Router) { }
 
-
+  toggleMoreInfo(report: Report) {
+    report.showMoreInfo = !report.showMoreInfo;
+  }
 }
 
 class Report {
@@ -27,6 +28,8 @@ class Report {
   extraInfo: string
   timeReported: number
   resolved: boolean
+  showMoreInfo: boolean = false; 
+
   constructor(reporterName:string, phoneNumber:number, suspectName: string, locationName: string, longitude: number, latitude: number, picture: HTMLImageElement, extraInfo: string, id: number, timeReported: number, resolved: boolean){
     this.reporterName = reporterName;
     this.phoneNumber = phoneNumber;
