@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Report } from '../shared/report';
+import { ReportService } from '../report.service';
 
 @Component({
   selector: 'app-report',
@@ -8,11 +9,17 @@ import { Report } from '../shared/report';
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent{
-  @Input() report!:Report
+  @Input() report!:Report;
+  @Output() reportDeleted = new EventEmitter<Report>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private reportService: ReportService) { }
 
   toggleMoreInfo(report: Report) {
     report.showMoreInfo = !report.showMoreInfo;
+  }
+
+  deleteReport(report: Report) {
+    this.reportService.delete(report);
+    this.reportDeleted.emit(report);
   }
 }

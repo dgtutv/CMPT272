@@ -12,8 +12,7 @@
         <button class="reportCardBlueButton">Edit</button>
         <button class="reportCardPurpleButton" (click)="toggleMoreInfo(report)">More Info</button>
     </div>
-    <button class="reportCardRedButton">Delete</button>
+    <button class="reportCardRedButton" (click)="deleteReport(report)">Delete</button>
     <div *ngIf="report.showMoreInfo" class="moreInfo">
-        <!-- Add more information here -->
     </div>
 </div>

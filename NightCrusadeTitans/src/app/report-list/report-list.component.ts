@@ -17,9 +17,8 @@ export class ReportListComponent implements OnInit {
     this.reports = this.rs.pull();
   }
 
-  onReportDelete(reportToBeDeleted:Report): void{
-    this.reports = new Array<Report>;
-    this.rs.delete(reportToBeDeleted);
+  onReportDelete(deletedReport:Report): void{
+    this.reports = this.rs.pull();
   }
 
 }
