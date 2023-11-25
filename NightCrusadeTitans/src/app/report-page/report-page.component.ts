@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ReportService } from '../report.service';
 import { ReportListComponent } from '../report-list/report-list.component';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-report-page',
@@ -10,7 +11,7 @@ import { ReportListComponent } from '../report-list/report-list.component';
 })
 export class ReportPageComponent {
   form: FormGroup;
-  constructor(private reportService:ReportService) {
+  constructor(private reportService:ReportService, private router: Router) {
     let formControls = {
       reporterName: new FormControl("",[Validators.required, Validators.minLength(2)]),
       phoneNumber: new FormControl("",[Validators.required]),
@@ -28,6 +29,7 @@ export class ReportPageComponent {
     newReport.id = this.reportService.generateId();-
     this.reportService.push(newReport);
     this.form.reset();
+    this.router.navigate(["/home"]);
   }
 
 }
