@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ReportService } from '../report.service';
 import { ReportListComponent } from '../report-list/report-list.component';
 import { Router, RouterLink } from '@angular/router';
+import { Report } from '../shared/report';
 
 @Component({
   selector: 'app-report-page',
@@ -36,31 +37,3 @@ export class ReportPageComponent {
 
 }
 
-class Report {
-  id: number
-  reporterName: string
-  phoneNumber: number
-  suspectName: string
-  locationName: string
-  longitude: number
-  latitude: number
-  picture?: HTMLImageElement
-  extraInfo: string
-  timeReported: number
-  resolved: boolean
-  constructor(reporterName:string, phoneNumber:number, suspectName: string, locationName: string, longitude: number, latitude: number, picture: HTMLImageElement, extraInfo: string, id: number, timeReported: number, resolved: boolean){
-    this.reporterName = reporterName;
-    this.phoneNumber = phoneNumber;
-    this.suspectName = suspectName;
-    this.locationName = locationName;
-    this.longitude = longitude;
-    this.latitude = latitude;
-    this.timeReported = timeReported;
-    this.resolved = resolved;
-    if(picture != null){
-      this.picture = picture;
-    }
-    this.extraInfo = extraInfo;
-    this.id = id;
-  }
-}
