@@ -25,20 +25,19 @@
     margin-bottom: 2rem;
 }
 
-.reportCardBlueButton { 
-    background-color: #007bff;
-    color: #ffffff;
-    padding: .8rem 1rem;
-    border-radius: 0.5rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    flex-shrink: shrink;
+.reportCardBlueButton{ 
+    fill: #007bff;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    stroke-width: .8;
+    stroke: black;
+
 }
 
-.reportCardBlueButton:hover {
-    background-color: #0056b3;
-    color: #e0e0e0;
+.reportCardBlueButton:hover{
+    fill: #0056b3;
 }
 
 .reportCardRedButton { 
