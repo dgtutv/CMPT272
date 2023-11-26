@@ -41,19 +41,17 @@
 }
 
 .reportCardRedButton { 
-    background-color: #ff0000;
-    color: #ffffff;
-    padding: .8rem 1rem;
-    border-radius: 0.5rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    flex-shrink: shrink;
+    fill: #ff0000;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    stroke-width: .8;
+    stroke: black;
 }
 
 .reportCardRedButton:hover { 
-    background-color: #b30000;
-    color: #e0e0e0;
+    fill: #b30000;
 }
 .reportCardPurpleButton { 
     background-color: #800080;
