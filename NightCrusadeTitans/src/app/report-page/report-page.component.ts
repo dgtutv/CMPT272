@@ -12,6 +12,7 @@ import { Report } from '../shared/report';
 })
 export class ReportPageComponent {
   form: FormGroup;
+  currentImage: string = "";
   constructor(private reportService:ReportService, private router: Router) {
     let formControls = {
       reporterName: new FormControl("",[Validators.required, Validators.minLength(2)]),
@@ -24,6 +25,18 @@ export class ReportPageComponent {
       extraInfo: new FormControl()
     }
     this.form = new FormGroup(formControls);
+  }
+
+  onFileChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      const file = target.files[0];
+      const pictureControl = this.form.get('picture');
+      if (pictureControl) {
+        pictureControl.setValue(file);
+        this.currentImage = pictureControl.value;
+      }
+    }
   }
 
   onSubmit(newReport:Report){
