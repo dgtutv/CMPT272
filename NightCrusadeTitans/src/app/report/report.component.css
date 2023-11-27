@@ -1,8 +1,15 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 1rem;
+}
+
 .reportCard {
-    background-color: #fdf9f4;
+    background-color: #f9f9f9;
     border-radius: 1rem;
     box-shadow: 0 0.4rem 0.8rem rgba(0.2, 0.2, 0.2, 0.2); 
-    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,13 +23,13 @@
 .reportCardTitle {
     font-size: 1.4rem;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-top: 2.5rem;
 }
 
 .reportCardContent {
     font-size: 1.2rem;
     color: #333333;
-    margin-bottom: 2rem;
+    padding: 1.5rem;
 }
 
 .reportCardBlueButton{ 
@@ -31,26 +38,25 @@
     border: none;
     padding: 0;
     margin: 0;
-    stroke-width: .8;
+    stroke-width: .5;
     stroke: black;
-
 }
 
 .reportCardBlueButton:hover{
     fill: #0056b3;
 }
 
-.reportCardRedButton { 
+.reportCardRedButton{ 
     fill: #ff0000;
     background: none;
     border: none;
     padding: 0;
     margin: 0;
-    stroke-width: .8;
+    stroke-width: 8;
     stroke: black;
 }
 
-.reportCardRedButton:hover { 
+.reportCardRedButton:hover{ 
     fill: #b30000;
 }
 .reportCardPurpleButton { 
@@ -62,6 +68,7 @@
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     flex-shrink: shrink;
+    margin-top: 1rem;
 }
 
 .reportCardPurpleButton:hover {
