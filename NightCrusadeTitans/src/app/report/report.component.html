@@ -37,7 +37,7 @@
             <ng-template #description><br> Description: <br> <span id="description">{{report.extraInfo}}</span></ng-template>
             
             <span *ngIf="report.picture != null; then picture"></span> <br>
-            <ng-template #picture>Picture: <br> <img src="{{report.picture}}"></ng-template>
+            <ng-template #picture> <br> Picture: <br> <img id="img" src="{{report.picture}}"></ng-template>
         </ng-template>
         <ng-template #lessInfo>
             <button class="reportCardPurpleButton" (click)="toggleMoreInfo(report)">More Info</button>
