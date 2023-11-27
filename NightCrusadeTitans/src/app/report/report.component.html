@@ -34,7 +34,7 @@
             Reporter Phone: {{report.phoneNumber | phoneNumber}} <br>
             Report ID: {{report.id}}
             <span *ngIf='report.extraInfo.length > 0 then description'></span>
-            <ng-template #description>Description: <br> {{report.extraInfo}} <br></ng-template>
+            <ng-template #description><br> Description: <br> <span id="description">{{report.extraInfo}}</span></ng-template>
             
             <span *ngIf="report.picture != null; then picture"></span> <br>
             <ng-template #picture>Picture: <br> <img src="{{report.picture}}"></ng-template>

@@ -6,13 +6,13 @@ export class Report {
     locationName: string;
     longitude: number;
     latitude: number;
-    picture?: HTMLImageElement;
+    picture?: string;
     extraInfo: string;
     timeReported: number;
     resolved: boolean;
     showMoreInfo: boolean = false; 
 
-    constructor(reporterName:string, phoneNumber:number, suspectName: string, locationName: string, longitude: number, latitude: number, picture: HTMLImageElement, extraInfo: string, id: number, timeReported: number, resolved: boolean){
+    constructor(reporterName:string, phoneNumber:number, suspectName: string, locationName: string, longitude: number, latitude: number, picture: string, extraInfo: string, id: number, timeReported: number, resolved: boolean){
         this.reporterName = reporterName;
         this.phoneNumber = phoneNumber;
         this.suspectName = suspectName;
@@ -21,7 +21,7 @@ export class Report {
         this.latitude = latitude;
         this.timeReported = timeReported;
         this.resolved = resolved;
-        if(picture != null){
+        if(picture != ""){
         this.picture = picture;
         }
         this.extraInfo = extraInfo;

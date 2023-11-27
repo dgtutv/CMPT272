@@ -89,3 +89,7 @@ header{
     background-color: #500050;
     color: #e0e0e0;
 }
+
+#description{
+    margin-left: 1.5rem;
+}
