@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-html{
-    
+html, body{
+    height: 100vh;
+    overflow: hidden;
+}
+app-root {
+    height: 100%;
+}
+appComponent {
+    height: 100%;
 }

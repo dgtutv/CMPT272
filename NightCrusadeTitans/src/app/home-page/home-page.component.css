@@ -1,3 +1,17 @@
 .body{
     margin-left: 1%;
+    display: flex;
+}
+
+#cardContainer{
+    flex: 1 1 0;  
+}
+
+#mapContainer{
+    flex: 1 1 0;
+}
+#bar{
+    height: 100vw;
+    background-color: black;
+    width: 2px;
 }
