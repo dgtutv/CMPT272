@@ -1,13 +1,14 @@
 import { LocalizedString, ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Report } from './shared/report';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReportService {
   reports: Array<Report>
-  constructor() {
+  constructor(private http: HttpClient) {
     this.reports = this.pull();
   } 
   pull(): Report[]{
