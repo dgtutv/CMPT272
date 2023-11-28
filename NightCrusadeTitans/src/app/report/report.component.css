@@ -14,8 +14,7 @@ header{
     flex-direction: column;
     align-items: center;
     margin-bottom: 2rem;
-    min-width: 20%;
-    max-width: 40%;
+    width: 90%;
     float: right;
     margin-right: 2rem;
     flex-shrink: 0;

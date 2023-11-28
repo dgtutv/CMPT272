@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReportComponent } from './report/report.component';
 import { PhoneNumberPipe } from './phone-number.pipe';
+import { EditReportComponent } from './edit-report/edit-report.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { PhoneNumberPipe } from './phone-number.pipe';
     ReportPageComponent,
     InfoPageComponent,
     ReportComponent,
-    PhoneNumberPipe
+    PhoneNumberPipe,
+    EditReportComponent
   ],
   imports: [
     BrowserModule,

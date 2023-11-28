@@ -4,7 +4,9 @@
 }
 
 #cardContainer{
-    flex: 1 1 0;  
+    width: 30%;  
+    overflow-y: scroll;
+    height: 88vh;
 }
 
 #mapContainer{

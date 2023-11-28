@@ -21,7 +21,7 @@
     </header>
     <div class="reportCardContent">
         Suspect Name: {{report.suspectName}} <br>
-        Time Reported: {{report.timeReported | date:'short'}} <br>
+        Date Reported: {{report.timeReported | date:'mediumDate'}} <br>
         Long-Lat: {{report.longitude}}, {{report.latitude}} <br>
         Status: <span *ngIf="report.resolved; then resolved else notResolved"></span> <br>
         <ng-template #resolved><span style="color: green;">Resolved</span></ng-template>
