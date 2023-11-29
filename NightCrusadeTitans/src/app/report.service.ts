@@ -40,17 +40,14 @@ export class ReportService {
     return firstValueFrom(this.http.delete(url));
   }
 
-  generateId(): number {
-    let idJSON: any = localStorage.getItem("prevID");
-    if (idJSON != null) {
-      let id: number = JSON.parse(idJSON) + 1;
-      localStorage.setItem("prevID", id.toString());
-      return id;
-    } else {
-      let id = 0;
-      localStorage.setItem("prevID", "0");
-      return id;
-    }
+  generateId(): Promise<number> {
+    return this.pull().then(reports => {
+      console.log('Reports from server:', reports);
+      return reports.length + 1;
+    }).catch(error => {
+      console.error('Error loading reports:', error);
+      return -1; // Return a default value in case of error
+    });
   }
 
   async generateIdFromServer(): Promise<number> {

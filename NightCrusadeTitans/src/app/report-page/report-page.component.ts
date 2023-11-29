@@ -27,8 +27,8 @@ export class ReportPageComponent {
     this.form = new FormGroup(formControls);
   }
 
-  onSubmit(newReport:Report){
-    newReport.id = this.reportService.generateId();
+  async onSubmit(newReport: Report) {
+    newReport.id = await this.reportService.generateId();
     newReport.timeReported = new Date().getTime();
     newReport.resolved = false;
     this.reportService.push(newReport);
