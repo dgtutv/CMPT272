@@ -8,7 +8,7 @@ import { ReportService } from '../report.service';
   styleUrls: ['./report-list.component.css']
 })
 export class ReportListComponent implements OnInit {
-  @Output() coordinates = new EventEmitter<{longitude: number, latitude: number}>();
+  @Output() coordinates = new EventEmitter<Report>();
   reports: Report[] = [];
 
   constructor(private reportService: ReportService) { }
@@ -23,7 +23,7 @@ export class ReportListComponent implements OnInit {
       console.log('Reports from server:', reports);
       this.reports = reports;
       for(let report of this.reports){
-        this.coordinates.emit({longitude: report.longitude, latitude: report.latitude});
+        this.coordinates.emit(report);
       }
     }).catch(error => {
       console.error('Error loading reports:', error);
