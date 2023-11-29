@@ -1,60 +1,47 @@
-import { LocalizedString, ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Report } from './shared/report';
 import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReportService {
-  reports: Array<Report>
-  constructor(private http: HttpClient) {
-    this.reports = this.pull();
-  } 
-  pull(): Report[]{
-    let reportsJSON:any  = localStorage.getItem("reports");
-    if(reportsJSON == null){
-      this.reports = new Array<Report>;
-    }
-    else{
-      this.reports = JSON.parse(reportsJSON);
-    }
-    return(this.reports);
+  private baseUrl = 'https://272.selfip.net/apps/';
+  private appKey = 'slI61v2RVM';
+  private collectionKey = 'reports';
+
+  constructor(private http: HttpClient) { }
+
+  async pull(): Promise<Report[]> {
+    const url = `${this.baseUrl}${this.appKey}/collections/${this.collectionKey}/documents/`;
+    let fetchedReports:Promise<string[]> = firstValueFrom(this.http.get<string[]>(url));
+    console.log(fetchedReports)
+    return fetchedReports.then(reports => reports.map(report => JSON.parse(report)));
   }
-  push(newReport:Report): boolean{
-    this.pull();
-    for(let i:number=0; i<this.reports.length; i++){
-      let currentReport: Report = this.reports[i];
-      if(currentReport.id == newReport.id){
-        return false;
-      }
-    }
-    this.reports.push(newReport);
-    localStorage.setItem("reports", JSON.stringify(this.reports));
-    return true;
+
+  async push(newReport: Report): Promise<any> {
+    const url = `${this.baseUrl}${this.appKey}/collections/${this.collectionKey}/documents/`;
+    console.log('Sending report to server:', newReport);
+    const headers = { 'Content-Type': 'application/json' };
+    let newReportJSON: string = JSON.stringify(newReport);
+    let key = newReport.id.toString();
+    const body = { key: key, data: newReportJSON };
+    return firstValueFrom(this.http.post(url, body, { headers }));
   }
-  delete(reportToDelete:Report): boolean{
-    this.pull();
-    for(let i:number=0; i<this.reports.length; i++){
-      let currentReport: Report = this.reports[i];
-      if(currentReport.id == reportToDelete.id){
-        let firstHalf = this.reports.slice(0, i);
-        let secondHalf = this.reports.slice(i+1);
-        this.reports = firstHalf.concat(secondHalf);
-        localStorage.setItem("reports", JSON.stringify(this.reports));
-        return true;
-      }
-    }
-    return false;
+
+  async delete(reportToDelete: Report): Promise<any> {
+    const url = `${this.baseUrl}${this.appKey}/collections/${this.collectionKey}/documents/${reportToDelete.id}`;
+    return firstValueFrom(this.http.delete(url));
   }
-  generateId(): number{
-    let idJSON:any = localStorage.getItem("prevID");
-    if(idJSON != null){
-      let id: number = JSON.parse(idJSON)+1;
+
+  generateId(): number {
+    let idJSON: any = localStorage.getItem("prevID");
+    if (idJSON != null) {
+      let id: number = JSON.parse(idJSON) + 1;
       localStorage.setItem("prevID", id.toString());
       return id;
-    }
-    else{
+    } else {
       let id = 0;
       localStorage.setItem("prevID", "0");
       return id;
