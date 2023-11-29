@@ -52,4 +52,18 @@ export class ReportService {
       return id;
     }
   }
+
+  async generateIdFromServer(): Promise<number> {
+    const url = `${this.baseUrl}${this.appKey}/collections/id/documents/`;
+    let fetchedID:Promise<{key:string, data:string}[]> = firstValueFrom(this.http.get<{key:string, data:string}[]>(url));
+    
+    return fetchedID.then(id => {
+      let parsedID: number = JSON.parse(id[0].data);
+      parsedID++;
+      const body = { key: "id", data: JSON.stringify(parsedID) };
+      const headers = { 'Content-Type': 'application/json' };
+      firstValueFrom(this.http.post(url, body, { headers }));
+      return parsedID;
+    });
+  }
 }
