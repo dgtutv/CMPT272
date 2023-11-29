@@ -1,0 +1,11 @@
+-Report list should update the map when a report is delete or modified
+-reduce the accuracy of the longitude and latitude when the user selects from map, limit the size for manual entering too
+-Implement most wanted page
+-Implement info page
+-Implement editing records
+-Improve the styling of the page (dynamic syling via media queries and such)
+-Require a key for editing or deleting records (via popup window)
+-Show a no reports message in the reports list when it has nothing to display
+-When a user selects a pin on the map, the report list should jump to the top
+-The report page should have more explanation as to requirements for the form
+-Change the icon of the page

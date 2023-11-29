@@ -24,7 +24,7 @@ export class MapComponent implements OnInit {
 
   handleCoordinates(report: Report) {
     if (this.map) {
-      let currentMarker = L.marker([report.longitude, report.latitude], { riseOnHover: true })
+      let currentMarker = L.marker([report.latitude, report.longitude], { riseOnHover: true })
         .on('click', () => {
           this.sortReportService.updateSortByReport(report);
         })
