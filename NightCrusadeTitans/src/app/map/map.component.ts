@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as L from 'leaflet';
 import { Report } from '../shared/report';
 
@@ -10,6 +10,7 @@ import { Report } from '../shared/report';
 export class MapComponent implements OnInit {
   private map: L.Map | undefined;
   private markersLayer: L.LayerGroup = L.layerGroup();
+  @Output() markerClick = new EventEmitter<Report>();
 
   constructor() { }
 
@@ -25,7 +26,7 @@ export class MapComponent implements OnInit {
     if (this.map) {
       let currentMarker = L.marker([report.longitude, report.latitude], { riseOnHover: true })
         .on('click', () => {
-          console.log('Marker clicked:', report);
+          this.markerClick.emit(report);
         })
         .bindPopup(`<b>${report.locationName}</b><br>Suspect Name: ${report.suspectName}`)
         .addTo(this.markersLayer);
