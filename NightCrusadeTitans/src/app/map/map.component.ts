@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as L from 'leaflet';
 import { Report } from '../shared/report';
+import { SortReportsService } from '../sort-reports.service';
 
 @Component({
   selector: 'app-map',
@@ -10,9 +11,8 @@ import { Report } from '../shared/report';
 export class MapComponent implements OnInit {
   private map: L.Map | undefined;
   private markersLayer: L.LayerGroup = L.layerGroup();
-  @Output() markerClick = new EventEmitter<Report>();
 
-  constructor() { }
+  constructor(private sortReportService:SortReportsService) { }
 
   ngOnInit(): void {
     this.map = L.map('map').setView([49.193568, -122.689897], 9.8);
@@ -26,7 +26,7 @@ export class MapComponent implements OnInit {
     if (this.map) {
       let currentMarker = L.marker([report.longitude, report.latitude], { riseOnHover: true })
         .on('click', () => {
-          this.markerClick.emit(report);
+          this.sortReportService.updateSortByReport(report);
         })
         .bindPopup(`<b>${report.locationName}</b><br>Suspect Name: ${report.suspectName}`)
         .addTo(this.markersLayer);

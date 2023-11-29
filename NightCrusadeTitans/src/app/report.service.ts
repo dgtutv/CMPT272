@@ -46,7 +46,7 @@ export class ReportService {
       return reports.length + 1;
     }).catch(error => {
       console.error('Error loading reports:', error);
-      return -1; // Return a default value in case of error
+      return -1;
     });
   }
 
