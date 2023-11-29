@@ -32,4 +32,8 @@ export class MapComponent implements OnInit {
         .addTo(this.markersLayer);
     }
   }
+
+  refreshMap(){
+    console.log("refreshing");    //Not working?
+  }
 }

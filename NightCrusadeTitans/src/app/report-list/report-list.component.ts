@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class ReportListComponent implements OnInit {
   @Output() coordinates = new EventEmitter<Report>();
+  @Output() refreshMap = new EventEmitter<void>(); 
   reports: Report[] = [];
   private subscription: Subscription | undefined;
 
@@ -44,7 +45,11 @@ export class ReportListComponent implements OnInit {
 
   onReportDelete(report: Report): void {
     this.reportService.delete(report).then(() => {
-      this.loadReports();
+      this.refreshMap.emit();
+      for(let report of this.reports){
+        this.coordinates.emit(report);
+      }
+      this.loadReports(); 
     }).catch(error => {
       console.error('Error deleting report:', error);
     });
