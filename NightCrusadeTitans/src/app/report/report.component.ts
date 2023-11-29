@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Report } from '../shared/report';
 import { ReportService } from '../report.service';
+import { MD5 } from 'crypto-js';
 
 @Component({
   selector: 'app-report',
@@ -19,7 +20,16 @@ export class ReportComponent{
   }
 
   deleteReport(report: Report) {
-    this.reportService.delete(report);
-    this.reportDeleted.emit(report);
+    let queryString = prompt("Please enter your password to delete this report");
+    if(queryString == null){
+      return;
+    } 
+    let hashedQuery = MD5(queryString).toString();
+    if(hashedQuery === "fcab0453879a2b2281bc5073e3f5fe54"){
+      this.reportDeleted.emit(report);
+    }
+    else{
+      alert("Incorrect password");
+    }
   }
 }
