@@ -12,12 +12,17 @@ export class ReportService {
   private collectionKey = 'reports';
 
   constructor(private http: HttpClient) { }
-
   async pull(): Promise<Report[]> {
     const url = `${this.baseUrl}${this.appKey}/collections/${this.collectionKey}/documents/`;
-    let fetchedReports:Promise<string[]> = firstValueFrom(this.http.get<string[]>(url));
-    console.log(fetchedReports)
-    return fetchedReports.then(reports => reports.map(report => JSON.parse(report)));
+    let fetchedReports:Promise<{key:string, data:string}[]> = firstValueFrom(this.http.get<{key:string, data:string}[]>(url));
+    
+    return fetchedReports.then(reports => {
+      let parsedReports: Report[] = [];
+      for(let i = 0; i < reports.length; i++) {
+        parsedReports.push(JSON.parse(reports[i].data));
+      }
+      return parsedReports;
+    });
   }
 
   async push(newReport: Report): Promise<any> {
