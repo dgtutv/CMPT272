@@ -15,15 +15,27 @@ export class MostWantedPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.reportService.pull().then(reports => {
-      for(let currentReport of reports){
-        for(let report of reports){
-          if(currentReport.suspectName == report.suspectName){
-            currentReport.count++;
-          }
+      let counts: { [suspectName: string]: number } = {};
+  
+      for(let report of reports){
+        if(counts[report.suspectName] === undefined){
+          counts[report.suspectName] = 1;
+        } else {
+          counts[report.suspectName]++;
         }
       }
-      let sortedReports = reports.sort((a,b) => (a.count > b.count) ? -1 : 1);
-      sortedReports = sortedReports.sort((a,b) => (a. timeReported < b.timeReported) ? 1 : -1);
+  
+      for(let report of reports){
+        report.count = counts[report.suspectName];
+      }
+        
+      let sortedReports = reports.sort((a, b) => {
+        if (a.count === b.count) {
+          return a.timeReported > b.timeReported ? 1 : -1;
+        }
+        return a.count > b.count ? -1 : 1;
+      });
+  
       this.reports = sortedReports.slice(0,3);
     });
   }
