@@ -1,1 +1,14 @@
-<app-report *ngFor="let r of reports" [report]="r"></app-report>
+<div class="mostWantedCard" id="mostWanted1">
+    <span *ngIf="reports.length > 0 then displayInfo else displayEmpty"></span>
+    <ng-template #displayEmpty>
+        <div class="mostWantedCardTitle">No Reports</div>
+    </ng-template>
+    <ng-template #displayInfo>
+        Name: {{reports.length > 0 ? reports[0].suspectName : 'No Reports'}} <br>
+        Number of Crimes: {{reports.length > 0 ? reports[0].count : 'No Reports'}} <br>
+        Images: <button>Display Images</button>
+        <div *ngFor="let report of reports" class="reportImages" id="reportImages1">
+            <img *ngIf="report.suspectName === reports[0].suspectName && report.picture" [src]="report.picture" alt="Report Image">
+        </div>
+    </ng-template> 
+</div>
