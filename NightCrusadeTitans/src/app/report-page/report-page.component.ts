@@ -45,8 +45,8 @@ export class ReportPageComponent {
       this.currentMarker.addTo(this.map!);
 
       //set the form controls to the lat and long of the marker
-      this.form.controls['longitude'].setValue(e.latlng.lng);
-      this.form.controls['latitude'].setValue(e.latlng.lat);
+      this.form.controls['longitude'].setValue(e.latlng.lng.toFixed(4));
+      this.form.controls['latitude'].setValue(e.latlng.lat.toFixed(4));
 
       this.form.controls['longitude'].markAsTouched();
       this.form.controls['longitude'].updateValueAndValidity();
@@ -59,6 +59,9 @@ export class ReportPageComponent {
     newReport.id = await this.reportService.generateId();
     newReport.timeReported = new Date().getTime();
     newReport.resolved = false;
+    newReport.latitude = Number(Number(newReport.latitude).toFixed(4));
+    newReport.longitude = Number(Number(newReport.longitude).toFixed(4));
+
     this.reportService.push(newReport);
     this.form.reset();
     this.router.navigate(["/home"]);

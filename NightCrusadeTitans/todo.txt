@@ -1,4 +1,3 @@
--Report list should update the map when a report is delete or modified
 -reduce the accuracy of the longitude and latitude when the user selects from map, limit the size for manual entering too
 -Implement most wanted page
 -Implement info page
