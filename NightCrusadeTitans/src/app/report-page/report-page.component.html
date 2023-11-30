@@ -1,11 +1,19 @@
 <body>
+
+  <!--Move into report page form-->
   <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
     <fieldset class="d-grid gap-2 col-12">
       <input type="text" name="reporterName" placeholder="Reporter Name" formControlName="reporterName">
+      <div class="requiredText">*Required</div>
       <input type="text" name="phoneNumber" placeholder="Reporter Phone Number" formControlName="phoneNumber">
+      <div class="requiredText">*Required, 10 numbers long, numbers only</div>
       <input type="text" name="suspectName" placeholder="Name of The Suspect" formControlName="suspectName">
+      <div class="requiredText">*Required</div>
       <input type="text" name="locationName" placeholder="Name of The Location" formControlName="locationName">
+      <div class="requiredText">*Required</div>
+      
       <p>Select location on map:</p>
+      <div class="requiredText">*Required</div>
       <div id="map" style="height: 40vh; width: 100%; align-self: center;"></div>
       <div id="longlat">
         <input style="width: 50%;" type="number" name="longitude" placeholder="Longitude of The Location" formControlName="longitude" min="-180" max="180">

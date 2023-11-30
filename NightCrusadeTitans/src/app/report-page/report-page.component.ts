@@ -19,7 +19,7 @@ export class ReportPageComponent {
   constructor(private reportService:ReportService, private router: Router) {
     let formControls = {
       reporterName: new FormControl("",[Validators.required, Validators.minLength(2)]),
-      phoneNumber: new FormControl("",[Validators.required]),
+      phoneNumber: new FormControl("",[Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("[0-9]*")]),
       suspectName: new FormControl("",[Validators.required, Validators.minLength(2)]),
       locationName: new FormControl("",[Validators.required, Validators.minLength(2)]),
       longitude: new FormControl("",[Validators.required]),
