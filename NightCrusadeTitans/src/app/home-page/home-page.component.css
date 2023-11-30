@@ -1,15 +1,13 @@
-.body{
-    margin-left: 1%;
+body{
     display: flex;
+    flex-direction: column;
 }
 
 #cardContainer{
-    width: 30%;  
-    overflow-y: scroll;
-    height: 89.6vh;
-    flex-shrink: 1;
+    flex: 1 1 0;
 }
 
 #mapContainer{
     flex: 1 1 0;
 }
+
