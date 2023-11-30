@@ -13,8 +13,3 @@
 #mapContainer{
     flex: 1 1 0;
 }
-#bar{
-    height: 100vw;
-    background-color: black;
-    width: 2px;
-}
