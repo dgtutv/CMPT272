@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as L from 'leaflet';
 import { Report } from '../shared/report';
 import { SortReportsService } from '../sort-reports.service';
+import { RefreshMapService } from '../refresh-map.service';
 
 @Component({
   selector: 'app-map',
@@ -12,9 +13,12 @@ export class MapComponent implements OnInit {
   private map: L.Map | undefined;
   private markersLayer: L.LayerGroup = L.layerGroup();
 
-  constructor(private sortReportService:SortReportsService) { }
+  constructor(private sortReportService:SortReportsService, private refreshMapService: RefreshMapService) { }
 
   ngOnInit(): void {
+    this.refreshMapService.refreshMap$.subscribe(() => {
+      this.refreshMap();
+    });
     this.map = L.map('map').setView([49.193568, -122.689897], 9.8);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -34,6 +38,6 @@ export class MapComponent implements OnInit {
   }
 
   refreshMap(){
-    console.log("refreshing");    //Not working?
+    console.log("refreshing"); 
   }
 }

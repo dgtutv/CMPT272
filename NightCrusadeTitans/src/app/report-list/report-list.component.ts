@@ -3,6 +3,7 @@ import { Report } from '../shared/report';
 import { ReportService } from '../report.service';
 import { SortReportsService } from '../sort-reports.service';
 import { Subscription } from 'rxjs';
+import { RefreshMapService } from '../refresh-map.service';
 
 @Component({
   selector: 'app-report-list',
@@ -11,11 +12,10 @@ import { Subscription } from 'rxjs';
 })
 export class ReportListComponent implements OnInit {
   @Output() coordinates = new EventEmitter<Report>();
-  @Output() refreshMap = new EventEmitter<void>(); 
   reports: Report[] = [];
   private subscription: Subscription | undefined;
 
-  constructor(private reportService: ReportService, private sortReportsService: SortReportsService) { }
+  constructor(private reportService: ReportService, private sortReportsService: SortReportsService, private refreshMapService: RefreshMapService) { }
 
   ngOnInit(): void {
     this.loadReports();
@@ -45,7 +45,7 @@ export class ReportListComponent implements OnInit {
 
   onReportDelete(report: Report): void {
     this.reportService.delete(report).then(() => {
-      this.refreshMap.emit();
+      this.refreshMapService.refreshMap();
       for(let report of this.reports){
         this.coordinates.emit(report);
       }
