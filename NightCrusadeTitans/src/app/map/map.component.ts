@@ -3,6 +3,7 @@ import * as L from 'leaflet';
 import { Report } from '../shared/report';
 import { SortReportsService } from '../sort-reports.service';
 import { RefreshMapService } from '../refresh-map.service';
+import { ReportService } from '../report.service';
 
 @Component({
   selector: 'app-map',
@@ -13,11 +14,16 @@ export class MapComponent implements OnInit {
   private map: L.Map | undefined;
   private markersLayer: L.LayerGroup = L.layerGroup();
 
-  constructor(private sortReportService:SortReportsService, private refreshMapService: RefreshMapService) { }
+  constructor(private sortReportService:SortReportsService, private refreshMapService: RefreshMapService, private reportService: ReportService) { }
 
   ngOnInit(): void {
     this.refreshMapService.refreshMap$.subscribe(() => {
-      this.refreshMap();
+      //get the reports from the server
+      this.reportService.pull().then(reports => {
+        this.refreshMap(reports);
+      }).catch(error => {
+        console.error('Error loading reports:', error);
+      });
     });
     this.createMap();
   }
@@ -41,7 +47,10 @@ export class MapComponent implements OnInit {
     }
   }
 
-  refreshMap(){
+  refreshMap(reportList: Report[]){
     this.markersLayer.clearLayers();
+    reportList.forEach(report => {
+      this.handleCoordinates(report);
+    });
   }
 }

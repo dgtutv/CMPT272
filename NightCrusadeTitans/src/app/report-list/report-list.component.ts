@@ -45,7 +45,7 @@ export class ReportListComponent implements OnInit {
 
   onReportDelete(report: Report): void {
     this.reportService.delete(report).then(() => {
-      this.refreshMapService.refreshMap();
+      this.refreshMapService.refreshMap(this.reports);
       for(let report of this.reports){
         this.coordinates.emit(report);
       }
