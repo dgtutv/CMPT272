@@ -1,1 +1,11 @@
+<table>
+    <thead>
+        <tr>
+            <th>Location</th>
+            <th>Suspect Name</th>
+            <th>Time Reported</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+</table>
 <app-report *ngFor="let r of reports" [report]="r" (reportDeleted)="onReportDelete($event)"></app-report>

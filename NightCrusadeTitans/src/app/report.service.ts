@@ -63,15 +63,4 @@ export class ReportService {
       return parsedID;
     });
   }
-
-  async getLocationList(): Promise<string[]> {
-    let locations: string[] = [];
-    const reports = await this.pull();
-    for (let i = 0; i < reports.length; i++) {
-      if (!locations.includes(reports[i].locationName)) {
-        locations.push(reports[i].locationName);
-      }
-    }
-    return locations;
-  }
 }
