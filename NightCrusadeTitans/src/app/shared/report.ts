@@ -12,6 +12,7 @@ export class Report {
     resolved: boolean;
     showMoreInfo: boolean = false; 
     distance: number = 0;
+    count: number = 0;
 
     constructor(reporterName:string, phoneNumber:number, suspectName: string, locationName: string, longitude: number, latitude: number, picture: string, extraInfo: string, id: number, timeReported: number, resolved: boolean){
         this.reporterName = reporterName;

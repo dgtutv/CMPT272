@@ -1,4 +1,3 @@
--reduce the accuracy of the longitude and latitude when the user selects from map, limit the size for manual entering too
 -Implement most wanted page
 -Implement info page
 -Implement editing records
@@ -8,3 +7,4 @@
 -When a user selects a pin on the map, the report list should jump to the top
 -The report page should have more explanation as to requirements for the form
 -Change the icon of the page
+-Nothing to show messagfe for report list and most wanted page
