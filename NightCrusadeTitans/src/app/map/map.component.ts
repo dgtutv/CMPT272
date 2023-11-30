@@ -19,6 +19,10 @@ export class MapComponent implements OnInit {
     this.refreshMapService.refreshMap$.subscribe(() => {
       this.refreshMap();
     });
+    this.createMap();
+  }
+
+  createMap(){
     this.map = L.map('map').setView([49.193568, -122.689897], 9.8);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -38,6 +42,6 @@ export class MapComponent implements OnInit {
   }
 
   refreshMap(){
-    console.log("refreshing"); 
+    this.markersLayer.clearLayers();
   }
 }
