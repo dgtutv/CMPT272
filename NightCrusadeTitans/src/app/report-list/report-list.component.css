@@ -1,3 +1,41 @@
-html{
-    height: 100%;
+td{
+    text-align: center;
+    vertical-align: middle;
+}
+
+table{
+    width: calc(100% - 2rem);
+    margin: 2rem;
+}
+
+span{
+    text-align: center;
+}
+
+.reportCardBlueButton{ 
+    fill: #007bff;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    stroke-width: .5;
+    stroke: black;
+}
+
+.reportCardBlueButton:hover{
+    fill: #0056b3;
+}
+
+.reportCardRedButton{ 
+    fill: #ff0000;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    stroke-width: 8;
+    stroke: black;
+}
+
+.reportCardRedButton:hover{ 
+    fill: #b30000;
 }
