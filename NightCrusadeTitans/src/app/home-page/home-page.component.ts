@@ -21,4 +21,12 @@ export class HomePageComponent implements OnInit {
       blur.classList.toggle("active");
     }
   }
+
+  closeOverlay(): void {
+    this.currentReport = undefined;
+    let blur = document.getElementById("blur");
+    if(blur){
+      blur.classList.toggle("active");
+    }
+  }
 }
