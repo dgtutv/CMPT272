@@ -41,6 +41,35 @@ export class HomePageComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Submit:');
+    let statusElement: HTMLSelectElement | null = document.getElementById("status") as HTMLSelectElement | null;
+    if (statusElement) {
+      let statusValue = statusElement.value;
+      let resolved: boolean;
+      if(statusValue === "true"){
+        resolved = true;
+      }
+      else{
+        resolved = false;
+      }
+      // Create a new report in main memory with all the same stats
+      if (this.currentReportEdit) {
+        let newReport = new Report(
+          this.currentReportEdit.reporterName,
+          this.currentReportEdit.phoneNumber,
+          this.currentReportEdit.suspectName,
+          this.currentReportEdit.locationName,
+          this.currentReportEdit.longitude,
+          this.currentReportEdit.latitude,
+          this.currentReportEdit.picture || '', // Fix: Use an empty string if picture is undefined
+          this.currentReportEdit.extraInfo,
+          this.currentReportEdit.id,
+          this.currentReportEdit.timeReported,
+          resolved
+        );
+        console.log(newReport);
+        // Delete the old report from the server
+        // Add the new report to the server
+      }
+    } 
   }
 }
