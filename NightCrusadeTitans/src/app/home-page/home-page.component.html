@@ -3,7 +3,20 @@
         <div id="mapContainer"><app-map></app-map></div>
         <div id="reportList" class="scrollable-table"><app-report-list (moreInfoEvent)="moreInfo($event)"></app-report-list></div>
     </div>  
-    <div id="overlay" *ngIf="currentReport != undefined">
-        <p>{{currentReport.suspectName}}</p>
+    <div id="overlay" *ngIf="currentReport != undefined" class="card">
+        Suspect Name: {{currentReport.suspectName}} <br>
+        Date Reported: {{currentReport.timeReported | date:'mediumDate'}} <br>
+        Long-Lat: {{currentReport.longitude}}, {{currentReport.latitude}} <br>
+        Status: <span *ngIf="currentReport.resolved; then resolved else notResolved"></span>
+        <ng-template #resolved><span style="color: green;">Resolved</span></ng-template>
+        <ng-template #notResolved><span style="color: red;">Not Resolved</span></ng-template>
+        Reporter Name: {{currentReport.reporterName}} <br>
+        Reporter Phone: {{currentReport.phoneNumber | phoneNumber}} <br>
+        Report ID: {{currentReport.id}}
+        <span *ngIf='currentReport.extraInfo then description'></span>
+        <ng-template #description><br> Description: <br> <span id="description">{{currentReport.extraInfo}}</span></ng-template>
+        
+        <span *ngIf="currentReport.picture != null; then picture"></span> <br>
+        <ng-template #picture> <br> Picture: <br> <img id="img" src="{{currentReport.picture}}"></ng-template>
     </div>
 </body>
