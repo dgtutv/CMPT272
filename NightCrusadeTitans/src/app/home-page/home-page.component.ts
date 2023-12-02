@@ -14,6 +14,6 @@ export class HomePageComponent implements OnInit {
   }
 
   moreInfo(report: Report): void {
-    console.log('More info:', report);
+    console.log(report);
   }
 }
