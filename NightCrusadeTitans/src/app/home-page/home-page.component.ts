@@ -7,13 +7,18 @@ import { Report } from '../shared/report';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
+  currentReport: Report | undefined;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   moreInfo(report: Report): void {
-    console.log(report);
+    this.currentReport = report;
+    console.log(this.currentReport);
+    let blur = document.getElementById("blur");
+    if(blur){
+      blur.classList.toggle("active");
+    }
   }
 }

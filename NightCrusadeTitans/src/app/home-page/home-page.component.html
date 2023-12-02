@@ -1,6 +1,9 @@
 <body>
-    <div id="mapContainer"><app-map></app-map></div>
-    <div id="reportList" class="scrollable-table"><app-report-list (moreInfoEvent)="moreInfo($event)"></app-report-list></div>
-    <div id="overlay" class="hidden">
+    <div id="blur">
+        <div id="mapContainer"><app-map></app-map></div>
+        <div id="reportList" class="scrollable-table"><app-report-list (moreInfoEvent)="moreInfo($event)"></app-report-list></div>
+    </div>  
+    <div id="overlay" *ngIf="currentReport != undefined">
+        <p>{{currentReport.suspectName}}</p>
     </div>
 </body>
