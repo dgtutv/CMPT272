@@ -3,11 +3,8 @@ body{
     flex-direction: column;
 }
 
-#cardContainer{
+#cardContainer, #mapContainer {
     flex: 1 1 0;
-}
-
-#mapContainer{
-    flex: 1 1 0;
+    width: 100%;
 }
 
