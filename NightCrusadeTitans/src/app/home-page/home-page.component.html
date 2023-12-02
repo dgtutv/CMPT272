@@ -1,11 +1,11 @@
 <body>
     <div id="blur">
         <div id="mapContainer"><app-map></app-map></div>
-        <div id="reportList" class="scrollable-table"><app-report-list (moreInfoEvent)="moreInfo($event)" (changeStatusEvent)="changeStatus($event)"></app-report-list></div>
+        <div id="reportList" class="scrollable-table"><app-report-list (moreInfoEvent)="moreInfo($event)" (editReportEvent)="editReport($event)"></app-report-list></div>
     </div>  
     <div id="overlay" *ngIf="currentReport != undefined" class="card">
         <div class="d-flex justify-content-end">
-            <button type="button" class="btn-close" aria-label="Close" (click)="closeOverlay()"></button>
+            <button id="closeButton" type="button" class="btn-close" aria-label="Close" (click)="closeOverlay()"></button>
         </div>
         <span><strong>Suspect Name:</strong>&nbsp;&nbsp;{{currentReport.suspectName}} </span>
         <span><strong>Date Reported:</strong>&nbsp;&nbsp;{{currentReport.timeReported | date:'medium'}} </span>
@@ -22,5 +22,18 @@
 
         <span *ngIf="currentReport.picture != null; then picture"></span>
         <ng-template #picture> <strong> Picture:</strong> <img id="img" src="{{currentReport.picture}}"></ng-template>
+    </div>
+
+    <div id="editOverlay" *ngIf="currentReportEdit != undefined" class="card p-3">
+        <form (ngSubmit)="onSubmit()">
+            <label for="status" class="form-label me-2">Case Status:</label>
+            <div class="mb-3 d-flex justify-content-start align-items-center"> 
+                <select id="status" [(ngModel)]="currentReportEdit.resolved" name="status" class="form-select me-2" [ngStyle]="{'color': currentReportEdit.resolved ? 'green' : 'red'}">
+                    <option style="color: green;" value="true">Resolved</option>
+                    <option style="color: red;" value="false">Not Resolved</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
     </div>
 </body>

@@ -8,6 +8,8 @@ import { Report } from '../shared/report';
 })
 export class HomePageComponent implements OnInit {
   currentReport: Report | undefined;
+  currentReportEdit: Report | undefined;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -30,7 +32,15 @@ export class HomePageComponent implements OnInit {
     }
   }
 
-  changeStatus(report: Report): void {
-    console.log('Change status:', report);
+  editReport(report: Report): void {
+    this.currentReportEdit = report;
+    let blur = document.getElementById("blur");
+    if(blur){
+      blur.classList.toggle("active");
+    }
+  }
+
+  onSubmit(): void {
+    console.log('Submit:');
   }
 }

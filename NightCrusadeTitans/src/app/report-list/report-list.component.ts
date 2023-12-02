@@ -13,7 +13,7 @@ import { RefreshMapService } from '../refresh-map.service';
 export class ReportListComponent implements OnInit {
   @Output() coordinates = new EventEmitter<Report>();
   @Output() moreInfoEvent = new EventEmitter<Report>();
-  @Output() changeStatusEvent = new EventEmitter<Report>();
+  @Output() editReportEvent = new EventEmitter<Report>();
   reports: Report[] = [];
   private subscription: Subscription | undefined;
 
@@ -61,7 +61,7 @@ export class ReportListComponent implements OnInit {
     this.moreInfoEvent.emit(report);
   }
 
-  changeStatus(report: Report): void {
-    this.changeStatusEvent.emit(report);
+  editReport(report: Report): void {
+    this.editReportEvent.emit(report);
   }
 }

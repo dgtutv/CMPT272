@@ -7,6 +7,7 @@
             <th>Status</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +19,7 @@
             <ng-template #resolved><td style="color: green;">Resolved</td></ng-template>
             <ng-template #notResolved><td style="color: red;">Not Resolved</td></ng-template>
             <td class="moreInfo" (click)="moreInfo(r)">More Info</td>
-            <td class="moreInfo" (click)="changeStatus(r)">Change Status</td>
+            <td class="moreInfo" (click)="editReport(r)">Change Status</td>
             <td> <svg class="reportCardRedButton" (click)="onReportDelete(r)" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                 width="30" height="40" viewBox="0 0 573.496 573.496"
                 xml:space="preserve">
