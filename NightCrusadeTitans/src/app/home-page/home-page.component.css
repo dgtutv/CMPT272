@@ -41,3 +41,9 @@ body {
     width: 500px;
     height: auto;
 }
+
+button {
+    position: fixed;
+    top: 12px;
+    right: 10px;
+}

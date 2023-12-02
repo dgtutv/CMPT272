@@ -4,7 +4,9 @@
         <div id="reportList" class="scrollable-table"><app-report-list (moreInfoEvent)="moreInfo($event)"></app-report-list></div>
     </div>  
     <div id="overlay" *ngIf="currentReport != undefined" class="card">
-        <button type="button" class="btn-close float-end" aria-label="Close" (click)="closeOverlay()"></button>
+        <div class="d-flex justify-content-end">
+            <button type="button" class="btn-close" aria-label="Close" (click)="closeOverlay()"></button>
+        </div>
         <span><strong>Suspect Name:</strong>&nbsp;&nbsp;{{currentReport.suspectName}} </span>
         <span><strong>Date Reported:</strong>&nbsp;&nbsp;{{currentReport.timeReported | date:'medium'}} </span>
         <span><strong>Long-Lat:</strong>&nbsp;&nbsp;{{currentReport.longitude}}, {{currentReport.latitude}} </span>
@@ -18,7 +20,7 @@
         <ng-template #description><strong>Description:</strong><span id="description">&nbsp;&nbsp;{{currentReport.extraInfo}}</span></ng-template>
         
 
-        <span *ngIf="currentReport.picture != null; then picture"></span> <br>
+        <span *ngIf="currentReport.picture != null; then picture"></span>
         <ng-template #picture> <strong> Picture:</strong> <img id="img" src="{{currentReport.picture}}"></ng-template>
     </div>
 </body>
