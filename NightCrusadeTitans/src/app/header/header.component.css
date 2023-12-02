@@ -13,11 +13,38 @@ a{
 .headerLinks{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 40%;
-    padding: 0 4%;
+    gap: 15%;
+    padding-right: 2%;
 }
 
 a:hover{
     color: gray;
+}
+
+@media screen and (max-width: 1200px) {
+    .headerLinks{
+        gap: 20%;
+        padding-right: 4%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .headerLinks{
+        gap: 10%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .headerLinks{
+        gap: 5%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .headerLinks{
+        gap: 5%;
+        padding-right: 0;
+    }
 }
