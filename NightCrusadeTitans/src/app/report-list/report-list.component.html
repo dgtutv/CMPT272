@@ -5,16 +5,17 @@
             <th>Suspect Name</th>
             <th>Time Reported</th>
             <th>Status</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let r of reports">
+        <tr *ngFor="let r of reports; let i = index" [ngClass]="{'grey': i % 2 == 0}">
             <td>{{ r.locationName }}</td>
             <td>{{ r.suspectName }}</td>
             <td>{{ r.timeReported | date:'medium' }}</td>
             <td *ngIf="r.resolved; then resolved else notResolved"></td>
-            <ng-template #resolved><span style="color: green;">Resolved</span></ng-template>
-            <ng-template #notResolved><span style="color: red;">Not Resolved</span></ng-template>
+            <ng-template #resolved><td style="color: green;">Resolved</td></ng-template>
+            <ng-template #notResolved><td style="color: red;">Not Resolved</td></ng-template>
             <td> <svg class="reportCardRedButton" (click)="onReportDelete(r)" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                 width="30" height="40" viewBox="0 0 573.496 573.496"
                 xml:space="preserve">

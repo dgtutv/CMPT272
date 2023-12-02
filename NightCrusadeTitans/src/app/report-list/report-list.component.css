@@ -1,4 +1,4 @@
-td{
+td, th{
     text-align: center;
     vertical-align: middle;
 }
@@ -38,4 +38,12 @@ span{
 
 .reportCardRedButton:hover{ 
     fill: #b30000;
+}
+
+.grey{
+    background-color: rgb(192, 190, 190);
+}
+
+tr{
+    background-color: rgb(233, 233, 233);
 }
