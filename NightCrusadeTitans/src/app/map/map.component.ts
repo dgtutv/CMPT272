@@ -29,7 +29,7 @@ export class MapComponent implements OnInit {
   }
 
   createMap(){
-    this.map = L.map('map').setView([49.193568, -122.689897], 9.8);
+    this.map = L.map('map').setView([49.205, -122.689897], 9.8);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
     }).addTo(this.map);
