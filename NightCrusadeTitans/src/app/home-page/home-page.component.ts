@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Report } from '../shared/report';
 
 @Component({
   selector: 'app-home-page',
@@ -12,4 +13,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  moreInfo(report: Report): void {
+    console.log('More info:', report);
+  }
 }
