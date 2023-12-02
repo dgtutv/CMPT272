@@ -47,3 +47,18 @@ button {
     top: 12px;
     right: 10px;
 }
+
+@media screen and (max-width: 600px) {
+   #overlay{
+        width: 90%;
+        margin: 2px;
+    }
+    #img {
+        width: 100%;
+        height: auto;
+    }
+    button {
+        top: 0;
+        right: 0;
+   }
+}
