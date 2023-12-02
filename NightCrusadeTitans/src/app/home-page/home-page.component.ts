@@ -29,4 +29,8 @@ export class HomePageComponent implements OnInit {
       blur.classList.toggle("active");
     }
   }
+
+  changeStatus(report: Report): void {
+    console.log('Change status:', report);
+  }
 }
