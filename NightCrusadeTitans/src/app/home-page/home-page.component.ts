@@ -51,7 +51,7 @@ export class HomePageComponent implements OnInit {
       else{
         resolved = false;
       }
-      // Create a new report in main memory with all the same stats
+      //Create a new report in main memory with all the same stats
       if (this.currentReportEdit) {
         let newReport = new Report(
           this.currentReportEdit.reporterName,
@@ -60,15 +60,15 @@ export class HomePageComponent implements OnInit {
           this.currentReportEdit.locationName,
           this.currentReportEdit.longitude,
           this.currentReportEdit.latitude,
-          this.currentReportEdit.picture || '', // Fix: Use an empty string if picture is undefined
+          this.currentReportEdit.picture || '',
           this.currentReportEdit.extraInfo,
           this.currentReportEdit.id,
           this.currentReportEdit.timeReported,
           resolved
         );
         console.log(newReport);
-        // Delete the old report from the server
-        // Add the new report to the server
+        //Delete the old report from the server
+        //Add the new report to the server
       }
     } 
   }
