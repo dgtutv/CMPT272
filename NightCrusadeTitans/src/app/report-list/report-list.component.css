@@ -49,3 +49,12 @@ span{
 tr{
     background-color: rgb(233, 233, 233);
 }
+
+.moreInfo{
+    text-decoration: underline;
+}
+
+.moreInfo:hover{
+    color: blue;
+    cursor:pointer ;
+}
