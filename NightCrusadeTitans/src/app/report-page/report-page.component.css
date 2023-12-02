@@ -2,7 +2,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    overflow: hidden;
+    overflow: scroll;
     margin: 0;
 }
 button{
