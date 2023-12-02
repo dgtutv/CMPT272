@@ -3,9 +3,11 @@ td, th{
     vertical-align: middle;
 }
 
-table{
-    width: calc(100% - 2rem);
-    margin: 2rem;
+table, #reports{
+    width: 100%;
+    padding: none;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 span{
