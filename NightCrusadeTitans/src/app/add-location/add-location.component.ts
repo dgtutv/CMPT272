@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as L from 'leaflet';
-import { validateLocaleAndSetLanguage } from 'typescript';
 
 @Component({
   selector: 'app-add-location',
@@ -11,7 +10,6 @@ import { validateLocaleAndSetLanguage } from 'typescript';
 export class AddLocationComponent{
   map!: L.Map;
   form: FormGroup; 
-
   @ViewChild('mapContainer') mapContainer!: ElementRef;
   currentMarker!: L.Marker<any>;
 
