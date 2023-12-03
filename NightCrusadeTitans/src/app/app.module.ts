@@ -17,7 +17,6 @@ import { ReportComponent } from './report/report.component';
 import { PhoneNumberPipe } from './phone-number.pipe';
 import { EditReportComponent } from './edit-report/edit-report.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CreateLocationComponent } from './create-location/create-location.component';
 
 
 @NgModule({
@@ -31,8 +30,7 @@ import { CreateLocationComponent } from './create-location/create-location.compo
     InfoPageComponent,
     ReportComponent,
     PhoneNumberPipe,
-    EditReportComponent,
-    CreateLocationComponent
+    EditReportComponent
   ],
   imports: [
     BrowserModule,

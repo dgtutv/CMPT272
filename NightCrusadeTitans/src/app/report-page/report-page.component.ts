@@ -16,6 +16,7 @@ export class ReportPageComponent {
   form: FormGroup;
   currentImage: string = "";
   currentMarker: L.Marker | undefined;
+  createLocation: boolean = false;
   constructor(private reportService:ReportService, private router: Router) {
     let formControls = {
       reporterName: new FormControl("",[Validators.required, Validators.minLength(2)]),
@@ -30,30 +31,7 @@ export class ReportPageComponent {
     this.form = new FormGroup(formControls);
   }
 
-  ngOnInit(): void {
-    this.map = L.map('map').setView([49.193568, -122.689897], 9.8);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-    }).addTo(this.map!);
-    this.map!.on('click', (e: any) => {
-      if(this.currentMarker != undefined){
-        this.map!.removeLayer(this.currentMarker);
-      }
-
-      //place a marker where the user clicked
-      this.currentMarker = L.marker([e.latlng.lat, e.latlng.lng]);
-      this.currentMarker.addTo(this.map!);
-
-      //set the form controls to the lat and long of the marker
-      this.form.controls['longitude'].setValue(e.latlng.lng.toFixed(4));
-      this.form.controls['latitude'].setValue(e.latlng.lat.toFixed(4));
-
-      this.form.controls['longitude'].markAsTouched();
-      this.form.controls['longitude'].updateValueAndValidity();
-      this.form.controls['latitude'].markAsTouched();
-      this.form.controls['latitude'].updateValueAndValidity();
-    });
-  }
+  ngOnInit(): void {}
 
   onSubmit(newReport: Report) {
     newReport.id = this.reportService.generateId();
@@ -67,4 +45,28 @@ export class ReportPageComponent {
     this.router.navigate(["/home"]);
   }
 
+  createNewLocation(){
+    this.createLocation = true;
+    this.map = L.map('map').setView([49.193568, -122.689897], 9.8);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+    }).addTo(this.map!);
+    this.map!.on('click', (e: any) => {
+      if(this.currentMarker != undefined){
+        this.map!.removeLayer(this.currentMarker);
+        //place a marker where the user clicked
+        this.currentMarker = L.marker([e.latlng.lat, e.latlng.lng]);
+        this.currentMarker.addTo(this.map!);
+
+        //set the form controls to the lat and long of the marker
+        this.form.controls['longitude'].setValue(e.latlng.lng.toFixed(4));
+        this.form.controls['latitude'].setValue(e.latlng.lat.toFixed(4));
+
+        this.form.controls['longitude'].markAsTouched();
+        this.form.controls['longitude'].updateValueAndValidity();
+        this.form.controls['latitude'].markAsTouched();
+        this.form.controls['latitude'].updateValueAndValidity();
+      }
+    });
+  }
 }
