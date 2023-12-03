@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as L from 'leaflet';
+import { validateLocaleAndSetLanguage } from 'typescript';
 
 @Component({
   selector: 'app-add-location',
@@ -18,6 +19,7 @@ export class AddLocationComponent{
     let formControls = {
       longitude: new FormControl("", [Validators.required]),
       latitude: new FormControl("", [Validators.required]),
+      name: new FormControl("", [Validators.required, Validators.minLength(2)]),
     };
     this.form = new FormGroup(formControls);
   }
