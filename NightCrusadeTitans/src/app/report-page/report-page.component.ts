@@ -21,61 +21,45 @@ export class ReportPageComponent {
   createLocation: boolean = false;
   showAddLocationPopup: boolean = false;
   @ViewChild('mapContainer') mapContainer!: ElementRef;
-  locations: Location[] = [
-    new Location("Burnaby", 49.2827, -123.1207),
-    new Location("Coquitlam", 49.2827, -122.7932),
-    new Location("Delta", 49.0847, -123.0586),
-    new Location("Langley", 49.1036, -122.6586),
-    new Location("Maple Ridge", 49.2209, -122.6010),
-    new Location("New Westminster", 49.2109, -122.9223),
-    new Location("North Vancouver", 49.3163, -123.0693),
-    new Location("Pitt Meadows", 49.2215, -122.6895),
-    new Location("Port Coquitlam", 49.2636, -122.7811),
-    new Location("Port Moody", 49.2827, -122.8456),
-    new Location("Richmond", 49.1666, -123.1336),
-    new Location("Surrey", 49.1913, -122.8490),
-    new Location("Vancouver", 49.2827, -123.1207),
-    new Location("West Vancouver", 49.3310, -123.2669),
-    new Location("White Rock", 49.0253, -122.8024)
-  ];
-  locationNames: string[] = this.locations.map(location => location.name);
+  locationNames!: string[];
+  locations!: Location[];
 
   constructor(private reportService:ReportService, private router: Router, private locationService: LocationService) {
-    this.reportService.pull().then((reports) => {
-      for(let report of reports)
-      if(!this.locationNames.includes(report.locationName)){
-        this.locations.push(new Location(report.locationName, report.latitude, report.longitude));
-        this.locationNames.push(report.locationName);
-      }
-    });
     let formControls = {
       reporterName: new FormControl("",[Validators.required, Validators.minLength(2)]),
       phoneNumber: new FormControl("",[Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("[0-9]*")]),
       suspectName: new FormControl("",[Validators.required, Validators.minLength(2)]),
-      locationName: new FormControl("",[Validators.required, Validators.minLength(2)]),
-      longitude: new FormControl("",[Validators.required]),
-      latitude: new FormControl("",[Validators.required]),
+      locationName: new FormControl("",[Validators.required]),
       picture: new FormControl(),
       extraInfo: new FormControl()
     }
     this.form = new FormGroup(formControls);
+    this.locationService.pull().then((locations) => {
+      this.locations = locations;
+      this.locationNames = this.locations.map(location => location.name);
+    });
   }
 
   openAddLocationPopup() {
     this.showAddLocationPopup = true;
   }
-  
-  onLocationCreated(newLocation: any) {
-    // Update your location list or perform any necessary action
-    this.locations.push(new Location(newLocation.name, newLocation.latitude, newLocation.longitude));
-    // Close the popup
-    this.showAddLocationPopup = false;
+
+  onLocationCreated(newLocation: Location){
+    this.locationService.pull().then((locations) => {
+      this.locations = locations;
+      this.locationNames = this.locations.map(location => location.name);
+      this.showAddLocationPopup = false;
+      this.form.controls['locationName'].setValue(newLocation.name);
+    });
   }
 
   ngOnInit(): void {
     // Subscribe to location updates
     this.locationService.getLocationUpdate().subscribe((locationName) => {
-      console.log("Seen");
+      this.locationService.pull().then((locations) => {
+        this.locations = locations;
+        this.locationNames = this.locations.map(location => location.name);
+      });
     });
   }
 

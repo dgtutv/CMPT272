@@ -1,6 +1,6 @@
 <div id="overlay">
     <div id="createLocation" class="card p-3">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
         <p>Select location on map:</p>
         <input type="text" name="name" placeholder="Name of The Location" formControlName="name" style="margin-bottom: 8px;">
         <div #mapContainer style="height: 40vh; width: 100%; align-self: center; margin-bottom: 8px;"></div>
