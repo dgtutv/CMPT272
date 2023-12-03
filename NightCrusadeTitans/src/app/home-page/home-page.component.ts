@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Report } from '../shared/report';
+import { ReportService } from '../report.service';
 
 @Component({
   selector: 'app-home-page',
@@ -10,7 +11,7 @@ export class HomePageComponent implements OnInit {
   currentReport: Report | undefined;
   currentReportEdit: Report | undefined;
 
-  constructor() { }
+  constructor(private reportService: ReportService) { }
 
   ngOnInit(): void {
   }
@@ -68,7 +69,15 @@ export class HomePageComponent implements OnInit {
         );
         console.log(newReport);
         //Delete the old report from the server
+        this.reportService.delete(this.currentReportEdit);
         //Add the new report to the server
+        this.reportService.push(newReport);
+        //Close the overlay
+        this.currentReportEdit = undefined;
+        let blur = document.getElementById("blur");
+        if(blur){
+          blur.classList.toggle("active");
+        }
       }
     } 
   }
