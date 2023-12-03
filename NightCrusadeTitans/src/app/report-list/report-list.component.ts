@@ -15,6 +15,7 @@ export class ReportListComponent implements OnInit {
   @Output() coordinates = new EventEmitter<Report>();
   @Output() moreInfoEvent = new EventEmitter<Report>();
   @Output() editReportEvent = new EventEmitter<Report>();
+  @Output() jumpToMapEvent = new EventEmitter<Report>();
   @ViewChild('table')
   table!: ElementRef;
   reports: Report[] = [];
@@ -95,5 +96,10 @@ export class ReportListComponent implements OnInit {
     else{
       alert("Incorrect password");
     }
+  }
+
+  jumpToMapTrigger(report: Report): void {
+    console.log(report);
+    this.jumpToMapEvent.emit(report);
   }
 }

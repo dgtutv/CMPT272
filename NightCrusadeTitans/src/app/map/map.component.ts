@@ -66,4 +66,11 @@ export class MapComponent implements OnInit {
       this.handleCoordinates(report);
     });
   }
+
+  jumpToLocation(report: Report){
+    console.log('jumpToLocation() called');
+    if(this.map){
+      this.map.flyTo([report.latitude, report.longitude], 15);
+    }
+  }
 }
