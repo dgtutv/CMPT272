@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class LocationUpdateService {
+export class LocationService {
   constructor(private http: HttpClient) {}
   private locationSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
   private baseUrl = 'https://272.selfip.net/apps/';
