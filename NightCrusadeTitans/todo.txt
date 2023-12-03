@@ -3,5 +3,4 @@
 -Make a "Create nuicence report" button
 -Fix coloring of not resolved when changing status
 -Put password on delete button
--Prevent duplicate named report locations from being created
 -If time allows, show pin on map for more info section

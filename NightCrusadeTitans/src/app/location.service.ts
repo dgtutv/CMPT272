@@ -23,6 +23,16 @@ export class LocationService {
   }
 
   async push(newLocation: LocationCustom): Promise<any> {
+    let locationExists = false;
+    let locations = await this.pull();
+    for(let i = 0; i < locations.length; i++) {
+      if(locations[i].name == newLocation.name) {
+        locationExists = true;
+        alert("Location with that name already exists!");
+        return;
+      }
+    }
+
     const url = `${this.baseUrl}${this.appKey}/collections/${this.collectionKey}/documents/`;
     console.log('Sending report to server:', newLocation);
     const headers = { 'Content-Type': 'application/json' };
