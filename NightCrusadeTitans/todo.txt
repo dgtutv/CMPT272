@@ -2,9 +2,6 @@
 -When a user selects a pin on the map, the report list should jump to the top, and highlight the selected report
 -When a user selects a pin on the map, 
 -Change the icon of the page
--Nothing to show message for report list and most wanted page
--Turn the reports cards into a table of reports, should be able to sort based on Location, Badie's name, or time reported
-    -Show the time as well as the date
 -Make a "Create nuicence report" button
 -Location Selection: A dropdown menu will allow users to select from existing locations or add new ones when creating reports. The locations list will grow dynamically as new locations are added.
 -Interacting with the markers will display the number of reports for each location.

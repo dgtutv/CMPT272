@@ -36,14 +36,27 @@ export class MapComponent implements OnInit {
     this.markersLayer.addTo(this.map);
   }
 
-  handleCoordinates(report: Report) {
+  async handleCoordinates(report: Report) {
+    let numOfReportsAtLocation = 0;
     if (this.map) {
       let currentMarker = L.marker([report.latitude, report.longitude], { riseOnHover: true })
-        .on('click', () => {
-          this.sortReportService.updateSortByReport(report);
-        })
-        .bindPopup(`<b>${report.locationName}</b><br>Suspect Name: ${report.suspectName}`)
-        .addTo(this.markersLayer);
+      .on('click', async () => {
+        this.sortReportService.updateSortByReport(report);
+        let reports = await this.reportService.pull();
+        for(let r of reports){
+          if(r.locationName === report.locationName){
+            numOfReportsAtLocation++;
+          }
+        }
+        if(numOfReportsAtLocation === 1){
+          currentMarker.bindPopup(`<b>${report.locationName}</b><br>${numOfReportsAtLocation} report`).openPopup();
+        }
+        else{
+          currentMarker.bindPopup(`<b>${report.locationName}</b><br>${numOfReportsAtLocation} reports`).openPopup();
+        }
+        
+      })
+      .addTo(this.markersLayer);
     }
   }
 
