@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Report } from '../shared/report';
 import { ReportService } from '../report.service';
 
@@ -10,6 +10,7 @@ import { ReportService } from '../report.service';
 export class HomePageComponent implements OnInit {
   currentReport: Report | undefined;
   currentReportEdit: Report | undefined;
+  resolved: boolean = false;
 
   constructor(private reportService: ReportService) { }
 
@@ -39,6 +40,7 @@ export class HomePageComponent implements OnInit {
     if(blur){
       blur.classList.toggle("active");
     }
+    this.resolved = report.resolved;
   }
 
   async onSubmit(): Promise<void> {

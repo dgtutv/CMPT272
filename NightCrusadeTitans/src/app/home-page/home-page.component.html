@@ -29,12 +29,12 @@
         <form (ngSubmit)="onSubmit()">
             <label for="status" class="form-label me-2">Case Status:</label>
             <div class="mb-3 d-flex justify-content-start align-items-center"> 
-                <select id="status" [(ngModel)]="currentReportEdit.resolved" name="status" class="form-select me-2" [ngStyle]="{'color': currentReportEdit.resolved ? 'green' : 'red'}">
+                <select id="status" [(ngModel)]="currentReportEdit.resolved" name="status" class="form-select me-2">
                     <option style="color: green;" value="true">Resolved</option>
                     <option style="color: red;" value="false">Not Resolved</option>
                 </select>
                 <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+            </div>            
         </form>
     </div>
 </body>
