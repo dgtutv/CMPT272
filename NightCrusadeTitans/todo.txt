@@ -1,6 +1,4 @@
 -Implement info page
--Implement editing records
--Improve the styling of the page (dynamic syling via media queries and such)
 -When a user selects a pin on the map, the report list should jump to the top, and highlight the selected report
 -When a user selects a pin on the map, 
 -Change the icon of the page

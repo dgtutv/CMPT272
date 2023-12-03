@@ -41,7 +41,7 @@ export class HomePageComponent implements OnInit {
     }
   }
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     let statusElement: HTMLSelectElement | null = document.getElementById("status") as HTMLSelectElement | null;
     if (statusElement) {
       let statusValue = statusElement.value;
@@ -69,9 +69,9 @@ export class HomePageComponent implements OnInit {
         );
         console.log(newReport);
         //Delete the old report from the server
-        this.reportService.delete(this.currentReportEdit);
+        await this.reportService.delete(this.currentReportEdit);
         //Add the new report to the server
-        this.reportService.push(newReport);
+        await this.reportService.push(newReport);
         //Close the overlay
         this.currentReportEdit = undefined;
         let blur = document.getElementById("blur");
