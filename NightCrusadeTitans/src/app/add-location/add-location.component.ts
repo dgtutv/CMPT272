@@ -69,5 +69,6 @@ export class AddLocationComponent{
   }
   
   closeOverlay() {
+    this.locationService.updateLocation();
   }
 }

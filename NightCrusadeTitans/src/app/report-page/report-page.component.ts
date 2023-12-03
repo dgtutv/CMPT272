@@ -55,11 +55,8 @@ export class ReportPageComponent {
 
   ngOnInit(): void {
     //Subscribe to location updates
-    this.locationService.getLocationUpdate().subscribe((locationName) => {
-      this.locationService.pull().then((locations) => {
-        this.locations = locations;
-        this.locationNames = this.locations.map(location => location.name);
-      });
+    this.locationService.getLocationUpdate().subscribe(() => {
+      this.showAddLocationPopup = false;
     });
   }
 

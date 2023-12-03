@@ -18,8 +18,8 @@ export class LocationService {
     return this.locationSubject.asObservable();
   }
 
-  updateLocation(locationName: string): void {
-    this.locationSubject.next(locationName);
+  updateLocation(): void {
+    this.locationSubject.next(null);
   }
 
   async push(newLocation: LocationCustom): Promise<any> {
