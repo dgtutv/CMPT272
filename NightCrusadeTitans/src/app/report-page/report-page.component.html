@@ -11,15 +11,16 @@
       
       
       <div class="d-flex justify-content-between align-items-center">
-        <label for="locationName">Location:</label>
+        <label for="location">Location:</label>
         <button type="button" class="btn btn-primary btn-sm float-right" (click)="createNewLocation(mapContainer)">Create New Location</button>
       </div>
-      <select name="locationName" placeholder="Location" formControlName="locationName">
+      <select name="location" placeholder="Location" formControlName="location">
         <option *ngFor="let location of locations" [value]="location.name">{{location.name}}</option>
       </select>
       <div class="requiredText">*Required</div>
       
       <div id="createLocation" *ngIf="createLocation" class="card p-3">
+        <input type="text" name="locationName" placeholder="Location Name" formControlName="locationName">
         <p>Select location on map:</p>
         <div #mapContainer style="height: 40vh; width: 100%; align-self: center;"></div>
         <div id="longlat">
