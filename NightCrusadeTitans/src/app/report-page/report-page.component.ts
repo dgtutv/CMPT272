@@ -29,7 +29,7 @@ export class ReportPageComponent {
       reporterName: new FormControl("",[Validators.required, Validators.minLength(2)]),
       phoneNumber: new FormControl("",[Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("[0-9]*")]),
       suspectName: new FormControl("",[Validators.required, Validators.minLength(2)]),
-      locationName: new FormControl("",[Validators.required]),
+      locationName: new FormControl(null, Validators.required),
       picture: new FormControl(),
       extraInfo: new FormControl()
     }
@@ -54,7 +54,7 @@ export class ReportPageComponent {
   }
 
   ngOnInit(): void {
-    // Subscribe to location updates
+    //Subscribe to location updates
     this.locationService.getLocationUpdate().subscribe((locationName) => {
       this.locationService.pull().then((locations) => {
         this.locations = locations;
@@ -67,13 +67,22 @@ export class ReportPageComponent {
     newReport.id = this.reportService.generateId();
     newReport.timeReported = new Date().getTime();
     newReport.resolved = false;
-    newReport.latitude = Number(Number(newReport.latitude).toFixed(4));
-    newReport.longitude = Number(Number(newReport.longitude).toFixed(4));
-
-    this.reportService.push(newReport);
-    this.form.reset();
-    this.router.navigate(["/home"]);
+      this.locationService.pull().then((locations) => {
+      this.locations = locations;
+      const selectedLocation = this.locations.find(location => location.name === newReport.locationName);
+      if(selectedLocation){
+        newReport.latitude = selectedLocation.latitude;
+        newReport.longitude = selectedLocation.longitude;
+        this.reportService.push(newReport);
+        this.form.reset();
+        this.router.navigate(["/home"]);
+      } 
+      else{
+        console.error("Selected location not found.");
+      }
+    });
   }
+  
   createNewLocation() {
     this.showAddLocationPopup = true;
   }
