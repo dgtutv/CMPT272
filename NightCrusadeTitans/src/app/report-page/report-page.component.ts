@@ -4,6 +4,8 @@ import { ReportService } from '../report.service';
 import { Router, RouterLink } from '@angular/router';
 import { Report } from '../shared/report';
 import * as L from 'leaflet';
+import { LocationUpdateService } from '../location.service';
+import { Location } from '../location';
 
 
 @Component({
@@ -38,7 +40,7 @@ export class ReportPageComponent {
   ];
   locationNames: string[] = this.locations.map(location => location.name);
 
-  constructor(private reportService:ReportService, private router: Router) {
+  constructor(private reportService:ReportService, private router: Router, private locationUpdateService: LocationUpdateService) {
     this.reportService.pull().then((reports) => {
       for(let report of reports)
       if(!this.locationNames.includes(report.locationName)){
@@ -70,7 +72,12 @@ export class ReportPageComponent {
     this.showAddLocationPopup = false;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Subscribe to location updates
+    this.locationUpdateService.getLocationUpdate().subscribe((locationName) => {
+      console.log("Seen");
+    });
+  }
 
   onSubmit(newReport: Report) {
     newReport.id = this.reportService.generateId();
@@ -88,13 +95,3 @@ export class ReportPageComponent {
   }
 }
 
-class Location{
-  name: string;
-  latitude: number;
-  longitude: number;
-  constructor(name: string, latitude: number, longitude: number){
-    this.name = name;
-    this.latitude = latitude;
-    this.longitude = longitude;
-  }
-}

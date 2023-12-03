@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as L from 'leaflet';
+import { LocationUpdateService } from '../location.service';
 
 @Component({
   selector: 'app-add-location',
@@ -13,7 +14,7 @@ export class AddLocationComponent{
   @ViewChild('mapContainer') mapContainer!: ElementRef;
   currentMarker!: L.Marker<any>;
 
-  constructor() {
+  constructor(private locationService: LocationUpdateService) {
     let formControls = {
       longitude: new FormControl("", [Validators.required]),
       latitude: new FormControl("", [Validators.required]),
@@ -27,8 +28,8 @@ export class AddLocationComponent{
   }
 
   onSubmit() {
-    // Handle form submission logic
-    // You can access the latitude and longitude from this.form.value
+    let newLocationName = this.form.value.name;
+    this.locationService.updateLocation(newLocationName);
   }
 
   initMap() {
