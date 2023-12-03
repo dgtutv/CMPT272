@@ -4,6 +4,7 @@ import { ReportService } from '../report.service';
 import { SortReportsService } from '../sort-reports.service';
 import { Subscription } from 'rxjs';
 import { RefreshMapService } from '../refresh-map.service';
+import { MD5 } from 'crypto-js';
 
 @Component({
   selector: 'app-report-list',
@@ -62,6 +63,16 @@ export class ReportListComponent implements OnInit {
   }
 
   editReport(report: Report): void {
-    this.editReportEvent.emit(report);
+    let queryString = prompt("Please enter your password to edit this report");
+    if(queryString == null){
+      return;
+    } 
+    let hashedQuery = MD5(queryString).toString();
+    if(hashedQuery === "fcab0453879a2b2281bc5073e3f5fe54"){
+      this.editReportEvent.emit(report);
+    }
+    else{
+      alert("Incorrect password");
+    }
   }
 }
