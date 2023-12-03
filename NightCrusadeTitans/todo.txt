@@ -4,3 +4,5 @@
 -Fix coloring of not resolved when changing status
 -Put password on delete button
 -Prevent duplicate named report locations from being created
+-Add exit button to create locations section
+-If time allows, show pin on map for more info section
