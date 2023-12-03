@@ -1,8 +1,8 @@
 -Implement info page
--When a user selects a pin on the map, the report list should jump to the top, and highlight the selected report
--When a user selects a pin on the map, 
 -Change the icon of the page
 -Make a "Create nuicence report" button
 -Location Selection: A dropdown menu will allow users to select from existing locations or add new ones when creating reports. The locations list will grow dynamically as new locations are added.
 -Interacting with the markers will display the number of reports for each location.
 -Remove the thing where when you submit a report, you jump to the bottom of the home page
+-Fix coloring of not resolved when changing status
+-Put password on delete button

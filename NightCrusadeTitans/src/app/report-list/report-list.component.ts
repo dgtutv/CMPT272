@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Report } from '../shared/report';
 import { ReportService } from '../report.service';
 import { SortReportsService } from '../sort-reports.service';
@@ -15,6 +15,8 @@ export class ReportListComponent implements OnInit {
   @Output() coordinates = new EventEmitter<Report>();
   @Output() moreInfoEvent = new EventEmitter<Report>();
   @Output() editReportEvent = new EventEmitter<Report>();
+  @ViewChild('table')
+  table!: ElementRef;
   reports: Report[] = [];
   private subscription: Subscription | undefined;
 
@@ -24,6 +26,14 @@ export class ReportListComponent implements OnInit {
     this.loadReports();
     this.subscription = this.sortReportsService.reportUpdated$.subscribe(report => {
       this.loadReports();
+    });
+  }
+
+  ngAfterViewInit() {
+    this.subscription = this.sortReportsService.reportUpdated$.subscribe(() => {
+      this.table.nativeElement.scrollIntoView({ behavior: 'smooth' });
+      this.table.nativeElement.classList.add('glow');
+      setTimeout(() => this.table.nativeElement.classList.remove('glow'), 1000);
     });
   }
 
