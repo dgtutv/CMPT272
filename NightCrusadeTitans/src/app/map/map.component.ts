@@ -41,6 +41,7 @@ export class MapComponent implements OnInit {
     if (this.map) {
       let currentMarker = L.marker([report.latitude, report.longitude], { riseOnHover: true })
       .on('click', async () => {
+        this.map!.flyTo([report.latitude, report.longitude], 15);
         this.sortReportService.updateSortByReport(report);
         let reports = await this.reportService.pull();
         for(let r of reports){
@@ -54,7 +55,6 @@ export class MapComponent implements OnInit {
         else{
           currentMarker.bindPopup(`<b>${report.locationName}</b><br>${numOfReportsAtLocation} reports`).openPopup();
         }
-        
       })
       .addTo(this.markersLayer);
     }
