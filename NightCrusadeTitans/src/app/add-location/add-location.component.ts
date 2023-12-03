@@ -58,11 +58,16 @@ export class AddLocationComponent{
   }
 
   updateMarker(latitude: number, longitude: number) {
-    if (this.currentMarker) {
-      this.map!.removeLayer(this.currentMarker);
+    if (latitude && longitude) {
+      if (this.currentMarker) {
+        this.map!.removeLayer(this.currentMarker);
+      }
+      this.currentMarker = L.marker([latitude, longitude]);
+      this.currentMarker.addTo(this.map!);
+      this.map!.flyTo([latitude, longitude], 15);
     }
-    this.currentMarker = L.marker([latitude, longitude]);
-    this.currentMarker.addTo(this.map!);
-    this.map!.flyTo([latitude, longitude], 15);
+  }
+  
+  closeOverlay() {
   }
 }
