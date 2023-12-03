@@ -1,4 +1,4 @@
-<table id="reports" class="scrollable-table table-striped table table-bordered table-hover" #table>
+<table id="reports" class="scrollable-table table-striped table table-bordered" #table>
     <thead>
         <tr>
             <th class="th-sm">Location</th>
@@ -11,7 +11,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let r of reports; let i = index" (click)="jumpToMapTrigger(r)">
+        <tr *ngFor="let r of reports; let i = index">
             <td>{{ r.locationName }}</td>
             <td>{{ r.suspectName }}</td>
             <td>{{ r.timeReported | date:'medium' }}</td>
