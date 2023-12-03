@@ -17,6 +17,7 @@ export class ReportPageComponent {
   currentImage: string = "";
   currentMarker: L.Marker | undefined;
   createLocation: boolean = false;
+  showAddLocationPopup: boolean = false;
   @ViewChild('mapContainer') mapContainer!: ElementRef;
   locations: Location[] = [
     new Location("Burnaby", 49.2827, -123.1207),
@@ -58,14 +59,18 @@ export class ReportPageComponent {
     this.form = new FormGroup(formControls);
   }
 
-  ngOnInit(): void {}
-
-  ngAfterViewInit(): void {
-    //Delay the map initialization until the container is visible
-    if (this.createLocation && this.mapContainer) {
-      this.initMap(this.mapContainer.nativeElement);
-    }
+  openAddLocationPopup() {
+    this.showAddLocationPopup = true;
   }
+  
+  onLocationCreated(newLocation: any) {
+    // Update your location list or perform any necessary action
+    this.locations.push(new Location(newLocation.name, newLocation.latitude, newLocation.longitude));
+    // Close the popup
+    this.showAddLocationPopup = false;
+  }
+
+  ngOnInit(): void {}
 
   onSubmit(newReport: Report) {
     newReport.id = this.reportService.generateId();
@@ -78,57 +83,8 @@ export class ReportPageComponent {
     this.form.reset();
     this.router.navigate(["/home"]);
   }
-
-  createNewLocation(mapContainer: ElementRef) {
-    this.mapContainer = mapContainer;
-    this.createLocation = true;
-    //Delay the map initialization until the container is visible
-    setTimeout(() => {
-      if (this.mapContainer) {
-        this.initMap(this.mapContainer.nativeElement);
-      }
-    });
-  }
-
-  initMap(mapContainer: HTMLElement) {
-    this.map = L.map(mapContainer).setView([49.193568, -122.689897], 9.8);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-    }).addTo(this.map);
-
-    this.map.on('click', (e: any) => {
-      if (this.currentMarker) {
-        this.map!.removeLayer(this.currentMarker);
-      }
-      //Place a marker where the user clicked
-      this.currentMarker = L.marker([e.latlng.lat, e.latlng.lng]);
-      this.currentMarker.addTo(this.map!);
-
-      //Set the form controls to the lat and long of the marker
-      this.form.controls['longitude'].setValue(e.latlng.lng.toFixed(4));
-      this.form.controls['latitude'].setValue(e.latlng.lat.toFixed(4));
-      this.form.controls['longitude'].markAsTouched();
-      this.form.controls['longitude'].updateValueAndValidity();
-      this.form.controls['latitude'].markAsTouched();
-      this.form.controls['latitude'].updateValueAndValidity();
-    });
-
-    this.form.controls['longitude'].valueChanges.subscribe(value => {
-      this.updateMarker(this.form.controls['latitude'].value, value);
-    });
-
-    this.form.controls['latitude'].valueChanges.subscribe(value => {
-      this.updateMarker(value, this.form.controls['longitude'].value);
-    });
-  }
-
-  updateMarker(latitude: number, longitude: number) {
-    if (this.currentMarker) {
-      this.map!.removeLayer(this.currentMarker);
-    }
-    this.currentMarker = L.marker([latitude, longitude]);
-    this.currentMarker.addTo(this.map!);
-    this.map!.flyTo([latitude, longitude], 15);
+  createNewLocation() {
+    this.showAddLocationPopup = true;
   }
 }
 

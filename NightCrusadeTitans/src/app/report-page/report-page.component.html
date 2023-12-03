@@ -12,22 +12,15 @@
       
       <div class="d-flex justify-content-between align-items-center">
         <label for="location">Location:</label>
-        <button type="button" class="btn btn-primary btn-sm float-right" (click)="createNewLocation(mapContainer)">Create New Location</button>
+        <button type="button" class="btn btn-primary btn-sm float-right" (click)="createNewLocation()">Create New Location</button>
       </div>
       <select name="location" placeholder="Location" formControlName="location">
         <option *ngFor="let location of locations" [value]="location.name">{{location.name}}</option>
       </select>
       <div class="requiredText">*Required</div>
       
-      <div id="createLocation" *ngIf="createLocation" class="card p-3">
-        <input type="text" name="locationName" placeholder="Location Name" formControlName="locationName">
-        <p>Select location on map:</p>
-        <div #mapContainer style="height: 40vh; width: 100%; align-self: center;"></div>
-        <div id="longlat">
-          <input style="width: 50%;" type="number" name="longitude" placeholder="Longitude of The Location" formControlName="longitude" min="-180" max="180">
-          <input style="width: 50%" type="number" name="latitude" placeholder="Latitude of The Location" formControlName="latitude" min="-90" max="90">
-        </div>
-      </div>
+      <app-add-location (locationCreated)="onLocationCreated($event)" *ngIf="showAddLocationPopup"></app-add-location>
+
 
       <input type="text" name="picture" placeholder="URL to image" formControlName="picture" style="margin-top: 8px;">
       <input type="text" name="extraInfo" placeholder="Extra Information" formControlName="extraInfo">
