@@ -14,6 +14,7 @@ import * as L from 'leaflet';
 export class ReportPageComponent {
   map: L.Map | undefined;
   form: FormGroup;
+  subForm: FormGroup;
   currentImage: string = "";
   currentMarker: L.Marker | undefined;
   createLocation: boolean = false;
@@ -49,13 +50,17 @@ export class ReportPageComponent {
       reporterName: new FormControl("",[Validators.required, Validators.minLength(2)]),
       phoneNumber: new FormControl("",[Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("[0-9]*")]),
       suspectName: new FormControl("",[Validators.required, Validators.minLength(2)]),
-      locationName: new FormControl("",[Validators.required, Validators.minLength(2)]),
-      longitude: new FormControl("",[Validators.required]),
-      latitude: new FormControl("",[Validators.required]),
+      location: new FormControl("",[Validators.required]),
       picture: new FormControl(),
       extraInfo: new FormControl()
     }
+    let subFormControls = {
+      locationName: new FormControl("",[Validators.required, Validators.minLength(2)]),
+      longitude: new FormControl("",[Validators.required]),
+      latitude: new FormControl("",[Validators.required]),
+    }
     this.form = new FormGroup(formControls);
+    this.subForm = new FormGroup(subFormControls);
   }
 
   ngOnInit(): void {}
@@ -129,6 +134,17 @@ export class ReportPageComponent {
     this.currentMarker = L.marker([latitude, longitude]);
     this.currentMarker.addTo(this.map!);
     this.map!.flyTo([latitude, longitude], 15);
+  }
+
+  addLocation(Location: Location){
+    this.locations.push(Location);
+    this.locationNames.push(Location.name);
+    this.form.controls['location'].setValue(Location.name);
+    this.form.controls['location'].markAsTouched();
+    this.form.controls['location'].updateValueAndValidity();
+    this.createLocation = false;
+    this.map!.remove();
+    this.map = undefined; 
   }
 }
 
