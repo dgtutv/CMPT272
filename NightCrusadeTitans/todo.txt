@@ -2,5 +2,3 @@
 -Change the icon of the page
 -Make a "Create nuicence report" button
 -Fix coloring of not resolved when changing status
--Put password on delete button
--If time allows, show pin on map for more info section

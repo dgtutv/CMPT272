@@ -57,16 +57,27 @@ export class ReportListComponent implements OnInit {
   }
 
   onReportDelete(report: Report): void {
-    this.reportService.delete(report).then(() => {
-      this.refreshMapService.refreshMap(this.reports);
-      for(let report of this.reports){
-        this.coordinates.emit(report);
-      }
-      this.loadReports(); 
-    }).catch(error => {
-      console.error('Error deleting report:', error);
-    });
+    let queryString = prompt("Please enter your password to delete this report");
+    if(queryString == null){
+      return;
+    } 
+    let hashedQuery = MD5(queryString).toString();
+    if(hashedQuery === "fcab0453879a2b2281bc5073e3f5fe54"){
+      this.reportService.delete(report).then(() => {
+        this.refreshMapService.refreshMap(this.reports);
+        for(let report of this.reports){
+          this.coordinates.emit(report);
+        }
+        this.loadReports(); 
+      }).catch(error => {
+        console.error('Error deleting report:', error);
+      });
+    }
+    else{
+      alert("Incorrect password");
+    }
   }
+    
 
   moreInfo(report: Report): void {
     this.moreInfoEvent.emit(report);
