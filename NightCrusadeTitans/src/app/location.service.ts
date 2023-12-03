@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, firstValueFrom } from 'rxjs';
 import { nanoid } from 'nanoid';
-import { Location } from './location';
+import { LocationCustom } from './locationCustom';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -22,7 +22,7 @@ export class LocationService {
     this.locationSubject.next(locationName);
   }
 
-  async push(newLocation: Location): Promise<any> {
+  async push(newLocation: LocationCustom): Promise<any> {
     const url = `${this.baseUrl}${this.appKey}/collections/${this.collectionKey}/documents/`;
     console.log('Sending report to server:', newLocation);
     const headers = { 'Content-Type': 'application/json' };
@@ -32,12 +32,12 @@ export class LocationService {
     return firstValueFrom(this.http.post(url, body, { headers }));
   }
 
-  async pull(): Promise<Location[]> {
+  async pull(): Promise<LocationCustom[]> {
     const url = `${this.baseUrl}${this.appKey}/collections/${this.collectionKey}/documents/`;
     let fetchedLocations:Promise<{key:string, data:string}[]> = firstValueFrom(this.http.get<{key:string, data:string}[]>(url));
     
     return fetchedLocations.then(locations => {
-      let parsedLocations: Location[] = [];
+      let parsedLocations: LocationCustom[] = [];
       for(let i = 0; i < locations.length; i++) {
         parsedLocations.push(JSON.parse(locations[i].data));
       }

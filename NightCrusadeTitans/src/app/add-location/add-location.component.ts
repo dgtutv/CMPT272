@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as L from 'leaflet';
 import { LocationService } from '../location.service';
-import { Location } from '../location';
+import { LocationCustom } from '../locationCustom';
 
 @Component({
   selector: 'app-add-location',
@@ -15,7 +15,7 @@ export class AddLocationComponent{
   form: FormGroup; 
   @ViewChild('mapContainer') mapContainer!: ElementRef;
   currentMarker!: L.Marker<any>;
-  @Output() locationCreated = new EventEmitter<Location>();
+  @Output() locationCreated = new EventEmitter<LocationCustom>();
   
   constructor(private locationService: LocationService) {
     let formControls = {
@@ -30,7 +30,7 @@ export class AddLocationComponent{
     this.initMap();
   }
 
-  onSubmit(newLocation: Location) {
+  onSubmit(newLocation: LocationCustom) {
     this.locationService.push(newLocation).then(() => {
       this.form.reset();
       this.locationCreated.emit(newLocation);

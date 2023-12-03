@@ -5,7 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { Report } from '../shared/report';
 import * as L from 'leaflet';
 import { LocationService } from '../location.service';
-import { Location } from '../location';
+import { LocationCustom } from '../locationCustom';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class ReportPageComponent {
   showAddLocationPopup: boolean = false;
   @ViewChild('mapContainer') mapContainer!: ElementRef;
   locationNames!: string[];
-  locations!: Location[];
+  locations!: LocationCustom[];
 
   constructor(private reportService:ReportService, private router: Router, private locationService: LocationService) {
     let formControls = {
@@ -44,7 +44,7 @@ export class ReportPageComponent {
     this.showAddLocationPopup = true;
   }
 
-  onLocationCreated(newLocation: Location){
+  onLocationCreated(newLocation: LocationCustom){
     this.locationService.pull().then((locations) => {
       this.locations = locations;
       this.locationNames = this.locations.map(location => location.name);

@@ -1,4 +1,4 @@
-export class Location {
+export class LocationCustom {
     name: string;
     latitude: number;
     longitude: number;
