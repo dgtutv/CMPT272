@@ -96,7 +96,6 @@ export class ReportPageComponent {
       maxZoom: 19,
     }).addTo(this.map);
 
-    //Handle map click events
     this.map.on('click', (e: any) => {
       if (this.currentMarker) {
         this.map!.removeLayer(this.currentMarker);
@@ -108,12 +107,28 @@ export class ReportPageComponent {
       //Set the form controls to the lat and long of the marker
       this.form.controls['longitude'].setValue(e.latlng.lng.toFixed(4));
       this.form.controls['latitude'].setValue(e.latlng.lat.toFixed(4));
-
       this.form.controls['longitude'].markAsTouched();
       this.form.controls['longitude'].updateValueAndValidity();
       this.form.controls['latitude'].markAsTouched();
       this.form.controls['latitude'].updateValueAndValidity();
     });
+
+    this.form.controls['longitude'].valueChanges.subscribe(value => {
+      this.updateMarker(this.form.controls['latitude'].value, value);
+    });
+
+    this.form.controls['latitude'].valueChanges.subscribe(value => {
+      this.updateMarker(value, this.form.controls['longitude'].value);
+    });
+  }
+
+  updateMarker(latitude: number, longitude: number) {
+    if (this.currentMarker) {
+      this.map!.removeLayer(this.currentMarker);
+    }
+    this.currentMarker = L.marker([latitude, longitude]);
+    this.currentMarker.addTo(this.map!);
+    this.map!.flyTo([latitude, longitude], 15);
   }
 }
 

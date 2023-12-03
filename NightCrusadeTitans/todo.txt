@@ -6,3 +6,4 @@
 -Remove the thing where when you submit a report, you jump to the bottom of the home page
 -Fix coloring of not resolved when changing status
 -Put password on delete button
+-When the user modifies the longitude and latitude manually, the marker on the map should be updated
