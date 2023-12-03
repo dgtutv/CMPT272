@@ -55,9 +55,8 @@ export class ReportPageComponent {
     });
   }
 
-  async onSubmit(newReport: Report) {
-    newReport.id = await this.reportService.generateIdFromServer();
-    console.log(newReport.id)
+  onSubmit(newReport: Report) {
+    newReport.id = this.reportService.generateId();
     newReport.timeReported = new Date().getTime();
     newReport.resolved = false;
     newReport.latitude = Number(Number(newReport.latitude).toFixed(4));
@@ -69,4 +68,3 @@ export class ReportPageComponent {
   }
 
 }
-
