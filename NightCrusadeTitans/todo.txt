@@ -1,8 +1,7 @@
 -Change the icon of the page
 -Make a "Create nuicence report" button
--Sort table elements by each column
 
 If time permits:
 -Fix coloring of not resolved when changing status
 -Implement info page
--Report list should update when a report's status is changed
+-Report list should update when a report's status is changed (only works going from unresolved to resolved)
