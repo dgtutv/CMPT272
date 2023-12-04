@@ -41,7 +41,7 @@ import { AddLocationComponent } from './add-location/add-location.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
