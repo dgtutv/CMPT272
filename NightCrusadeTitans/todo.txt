@@ -5,3 +5,4 @@
 If time permits:
 -Fix coloring of not resolved when changing status
 -Implement info page
+-Report list should update when a report's status is changed
