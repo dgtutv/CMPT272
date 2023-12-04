@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Report } from '../shared/report';
 import { ReportService } from '../report.service';
+import { SortReportsService } from '../sort-reports.service';
 
 @Component({
   selector: 'app-home-page',
@@ -12,7 +13,7 @@ export class HomePageComponent implements OnInit {
   currentReportEdit: Report | undefined;
   resolved: boolean = false;
 
-  constructor(private reportService: ReportService) { }
+  constructor(private reportService: ReportService, private sortReportsService: SortReportsService) { }
 
   ngOnInit(): void {
   }
@@ -74,6 +75,7 @@ export class HomePageComponent implements OnInit {
         await this.reportService.delete(this.currentReportEdit);
         //Add the new report to the server
         await this.reportService.push(newReport);
+        this.sortReportsService.updateSortByReport(this.currentReportEdit);
         //Close the overlay
         this.currentReportEdit = undefined;
         let blur = document.getElementById("blur");
