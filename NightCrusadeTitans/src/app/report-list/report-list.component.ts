@@ -109,12 +109,14 @@ export class ReportListComponent implements OnInit {
     this.suspectSortCounter = 0;
     this.timeSortCounter = 0;
     this.statusSortCounter = 0;
-    this.locationSortCounter = (this.locationSortCounter + 1) % 3;
-    if(this.locationSortCounter == 1){
+    this.locationSortCounter = (this.locationSortCounter + 1) % 2;
+    if(this.locationSortCounter == 0){
       //Sort by location alphabetically
+      this.reports.sort((a, b) => (a.locationName > b.locationName) ? 1 : -1);
     }
-    else if(this.locationSortCounter == 2){
+    else if(this.locationSortCounter == 1){
       //Sort by location reverse alphabetically
+      this.reports.sort((a, b) => (a.locationName < b.locationName) ? 1 : -1);
     }
     else{
       return;
@@ -125,12 +127,14 @@ export class ReportListComponent implements OnInit {
     this.locationSortCounter = 0;
     this.timeSortCounter = 0;
     this.statusSortCounter = 0;
-    this.suspectSortCounter = (this.suspectSortCounter + 1) % 3;
-    if(this.suspectSortCounter == 1){
+    this.suspectSortCounter = (this.suspectSortCounter + 1) % 2;
+    if(this.suspectSortCounter == 0){
       //Sort by suspect alphabetically
+      this.reports.sort((a, b) => (a.suspectName > b.suspectName) ? 1 : -1);
     }
-    else if(this.suspectSortCounter == 2){
+    else if(this.suspectSortCounter == 1){
       //Sort by suspect reverse alphabetically
+      this.reports.sort((a, b) => (a.suspectName < b.suspectName) ? 1 : -1);
     }
     else{
       return;
@@ -141,12 +145,14 @@ export class ReportListComponent implements OnInit {
     this.locationSortCounter = 0;
     this.suspectSortCounter = 0;
     this.statusSortCounter = 0;
-    this.timeSortCounter = (this.timeSortCounter + 1) % 3;
-    if(this.timeSortCounter == 1){
+    this.timeSortCounter = (this.timeSortCounter + 1) % 2;
+    if(this.timeSortCounter == 0){
       //Sort by time latest to oldest
+      this.reports.sort((a, b) => (a.timeReported > b.timeReported) ? 1 : -1);
     }
-    else if(this.timeSortCounter == 2){
+    else if(this.timeSortCounter == 1){
       //Sort by time oldest to latest
+      this.reports.sort((a, b) => (a.timeReported < b.timeReported) ? 1 : -1);
     }
     else{
       return;
@@ -157,12 +163,30 @@ export class ReportListComponent implements OnInit {
     this.locationSortCounter = 0;
     this.suspectSortCounter = 0;
     this.timeSortCounter = 0;
-    this.statusSortCounter = (this.statusSortCounter + 1) % 3;
-    if(this.statusSortCounter == 1){
+    this.statusSortCounter = (this.statusSortCounter + 1) % 2;
+    if(this.statusSortCounter == 0){
       //Sort by status resolved to unresolved
+      this.reports.sort((a, b) => {
+        if(a.resolved && !b.resolved) {
+          return -1;
+        }
+        if(b.resolved && !a.resolved) {
+          return 1;
+        }
+        return 0;
+      });
     }
-    else if(this.statusSortCounter == 2){
+    else if(this.statusSortCounter == 1){
       //Sort by status unresolved to resolved
+      this.reports.sort((a, b) => {
+        if(a.resolved && !b.resolved) {
+          return 1;
+        }
+        if(b.resolved && !a.resolved) {
+          return -1;
+        }
+        return 0;
+      });
     }
     else{
       return;
