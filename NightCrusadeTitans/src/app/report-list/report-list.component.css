@@ -36,3 +36,19 @@ span{
     color: blue;
     cursor:pointer ;
 }
+
+#locationHeader:hover{
+    cursor: pointer;
+}
+
+#suspectHeader:hover{
+    cursor: pointer;
+}
+
+#timeHeader:hover{
+    cursor: pointer;
+}
+
+#statusHeader:hover{
+    cursor: pointer;
+}
