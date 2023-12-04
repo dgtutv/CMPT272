@@ -5,7 +5,7 @@ import { SortReportsService } from '../sort-reports.service';
 import { Subscription } from 'rxjs';
 import { RefreshMapService } from '../refresh-map.service';
 import { MD5 } from 'crypto-js';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-report-list',

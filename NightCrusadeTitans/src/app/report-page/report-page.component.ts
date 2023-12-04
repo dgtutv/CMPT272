@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReportService } from '../report.service';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { Report } from '../shared/report';
 import * as L from 'leaflet';
 import { LocationService } from '../location.service';

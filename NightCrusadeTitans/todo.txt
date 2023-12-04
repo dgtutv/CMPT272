@@ -1,5 +1,0 @@
--Change the icon of the page
-
-If time permits:
--Fix coloring of not resolved when changing status
--Implement info page

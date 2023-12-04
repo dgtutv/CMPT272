@@ -14,7 +14,6 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReportComponent } from './report/report.component';
 import { PhoneNumberPipe } from './phone-number.pipe';
-import { EditReportComponent } from './edit-report/edit-report.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddLocationComponent } from './add-location/add-location.component';
 
@@ -29,7 +28,6 @@ import { AddLocationComponent } from './add-location/add-location.component';
     ReportPageComponent,
     ReportComponent,
     PhoneNumberPipe,
-    EditReportComponent,
     AddLocationComponent
   ],
   imports: [
