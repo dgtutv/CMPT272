@@ -14,7 +14,7 @@
         <label for="locationName">Location:</label>
         <button type="button" class="btn btn-primary btn-sm float-right" (click)="createNewLocation()">Create New Location</button>
       </div>
-      <select name="locationName" placeholder="Location" formControlName="locationName">
+      <select id="locationName" placeholder="Location" formControlName="locationName">
         <option *ngFor="let location of locations" [value]="location.name">{{location.name}}</option>
       </select>
       <div class="requiredText">*Required</div>
