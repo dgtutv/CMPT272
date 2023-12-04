@@ -5,6 +5,7 @@ import { SortReportsService } from '../sort-reports.service';
 import { Subscription } from 'rxjs';
 import { RefreshMapService } from '../refresh-map.service';
 import { MD5 } from 'crypto-js';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-report-list',
@@ -24,7 +25,7 @@ export class ReportListComponent implements OnInit {
   statusSortCounter: number = 0;
   private subscription: Subscription | undefined;
 
-  constructor(private reportService: ReportService, private sortReportsService: SortReportsService, private refreshMapService: RefreshMapService) { }
+  constructor(private reportService: ReportService, private sortReportsService: SortReportsService, private refreshMapService: RefreshMapService,  private router: Router) { }
 
   ngOnInit(): void {
     this.loadReports();
@@ -191,5 +192,8 @@ export class ReportListComponent implements OnInit {
     else{
       return;
     }
+  }
+  addReport(): void {
+    this.router.navigate(['/report']);
   }
 }

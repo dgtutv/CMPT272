@@ -1,5 +1,4 @@
 -Change the icon of the page
--Make a "Create nuicence report" button
 
 If time permits:
 -Fix coloring of not resolved when changing status
