@@ -18,6 +18,10 @@ export class ReportListComponent implements OnInit {
   @ViewChild('table')
   table!: ElementRef;
   reports: Report[] = [];
+  locationSortCounter: number = 0;
+  suspectSortCounter: number = 0;
+  timeSortCounter: number = 0;
+  statusSortCounter: number = 0;
   private subscription: Subscription | undefined;
 
   constructor(private reportService: ReportService, private sortReportsService: SortReportsService, private refreshMapService: RefreshMapService) { }
@@ -99,5 +103,69 @@ export class ReportListComponent implements OnInit {
 
   jumpToMapTrigger(report: Report): void {
     console.log(report);
+  }
+
+  sortByLocation(): void {
+    this.suspectSortCounter = 0;
+    this.timeSortCounter = 0;
+    this.statusSortCounter = 0;
+    this.locationSortCounter = (this.locationSortCounter + 1) % 3;
+    if(this.locationSortCounter == 1){
+      //Sort by location alphabetically
+    }
+    else if(this.locationSortCounter == 2){
+      //Sort by location reverse alphabetically
+    }
+    else{
+      return;
+    }
+  }
+
+  sortBySuspect(): void {
+    this.locationSortCounter = 0;
+    this.timeSortCounter = 0;
+    this.statusSortCounter = 0;
+    this.suspectSortCounter = (this.suspectSortCounter + 1) % 3;
+    if(this.suspectSortCounter == 1){
+      //Sort by suspect alphabetically
+    }
+    else if(this.suspectSortCounter == 2){
+      //Sort by suspect reverse alphabetically
+    }
+    else{
+      return;
+    }
+  }
+
+  sortByTime(): void {
+    this.locationSortCounter = 0;
+    this.suspectSortCounter = 0;
+    this.statusSortCounter = 0;
+    this.timeSortCounter = (this.timeSortCounter + 1) % 3;
+    if(this.timeSortCounter == 1){
+      //Sort by time latest to oldest
+    }
+    else if(this.timeSortCounter == 2){
+      //Sort by time oldest to latest
+    }
+    else{
+      return;
+    }
+  }
+
+  sortByStatus(): void {
+    this.locationSortCounter = 0;
+    this.suspectSortCounter = 0;
+    this.timeSortCounter = 0;
+    this.statusSortCounter = (this.statusSortCounter + 1) % 3;
+    if(this.statusSortCounter == 1){
+      //Sort by status resolved to unresolved
+    }
+    else if(this.statusSortCounter == 2){
+      //Sort by status unresolved to resolved
+    }
+    else{
+      return;
+    }
   }
 }
