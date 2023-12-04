@@ -1,10 +1,10 @@
 <table id="reports" class="scrollable-table table-striped table table-bordered" #table>
     <thead>
-        <tr>
-            <th class="th-sm" id="locationHeader" (click)="sortByLocation()">Location</th>
-            <th class="th-sm" id="suspectHeader" (click)="sortBySuspect()">Suspect Name</th>
-            <th class="th-sm" id="timeHeader" (click)="sortByTime()">Time Reported</th>
-            <th class="th-sm" id="statusHeader" (click)="sortByStatus()">Status</th>
+        <tr> 
+            <th class="th-sm" id="locationHeader" (click)="sortByLocation()" tooltip="Sort by Location">Location</th>
+            <th class="th-sm" id="suspectHeader" (click)="sortBySuspect()" tooltip="Sort by Suspect Name">Suspect Name</th>
+            <th class="th-sm" id="timeHeader" (click)="sortByTime()" tooltip="Sort by Time Reported">Time Reported</th>
+            <th class="th-sm" id="statusHeader" (click)="sortByStatus()" tooltip="Sort by Status">Status</th>
             <th></th>
             <th></th>
             <th></th>
